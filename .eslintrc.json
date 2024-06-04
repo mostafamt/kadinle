@@ -1,0 +1,15 @@
+{
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "no-undef": "error",
+    // "import/no-unresolved": "error",
+    "jsx-a11y/alt-text": [
+      "error",
+      {
+        "elements": ["img"],
+        "img:alt-require": true,
+        "img:alt-suffix": ["Image"]
+      }
+    ]
+  }
+}
