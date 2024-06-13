@@ -130,6 +130,12 @@ export const getOfferDetails = async (param_id) => {
   return res;
 };
 
-
 export const getOffers = async () =>
   await supabase.from("offer").select(`*, offer_content(*)`);
+
+export const getHomeSliders = async () =>
+  await supabase
+    .from("home_sliders")
+    .select("*")
+    .eq("display", true)
+    .order("sku");
