@@ -1,6 +1,6 @@
 import { supabase } from "@/app/api/supabase/supabase.config";
 import { getTranslations } from "next-intl/server";
-import { unstable_setRequestLocale } from 'next-intl/server';
+import { unstable_setRequestLocale } from "next-intl/server";
 import { LANGUAGES, SECTIONS_ORDER } from "../api/static/constants";
 import {
   getCustomersReviews,
@@ -30,7 +30,7 @@ import { OurNew } from "./components/home/OurNew";
 import { Offer } from "./components/home/Offer";
 import { OurPartners } from "./components/home/OurPartners";
 import ReviewsMob from "./components/home/ReviewsMob";
-import { NextIntlClientProvider, useTranslations } from 'next-intl';
+import { NextIntlClientProvider, useTranslations } from "next-intl";
 
 export const metadata = {
   title: "KADINLE | Home",
@@ -77,7 +77,16 @@ export default async function Home({ params: { locale } }) {
   const offers = offersFetch?.data;
 
   return (
-    <LocaleLayout locale={locale} messages={await getMessages(locale)} homeSectionsOrder={homeSectionsOrder} remainingTime={remainingTime} categories={categories} homeSections={homeSections} reviews={reviews} offers={offers} />
+    <LocaleLayout
+      locale={locale}
+      messages={await getMessages(locale)}
+      homeSectionsOrder={homeSectionsOrder}
+      remainingTime={remainingTime}
+      categories={categories}
+      homeSections={homeSections}
+      reviews={reviews}
+      offers={offers}
+    />
   );
 }
 
@@ -89,17 +98,42 @@ async function getMessages(locale) {
   }
 }
 
-function LocaleLayout({ locale, messages, homeSectionsOrder, remainingTime, categories, homeSections, reviews, offers }) {
+function LocaleLayout({
+  locale,
+  messages,
+  homeSectionsOrder,
+  remainingTime,
+  categories,
+  homeSections,
+  reviews,
+  offers,
+}) {
   return (
     <Layout locale={locale} showFooter>
       <NextIntlClientProvider messages={messages} locale={locale}>
-        <PageContent homeSectionsOrder={homeSectionsOrder} remainingTime={remainingTime} categories={categories} homeSections={homeSections} reviews={reviews} offers={offers} locale={locale} />
+        <PageContent
+          homeSectionsOrder={homeSectionsOrder}
+          remainingTime={remainingTime}
+          categories={categories}
+          homeSections={homeSections}
+          reviews={reviews}
+          offers={offers}
+          locale={locale}
+        />
       </NextIntlClientProvider>
     </Layout>
   );
 }
 
-function PageContent({ homeSectionsOrder, remainingTime, categories, homeSections, reviews, offers, locale }) {
+function PageContent({
+  homeSectionsOrder,
+  remainingTime,
+  categories,
+  homeSections,
+  reviews,
+  offers,
+  locale,
+}) {
   const t = useTranslations();
 
   return (
@@ -120,7 +154,10 @@ function PageContent({ homeSectionsOrder, remainingTime, categories, homeSection
         locale={locale}
         languageId={LANGUAGES?.[locale]}
       />
-      <SectionTitle title={t("All_your_needs_here")} classname="container mx-auto" />
+      <SectionTitle
+        title={t("All_your_needs_here")}
+        classname="container mx-auto"
+      />
       <div className="flex flex-col">
         {categories?.map((category) => (
           <CategoryBanner
