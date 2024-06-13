@@ -490,7 +490,6 @@ const ProductPageMob = ({
     fetchChartNumber();
   }, [fetchChartNumber, productChart]);
 
-  console.log(filterVideos);
 
   return (
     <>

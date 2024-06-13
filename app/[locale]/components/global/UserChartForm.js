@@ -31,7 +31,6 @@ export const UserChartForm = () => {
   useEffect(() => {
     if (!selectedChartId || !CACHE_CHART_CONTENT) return;
     setSelectedChartContent(CACHE_CHART_CONTENT?.[selectedChartId]);
-    console.log(CACHE_CHART_CONTENT?.[selectedChartId]);
   }, [selectedChartId]);
 
   const onChangeField = (e) => {

@@ -64,13 +64,6 @@ export const SubMenu = ({ categories, language }) => {
           </ul>
         </div>
       </div>
-
-      <DrawerDow
-        languageId={language}
-        categories={categories}
-        showOptions={showOptions}
-        setShowOptions={setShowOptions}
-      />
     </nav>
   );
 };

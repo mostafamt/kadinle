@@ -32,6 +32,8 @@ import { OurPartners } from "./components/home/OurPartners";
 import ReviewsMob from "./components/home/ReviewsMob";
 import { NextIntlClientProvider, useTranslations } from 'next-intl';
 
+export const revalidate = 60;
+
 export const metadata = {
   title: "KADINLE | Home",
 };
@@ -134,6 +136,7 @@ function PageContent({ homeSectionsOrder, remainingTime, categories, homeSection
         <CustomSlider
           sectionSettings={homeSectionsOrder?.["best seller"]}
           lists={homeSections?.home_carousel}
+          order={13}
         />
         <VideoSection
           videos={homeSections?.our_videos}
@@ -141,7 +144,7 @@ function PageContent({ homeSectionsOrder, remainingTime, categories, homeSection
           layout="our-videos"
           sectionSettings={homeSectionsOrder?.["our videos"]}
           locale={locale}
-          order={3}
+          order={6}
         />
         <VideoSection
           videos={homeSections?.user_videos}
@@ -149,7 +152,7 @@ function PageContent({ homeSectionsOrder, remainingTime, categories, homeSection
           layout="customer-videos"
           sectionSettings={homeSectionsOrder?.["customer videos"]}
           locale={locale}
-          order={6}
+          order={31}
         />
         <VideoSection
           videos={homeSections?.influencer_videos}
@@ -157,11 +160,12 @@ function PageContent({ homeSectionsOrder, remainingTime, categories, homeSection
           layout={"influencer-videos"}
           sectionSettings={homeSectionsOrder?.["influencer videos"]}
           locale={locale}
-          order={8}
+          order={32}
         />
         <OurNew
           products={homeSections?.latest_products}
           sectionSettings={homeSectionsOrder?.["our new"]}
+          order={20}
         />
       </div>
       <div className="full-screen">

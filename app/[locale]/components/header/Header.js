@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-unresolved
 import { LANGUAGES } from "@/app/api/static/constants";
 // eslint-disable-next-line import/no-unresolved
-import { getCategories } from "@/app/api/supabase/home";
+import { getCategories, getCategoriesTopLevel } from "@/app/api/supabase/home";
 // eslint-disable-next-line import/no-unresolved
 import { getNews } from "@/app/api/supabase/shared";
 import React from "react";
@@ -13,6 +13,7 @@ import NewsBar from "./NewsBar";
 import { SubMenu } from "./SubMenu";
 import { UpperBar } from "./UpperBar";
 import { UpperMenu } from "./UpperMenu";
+import { SidebarMenu } from "./SidebarMenu";
 
 export const Header = async ({
   locale,
@@ -25,6 +26,8 @@ export const Header = async ({
   const news = await getNews(LANGUAGES?.[locale]);
 
   const categoriesData = await getCategories();
+  const categoriesTopLevel = await getCategoriesTopLevel()
+
   const categories = categoriesData;
   return (
     <header>
@@ -37,11 +40,9 @@ export const Header = async ({
       <Menu locale={locale} searchOnly={searchOnly} />
       </div>
       <UpperMenu categories={categories} language={LANGUAGES?.[locale]}/>
-      {showCategoryBar ? (
-        <CategoryBar categories={categories} categoryId={categoryId} />
-      ) : (
-        <SubMenu language={LANGUAGES?.[locale]} categories={categories} />
-      )}
+      <SubMenu language={LANGUAGES?.[locale]} categories={categories} />
+      <SidebarMenu categories={categoriesTopLevel} />
+
     </header>
   );
 };

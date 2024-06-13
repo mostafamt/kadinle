@@ -1,4 +1,5 @@
 import { supabase } from "./supabase.config";
+export const revalidate = 60;
 
 export const getHomeData = async (param_limit) => {
   const res = await supabase.rpc("get_home_data", {
@@ -23,11 +24,8 @@ export const getHomeCategory = async () => {
   const categories = await supabase
     .from("category")
     .select(`*, content:category_content(*)`)
-    .is("parent_id", null);
-  const categoriesWithoutKidsCategory = categories?.data?.filter(
-    (cat) => cat.id !== "8a8aeced-c461-4281-9875-3f0367a4675d"
-  );
-  return categoriesWithoutKidsCategory;
+    .eq("display_homepage", true);
+  return categories?.data;
 };
 
 export const getCategories = async () => {
@@ -139,3 +137,27 @@ export const getHomeSliders = async () =>
     .select("*")
     .eq("display", true)
     .order("sku");
+
+export const getCategoriesTopLevel = async () => {
+  const categories = await supabase
+    .from("category")
+    .select(`*, content:category_content(*)`)
+    .is("parent_id", null);
+  return categories?.data;
+};
+
+export const getSingleCategory = async (categoryId) => {
+  const category = await supabase
+    .from("category")
+    .select(`*, content:category_content(*)`)
+    .eq("id", categoryId);
+  return category;
+};
+
+export const getCategoriesById = async (categoryId) => {
+  const categories = await supabase
+    .from("category")
+    .select(`*, content:category_content(*)`)
+    .eq("parent_id", categoryId);
+  return categories?.data;
+};

@@ -60,7 +60,6 @@ export const LiveChat = () => {
         }
       )
       .subscribe();
-    console.log(channel, "channel");
     return () => {
       _supabase.removeChannel(channel);
     };

@@ -9,6 +9,9 @@ import ChevronIcon from "../chat/ChevronIcon";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { getBrands, getSeasons } from "@/app/api/supabase/products";
+import { SubCategoriesBar } from "./SubCategoriesBar";
+import { getSingleCategory } from "@/app/api/supabase/home";
+import { useParams } from "next/navigation";
 
 const SaleTimer = dynamic(() => import("../home/SaleTimer"));
 const FlashSale = dynamic(() => import("../home/FlashSale"));
@@ -19,8 +22,9 @@ const Sort = dynamic(() => import("./Sort"));
 const filter = "https://kadinle.com/media/images/filter.svg";
 const sort = "https://kadinle.com/media/images/sort.svg";
 
-const SingleCategory = ({ layout, remainingTime, category, searchKey }) => {
+const SingleCategory = ({ layout, remainingTime, category, searchKey = 'category_content' }) => {
   const t = useTranslations();
+  const params = useParams();
   const containerRef = useRef();
   const { currency, language } = useGlobalOptions();
   const [openFilter, setOpenFilter] = useState(false);
@@ -43,6 +47,7 @@ const SingleCategory = ({ layout, remainingTime, category, searchKey }) => {
   const [refreshSort, setRefreshSort] = useState(false);
   const [selectedSort, setSelectedSort] = useState("NEW");
   const [categoryInfo, setCategoryInfo] = useState([]);
+  const [categoryDate, setCategoryDate] = useState({});
   const [CACHE_PRICES, setCACHE_PRICES] = useState();
   const [CACHE_COLORS, setCACHE_COLORS] = useState([]);
   const [CACHE_SIZES, setCACHE_SIZES] = useState([]);
@@ -81,7 +86,9 @@ const SingleCategory = ({ layout, remainingTime, category, searchKey }) => {
 
   const fetchDate = async () => {
     setLoading(true);
+    const res = await getSingleCategory(params?.id);
     setCategoryInfo(category?.[searchKey]);
+    setCategoryDate(res?.data?.at(0));
     setProducts(category?.products);
     getMinAndMaxPrice(category?.products);
     setCACHE_COLORS(category?.colors);
@@ -254,11 +261,13 @@ const SingleCategory = ({ layout, remainingTime, category, searchKey }) => {
     }
   }
   const displayImage = useMemo(() => {
+    console.log('called', category);
+
     if (layout === "offer")
       return categoryInfo?.find((c) => c?.language_id === language?.id)?.media;
     if (!layout) {
-      return categoryInfo?.find((c) => c?.language_id === language?.id)
-        ?.mobile_image;
+      let info = categoryInfo?.find((c) => c?.language_id === language?.id);
+      return info?.mobile_image || info?.web_image;
     } else {
       return categoryInfo?.find((c) => c?.language_id === language?.id)?.image;
     }
@@ -347,11 +356,15 @@ const SingleCategory = ({ layout, remainingTime, category, searchKey }) => {
               {!!productsFilter?.length && layout === "flash-sale" && (
                 <SaleTimer remainingTime={remainingTime} />
               )}
+              <SubCategoriesBar
+                category={category}
+                subCategories={CACHE_SUBCATEGORIES}
+              />
               <div className="flex justify-between mt-2 w-full my-1 items-center ">
                 <div className="flex gap-2 items-center">
                   <ViewAs setFormat={setFormat} format={format} />
                 </div>
-                <label
+                {/* <label
                   className={`py-[3px] capitalize mx-auto flex px-2 justify-center gap-2 rounded-sm ${
                     isPlusSize ? "bg-primary text-white" : "text-primary"
                   } border border-primary items-center px-2"`}
@@ -364,7 +377,7 @@ const SingleCategory = ({ layout, remainingTime, category, searchKey }) => {
                   />
 
                   {t("PLUS_SIZE")}
-                </label>
+                </label> */}
 
                 <div className="flex gap-4 text-[14px] font-[300]">
                   <button
