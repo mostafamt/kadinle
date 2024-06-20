@@ -2200,7 +2200,7 @@
   "terms_videos_msg8": "Paylaşımınızın görüntüleme durumunu seçebilir ve isterseniz yüklediğiniz resmi göstermek isteyip istemediğinizi gözden geçirebilirsiniz, gizliliğinize saygı duyuyoruz.",
   "terms_videos_msg9": "Yorum kutusunda, yorum yapmaya teşvik edici bir mesaj içeren bir yer tutucu yerleştirin:",
   "terms_videos_msg10": "Başarılarımızda ortağımız olun ve sosyal medya platformlarında deneyiminizi ve görüşlerinizi paylaşın, puan kazanma şansınızı artırın ve değerli ödülünüze daha da yaklaşın.",
- 
+
   "kadinle_rights_duties": {
     "rights_duties": "Rights and Duties",
     "rights_duties_msg": "At Kadinle Clothing Trading Company, we believe in establishing transparent and mutually beneficial relationships with our suppliers. Clearly defining rights and duties is of utmost importance to build trust, enhance cooperation, and ensure the successful implementation of our shared objectives. This section outlines the rights and duties of both parties—Kadinle and our esteemed suppliers:",
@@ -2580,7 +2580,7 @@
   "clothing": "Clothing",
   "online": "online",
   "offline": "offline",
-  "you_must_logged":"You should be logged in to start chat",
+  "you_must_logged": "You should be logged in to start chat",
   "start_chat": "start chat",
   "chat_closed_time": "chat closed out of time",
   "agents": "Agents",
@@ -2590,23 +2590,22 @@
   "suppliers": "Suppliers",
   "free_shipping_if_you_spent": "Free shipping if you purchase over {COST}",
 
-  
   "fabric_information": "fabric information",
-  "environment":"Environment",
-  "style":"Style",
-  "package_contents":"Package Contents",
-  "sleeve_length":"Sleeve Length",
-  "sleeve_type":"Sleeve Type",
-  "waist":"Waist",
-  "belt_condition":"Belt condition",
-  "pocket":"Pocket",
-  "leg_type":"Leg Type",
-  "closure_type":"Closure Type",
-  "thickness":"Thickness",
-  "additional_feature":"Additional Feature",
-  "printing_technique":"Printing Technique",
-  "embroidery_type":"Embroidery Type",
-  "washing_instructions":"Washing instructions"
-
-
+  "environment": "Environment",
+  "style": "Style",
+  "package_contents": "Package Contents",
+  "sleeve_length": "Sleeve Length",
+  "sleeve_type": "Sleeve Type",
+  "waist": "Waist",
+  "belt_condition": "Belt condition",
+  "pocket": "Pocket",
+  "leg_type": "Leg Type",
+  "closure_type": "Closure Type",
+  "thickness": "Thickness",
+  "additional_feature": "Additional Feature",
+  "printing_technique": "Printing Technique",
+  "embroidery_type": "Embroidery Type",
+  "washing_instructions": "Washing instructions",
+  "influencerVideos": "influencer videos",
+  "en": "en"
 }

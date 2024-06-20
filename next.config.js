@@ -7,6 +7,7 @@ const nextConfig = {
       "media.kadinle.com",
       "lh3.googleusercontent.com",
       "png.pngtree.com",
+      "203.161.50.110",
       "*",
     ],
     remotePatterns: [{ protocol: "https", hostname: "**" }],
