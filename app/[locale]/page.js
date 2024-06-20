@@ -31,6 +31,7 @@ import { Offer } from "./components/home/Offer";
 import { OurPartners } from "./components/home/OurPartners";
 import ReviewsMob from "./components/home/ReviewsMob";
 import { NextIntlClientProvider, useTranslations } from "next-intl";
+import { default as Swiper } from "./components/swiper/swiper";
 
 export const metadata = {
   title: "KADINLE | Home",
@@ -138,9 +139,10 @@ function PageContent({
 
   return (
     <>
+      <Swiper />
       <ScrollUpComponent />
       <PopupNameForm />
-      <Banner />
+      {/* <Banner /> */}
       <WhyChooseUs t={t} />
       <Benefits t={t} />
       <SaleTimer remainingTime={remainingTime} />

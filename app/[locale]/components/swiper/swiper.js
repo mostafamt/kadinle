@@ -1,5 +1,7 @@
 "use client";
+
 import React from "react";
+
 import { getHomeSliders } from "@/app/api/supabase/home";
 
 import Image from "next/image";
@@ -12,7 +14,7 @@ import SwiperCore, { Pagination, Navigation, Autoplay } from "swiper";
 
 SwiperCore.use([Pagination, Navigation, Autoplay]);
 
-const page = async () => {
+const HomeSwiper = async () => {
   const sliders = await getHomeSliders();
   const data = sliders?.data;
 
@@ -44,4 +46,4 @@ const page = async () => {
   );
 };
 
-export default page;
+export default HomeSwiper;
