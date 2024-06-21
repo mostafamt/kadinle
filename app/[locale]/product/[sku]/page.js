@@ -102,54 +102,55 @@ const SingleProduct = async ({ params: { sku, locale } }) => {
   return (
     <>
       <Layout
-        hideHeader
+        // hideHeader
         locale={locale}
-        containerClassName="mx-auto container"
-        hideBottomNav
-        showMobileMenu
-        customTitle={
-          <div className="flex gap-2 items-center text-xs">
-            <Link
-              href={
-                `/categories/${category?.category_id}?parent_id=${category?.category_id}` ||
-                ""
-              }
-              className="text-primary underline"
-            >
-              {category?.title}
-            </Link>
-            <span className="rtl:rotate-180">
-              <ChevronIcon className="h-4 w-4  text-primary" />
-            </span>
-            {productName}
-          </div>
-        }
+        showFooter
+        // containerClassName="mx-auto container"
+        // hideBottomNav
+        // showMobileMenu
+        // customTitle={
+        //   <div className="flex gap-2 items-center text-xs">
+        //     <Link
+        //       href={
+        //         `/categories/${category?.category_id}?parent_id=${category?.category_id}` ||
+        //         ""
+        //       }
+        //       className="text-primary underline"
+        //     >
+        //       {category?.title}
+        //     </Link>
+        //     <span className="rtl:rotate-180">
+        //       <ChevronIcon className="h-4 w-4  text-primary" />
+        //     </span>
+        //     {productName}
+        //   </div>
+        // }
       >
         <div className="full-screen">
-        <ProductPage
-          locale={locale}
-          product={product?.data?.at(0)}
-          regions={regions?.data}
-          chart={chart?.data}
-          sku={sku}
-          sizes={sizes}
-          remainingTime={remainingTime}
-          productCategorySliders={productCategorySliders?.data}
-        />
-         </div>
+          <ProductPage
+            locale={locale}
+            product={product?.data?.at(0)}
+            regions={regions?.data}
+            chart={chart?.data}
+            sku={sku}
+            sizes={sizes}
+            remainingTime={remainingTime}
+            productCategorySliders={productCategorySliders?.data}
+          />
+        </div>
 
-         <div className="mob-screen">
-        <ProductPageMob
-          locale={locale}
-          product={product?.data?.at(0)}
-          regions={regions?.data}
-          chart={chart?.data}
-          sku={sku}
-          sizes={sizes}
-          remainingTime={remainingTime}
-          productCategorySliders={productCategorySliders?.data}
-        />
-         </div>
+        <div className="mob-screen">
+          <ProductPageMob
+            locale={locale}
+            product={product?.data?.at(0)}
+            regions={regions?.data}
+            chart={chart?.data}
+            sku={sku}
+            sizes={sizes}
+            remainingTime={remainingTime}
+            productCategorySliders={productCategorySliders?.data}
+          />
+        </div>
       </Layout>
     </>
   );

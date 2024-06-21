@@ -102,7 +102,7 @@ export const ProductPage = ({
         <MySizeInfo />
       </CustomModal>
 
-      <div className="flex flex-col poppins overflow-hidden ">
+      <div className="flex flex-col poppins overflow-hidden md:px-4">
         <div className="flex flex-col items-center justify-center w-full mt-5">
           <div className="flex flex-col items-cente container max-w-[1500px]">
             <div className="flex gap-4 text-[12px]">
