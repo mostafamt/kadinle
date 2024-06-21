@@ -6,7 +6,7 @@ const NewsBar = ({ setOpenNews, news, locale }) => {
   const isArabic = locale === "ar";
 
   return (
-    <div className="bg-yellow-200 text-black direction-ltr news-parent w-fit overflow-hidden">
+    <div className="bg-yellow-200 text-black direction-ltr news-parent w-full overflow-hidden">
       <div className="flex items-center text-xs justify-between gap-2 p-1 direction-ltr">
         <Marquee
           speed={50}
