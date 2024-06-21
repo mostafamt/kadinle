@@ -13,7 +13,6 @@ import Image from "next/image";
 import Cookies from "js-cookie";
 
 const Page = ({ params: { locale } }) => {
-  
   const t = useTranslations();
   const router = useRouter();
   const { setUserRefresh, user } = useGlobalOptions();
