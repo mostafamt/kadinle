@@ -20,21 +20,21 @@ export const CheckoutBar = ({ stage }) => {
         <Image
           src={stage > 1 ? DoneCart : ActiveCart}
           alt="Cart"
-          className="object-contain w-[28px] h-[28px]"
+          className="object-contain w-[28px] h-[28px] md:w-[35px] md:h-[35px]"
           height={28}
           width={28}
         />
         <Image
           src={stage === 1 ? Shipping : stage > 2 ? TruckDone : ActiveTruck}
           alt="Cart"
-          className={`object-contain w-[28px] h-[28px] ${
+          className={`object-contain w-[28px] h-[28px] md:w-[40px]${
             stage === 1 ? "!w-5" : ""
           }`}
           height={28}
           width={28}
         />
         <CardIcon
-          className={`w-8 h-8 ltr:ml-1 rtl:mr-1 p-1 rounded-full border ${
+          className={`w-8 h-8 ltr:ml-1 rtl:mr-1 p-1 rounded-full md:w-[40px] ${
             stage > 3
               ? "!w-7 !h-7 border-opink text-opink"
               : stage === 3
@@ -43,7 +43,7 @@ export const CheckoutBar = ({ stage }) => {
           }`}
         />
         <CheckCompletedIcon
-          className={`w-6 h-6 rounded-full ${
+          className={`w-6 h-6 rounded-full md:w-[45px] ${
             stage > 3 ? "bg-opink text-white" : "text-secondary"
           }`}
         />
