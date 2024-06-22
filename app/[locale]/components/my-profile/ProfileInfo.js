@@ -107,6 +107,8 @@ const ProfileInfo = ({ setActive, user, locale }) => {
                   }
                   alt={"user Avatar"}
                   className="object-cover rounded-full h-28 w-28"
+                  width={28}
+                  height={28}
                 />
               </figure>
             </div>
