@@ -22,7 +22,7 @@ import { UserFavorites } from "./UserFavorites";
 import { UserPoints } from "./UserPoints";
 import { UserWallet } from "./UserWallet";
 import { UserInvitedFriends } from "./UserInvitedFriends";
-import { UserAddresses } from "./UserAddresses";
+import { UserAddresses } from "./Address";
 import { UserCountry } from "./UserCountry";
 import { UserSuggestion } from "./UserSuggestion";
 import { CustomerSupport } from "./CustomerSupport";
@@ -146,11 +146,9 @@ export const MyAccount = ({ layout, locale }) => {
         ) : null}
         {activeTab === 7 ? <UserCountry /> : null}
         {activeTab === 8 ? (
-          <UserAddresses
-            setRefreshAddresses={setRefreshAddresses}
-            userData={userData}
-            addresses={addresses}
-          />
+          <div className="w-full">
+            <UserAddresses/>
+          </div>
         ) : null}
         {activeTab === 9 ? <UserInvitedFriends /> : null}
         {activeTab === 10 ? (

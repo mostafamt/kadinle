@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { EditIcon } from "../Icons/EditIcon";
 import { CheckIcon } from "../Icons/CheckIcon";
 import { PlusIcon } from "../Icons/PlusIcon";
+import { deleteAddress } from "@/app/api/supabase/user";
 import {
   getUserAddresses,
   getUserData,
@@ -20,6 +21,16 @@ export const UserAddresses = ({ setRefreshAddresses, userData, addresses }) => {
   const t = useTranslations();
   const [updatedAddress, setUpdatedAddress] = useState(false);
   const [stage, setStage] = useState("display");
+  const [showPopup, setShowPopup] = useState(false);
+  const [refresh, setRefresh] = useState(false);
+
+  const togglePopup = () => {
+    setShowPopup(!showPopup);
+  };
+
+  useEffect(()=>{
+addresses
+  }, [refresh])
 
   return (
     <>
@@ -40,15 +51,49 @@ export const UserAddresses = ({ setRefreshAddresses, userData, addresses }) => {
                     <p className="">{address?.title}</p>
                     <div className="cursor-pointer flex gap-1 items-center">
                       <EditIcon className="h-5 w-5 text-primary" />
-                      <button
-                        className="text-opink text-[14px]"
-                        onClick={() => {
-                          setStage("create");
-                          setUpdatedAddress(address);
-                        }}
-                      >
-                        {t("Edit")}
-                      </button>
+                      <div className="flex gap-2">
+                        <button
+                          className="text-opink text-[14px]"
+                          onClick={() => {
+                            setStage("create");
+                            setUpdatedAddress(address);
+                          }}
+                        >
+                          {t("Edit")}
+                        </button>
+                        <button
+                          onClick={togglePopup}
+                          className="cursor-pointer flex gap-1 items-center"
+                        >
+                          <span className="">X</span>
+                          <span className="text-opink text-[14px]">remove</span>
+                        </button>
+                      </div>
+                      {showPopup && (
+                        <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-10 z-50">
+                          <div className="bg-white p-8 rounded shadow-lg w-80">
+                            <p className="mb-4">{t("pop_up")}</p>
+                            <div className="flex gap-3">
+                              <button
+                                onClick={() => {
+                                  deleteAddress(address.id);
+                                  setShowPopup(false);
+                                  setRefresh(true);
+                                }}
+                                className="px-4 py-2 bg-primary text-white rounded"
+                              >
+                                {t("ok")}
+                              </button>
+                              <button
+                                onClick={togglePopup}
+                                className="px-6 py-2 bg-white text-primary border border-primary rounded"
+                              >
+                                {t("cancel")}
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                   <p className="text-[12px] mt-2">

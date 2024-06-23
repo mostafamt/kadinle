@@ -46,7 +46,7 @@ export const UserAddresses = () => {
   return (
     <div className="relative">
       {stage === "display" ? (
-        <div className="w-[73%] md:w-[70%] min-w-[calc(100%-320px)]">
+        <div className="w-full lg:w-[70%] min-w-[calc(100%-320px)]">
           <div className="flex flex-col h-full">
             <h3 className="text-[17px] md:text-[19px] 2xl:text-[22px]">
               {t("My_Address")}
@@ -56,11 +56,11 @@ export const UserAddresses = () => {
             </p>
 
             {addresses?.length ? (
-              <div className="flex flex-col">
+              <div className="flex flex-col gap-3">
                 {addresses?.map((address) => (
                   <div
                     key={address?.title}
-                    className="flex flex-col bg-owhite w-[90%] ltr:pl-7 rtl:pr-7 ltr:pr-2 rtl:pl-2 rounded-[8px] py-2"
+                    className="flex flex-col bg-white w-full lg:w-[90%] ltr:pl-7 rtl:pr-7 ltr:pr-2 rtl:pl-2 rounded-[8px] py-2"
                   >
                     <div className="flex justify-between border-b pb-1">
                       <h4 className="text-[16px] 2xl:text-[18px]">
@@ -89,7 +89,7 @@ export const UserAddresses = () => {
                         </button>
                       </div>
                       {showPopup && (
-                        <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-50">
+                        <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-10 z-50">
                           <div className="bg-white p-8 rounded shadow-lg w-80">
                             <p className="mb-4">{t("pop_up")}</p>
                             <div className="flex gap-3">
