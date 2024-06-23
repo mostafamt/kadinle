@@ -11,6 +11,8 @@ import {
 } from "@/app/api/supabase/user";
 import Image from "next/image";
 import { EditIcon } from "../Icons/EditIcon";
+import { deleteAddress } from "@/app/api/supabase/user";
+
 
 const add = "https://kadinle.com/media/images/add.png";
 const addPink = "https://kadinle.com/media/images/addPink.png";
@@ -25,8 +27,13 @@ export const UserAddresses = () => {
   const [stage, setStage] = useState("display");
   const [userData, setUserData] = useState({});
   const [refresh, setRefresh] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
   const { user } = useGlobalOptions();
 
+    const togglePopup = () => {
+      setShowPopup(!showPopup);
+    };
+  
   useEffect(() => {
     getUserData().then((u) => {
       setUserData(u?.data?.[0]);
@@ -37,7 +44,7 @@ export const UserAddresses = () => {
   }, [refresh]);
 
   return (
-    <>
+    <div className="relative">
       {stage === "display" ? (
         <div className="w-[73%] md:w-[70%] min-w-[calc(100%-320px)]">
           <div className="flex flex-col h-full">
@@ -59,18 +66,53 @@ export const UserAddresses = () => {
                       <h4 className="text-[16px] 2xl:text-[18px]">
                         {address?.title}
                       </h4>
-                      <button
-                        onClick={() => {
-                          setStage("create");
-                          setUpdatedAddress(address);
-                        }}
-                        className="cursor-pointer flex gap-1 items-center"
-                      >
-                        <EditIcon />
-                        <span className="text-opink text-[14px]">
-                          {t("Edit")}
-                        </span>
-                      </button>
+                      <div className="flex gap-2">
+                        <button
+                          onClick={() => {
+                            setStage("create");
+                            setUpdatedAddress(address);
+                          }}
+                          className="cursor-pointer flex gap-1 items-center"
+                        >
+                          <EditIcon />
+                          <span className="text-opink text-[14px]">
+                            {t("Edit")}
+                          </span>
+                        </button>
+
+                        <button
+                          onClick={togglePopup}
+                          className="cursor-pointer flex gap-1 items-center"
+                        >
+                          <span className="">X</span>
+                          <span className="text-opink text-[14px]">remove</span>
+                        </button>
+                      </div>
+                      {showPopup && (
+                        <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-50">
+                          <div className="bg-white p-8 rounded shadow-lg w-80">
+                            <p className="mb-4">{t("pop_up")}</p>
+                            <div className="flex gap-3">
+                              <button
+                                onClick={() => {
+                                  deleteAddress(address.id);
+                                  setShowPopup(false);
+                                  setRefresh(true);
+                                }}
+                                className="px-4 py-2 bg-primary text-white rounded"
+                              >
+                                {t("ok")}
+                              </button>
+                              <button
+                                onClick={togglePopup}
+                                className="px-6 py-2 bg-white text-primary border border-primary rounded"
+                              >
+                                {t("cancel")}
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      )}
                     </div>
                     <p className="text-[13px] 2xl:text-[15px] mt-3">
                       {address?.line_one} {address?.country?.name}{" "}
@@ -136,6 +178,6 @@ export const UserAddresses = () => {
           address={updatedAddress || {}}
         />
       )}
-    </>
+    </div>
   );
 };

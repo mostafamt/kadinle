@@ -13,6 +13,11 @@ export const UserCountry = () => {
   const { currency, changeCurrency } = useGlobalOptions();
   const [currencies, setCurrencies] = useState([]);
   const [searchValue, setSearchValue] = useState("");
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const handleFocus = () => {
+    setShowDropdown(true);
+  };
 
   const searchChangeHandler = ({ target: { value } }) => setSearchValue(value);
 
@@ -38,29 +43,33 @@ export const UserCountry = () => {
         <input
           value={searchValue}
           onChange={searchChangeHandler}
+          onFocus={handleFocus}
           placeholder={t("search")}
           className="w-full outline-none text-sm p-2 shadow border-b mx-auto border-gray-200 rounded"
         />
-        <div className="overflow-y-scroll scrollbar-hidden w-full max-h-[350px] p-2 rounded-md bg-white">
-          {filteredCurrencies?.map((curr) => {
-            if (curr?.id !== currency?.id) {
-              return (
-                <button
-                  key={curr?.id}
-                  onClick={() => {
-                    if (curr?.id !== currency?.id) changeCurrency(curr);
-                  }}
-                  className={`p-2 px-4 flex items-center border-b pb-1 last:border-0 justify-between w-full ${
-                    currency?.id === curr?.id ? "bg-opink text-white" : ""
-                  }`}
-                >
-                  <p className="text-start">{curr?.name}</p>
-                  <Flag code={curr?.["alph-2"]} width="30" />
-                </button>
-              );
-            }
-          })}
-        </div>
+        {showDropdown && (
+          <div className="overflow-y-scroll scrollbar-hidden w-full max-h-[350px] p-2 rounded-md bg-white">
+            {filteredCurrencies?.map((curr) => {
+              if (curr?.id !== currency?.id) {
+                return (
+                  <button
+                    key={curr?.id}
+                    onClick={() => {
+                      if (curr?.id !== currency?.id) changeCurrency(curr);
+                      setShowDropdown(false);
+                    }}
+                    className={`p-2 px-4 flex items-center border-b pb-1 last:border-0 justify-between w-full ${
+                      currency?.id === curr?.id ? "bg-opink text-white" : ""
+                    }`}
+                  >
+                    <p className="text-start">{curr?.name}</p>
+                    <Flag code={curr?.["alph-2"]} width="30" />
+                  </button>
+                );
+              }
+            })}
+          </div>
+        )}
       </div>
     </div>
   );
