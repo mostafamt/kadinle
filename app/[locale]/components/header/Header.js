@@ -39,7 +39,7 @@ export const Header = async ({
       <div className="mob-screen">
       <Menu locale={locale} searchOnly={searchOnly} />
       </div>
-      <UpperMenu categories={categories} language={LANGUAGES?.[locale]}/>
+      {/* <UpperMenu categories={categories} language={LANGUAGES?.[locale]}/> */}
       <SubMenu language={LANGUAGES?.[locale]} categories={categories} />
       <SidebarMenu categories={categoriesTopLevel} />
 

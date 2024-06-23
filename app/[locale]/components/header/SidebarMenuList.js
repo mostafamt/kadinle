@@ -9,13 +9,14 @@ export const SidebarMenuList = ({
   extraItems,
   onClick,
 }) => {
+  // console.log("categories", categories);
   const { language } = useGlobalOptions();
 
   return (
     <ul className={`flex flex-col py-4 overflow-auto ${containerClassName}`}>
       {extraItems ? extraItems : null}
       {categories
-        ?.sort((a, b) => b?.numeric - a?.numeric)
+        ?.sort((a, b) => a?.numeric.charAt(0) - b?.numeric.charAt(0))
         ?.map((category) => {
           const content = category?.content?.find(
             (c) => c?.language_id === language?.id

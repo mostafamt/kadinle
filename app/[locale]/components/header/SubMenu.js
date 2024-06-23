@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
+import { upperMenu } from "@/app/api/static/links";
 
 import { DrawerDow } from "./DrawerDow";
 import { links } from "@/app/api/static/links";
@@ -40,28 +41,31 @@ export const SubMenu = ({ categories, language }) => {
   }, [originalTop, sticky, myRef?.current]);
 
   return (
-    <nav className="flex flex-col relative menu bg-primary">
+    <nav className="flex flex-col relative menu bg-[#E1E1E1] text-[10px] text-[#767C89] py-1">
       <div className="relative container mx-auto">
         <div
           ref={myRef}
           className={`${
             sticky === true ? "fixed " : "relative"
-          } bg-primary top-0 ltr:left-0 rtl:right-0 z-20 w-full`}
+          } bg-[#E1E1E1] top-0 ltr:left-0 rtl:right-0 z-20 w-full`}
         >
-          <ul className="flex items-center w-full justify-between scroll-hide text-white gap-5 py-3 overflow-auto container mx-auto">
-            {links?.map((link) => (
-              <li className="text-[15px] font-normal" key={link?.name}>
-                <Link
-                  href={link?.path}
-                  state={{ target: link?.target ? link?.target : 0 }}
-                  key={link?.name}
-                  className="text-[#e1cad8] whitespace-nowrap min-w-fit flex-1 capitalize cursor-pointer text-center hover:text-[#FFFFFF] "
-                >
-                  {t(link?.name)}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <div className="relative container mx-auto">
+            <div className={` top-0 ltr:left-0 rtl:right-0 z-20 w-full`}>
+              <ul className="flex items-center w-full justify-between scroll-hide gap-5 py-3 overflow-auto">
+                {upperMenu?.map((link) => (
+                  <Link
+                    key={link?.path}
+                    href={link?.path}
+                    className="text-[15px] font-normal"
+                  >
+                    <span className="text-gray-500 whitespace-nowrap min-w-fit flex-1 capitalize cursor-pointer text-center hover:text-[#111] hover:font-medium ">
+                      {link?.name}
+                    </span>
+                  </Link>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </nav>
