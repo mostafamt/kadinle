@@ -14,6 +14,7 @@ import React from "react";
 import SingleCategory from "../../components/categories/SingleCategory";
 import Layout from "../../components/layout/Layout";
 import { LANGUAGES } from "@/app/api/static/constants";
+import SingleCategoryDT from "../../components/categories/SingleCategoryDT";
 
 const searchCategory = {
   "new-arrivals": {
@@ -107,12 +108,22 @@ const page = async ({ params }) => {
 
   return (
     <Layout locale={locale} showCategoryBar categoryId={id} searchOnly>
-      <SingleCategory
-        searchKey={selectedRequest?.searchKey}
-        category={category}
-        remainingTime={remainingTime}
-        hideUpperMenu
-      />
+      <div className="full-screen">
+        <SingleCategoryDT
+          searchKey={selectedRequest?.searchKey}
+          category={category}
+          remainingTime={remainingTime}
+          hideUpperMenu
+        />
+      </div>
+      <div className="mob-screen">
+        <SingleCategory
+          searchKey={selectedRequest?.searchKey}
+          category={category}
+          remainingTime={remainingTime}
+          hideUpperMenu
+        />
+      </div>
     </Layout>
   );
 };

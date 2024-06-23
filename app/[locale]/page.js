@@ -13,13 +13,11 @@ import {
 import { PopupNameForm } from "./components/forms/PopupNameForm";
 import ScrollUpComponent from "./components/global/ScrollUpComponent";
 import { SectionTitle } from "./components/global/SectionTitle";
-import { Banner } from "./components/home/Banner";
 import { Benefits } from "./components/home/Benefits";
 import { CategoryBanner } from "./components/home/CategoryBanner";
 import Collections from "./components/home/Collections";
 import { CustomSlider } from "./components/home/CustomSlider";
 import FlashSale from "./components/home/FlashSale";
-import HistoryProducts from "./components/home/HistoryProducts";
 import PriceLimit from "./components/home/PriceLimit";
 import { Reviews } from "./components/home/Reviews";
 import { SaleTimer } from "./components/home/SaleTimer";
