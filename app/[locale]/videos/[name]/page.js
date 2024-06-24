@@ -7,6 +7,7 @@ import React from "react";
 import {unstable_setRequestLocale} from 'next-intl/server';
 import Layout from "../../components/layout/Layout";
 import Videos from "../../components/videos/Videos";
+import VideosDT from "../../components/videos/VideosDT";
 
 export const metadata = {
   title: "KADINLE | Videos",
@@ -25,7 +26,12 @@ const page = async ({ params, searchParams }) => {
       : getRealsList(v);
   return (
     <Layout locale={locale} searchOnly>
-      <Videos layout={name} videos={videosRes?.data} />
+      <div className="full-screen">
+        <VideosDT layout={name} videos={videosRes?.data} />
+      </div>
+      <div className="mob-screen">
+        <Videos layout={name} videos={videosRes?.data} />
+      </div>
     </Layout>
   );
 };

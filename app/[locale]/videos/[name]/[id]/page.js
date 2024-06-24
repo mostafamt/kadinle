@@ -1,4 +1,5 @@
 import Shorts from "@/app/[locale]/components/videos/Shorts";
+import ShortsDT from "@/app/[locale]/components/videos/ShortsDT";
 import {
   getCustomerVideosList,
   getOurVideosList,
@@ -16,7 +17,16 @@ const page = async ({ params }) => {
     ? await getCustomerVideosList(id)
     : getRealsList(id);
 
-  return <Shorts videoId={id} videos={videosRes?.data} layout={name} />;
+  return (
+    <>
+      <div className="full-screen">
+        <ShortsDT videoId={id} videos={videosRes?.data} layout={name} />
+      </div>
+       <div className="mob-screen">
+        <Shorts videoId={id} videos={videosRes?.data} layout={name} />
+      </div>
+    </>
+  );
 };
 
 export default page;
