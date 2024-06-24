@@ -11,9 +11,9 @@ export const Distributor = ({ locale }) => {
   const [openForm, setOpenForm] = useState(false);
 
   return (
-    <>
+    <div className="static">
       <StaticPageTitle title={t("Distributor")} />
-      <div className="px-4 flex flex-col poppins  md:max-w-[575px] md:mx-auto w-full">
+      <div className="px-4 flex flex-col poppins md:max-w-full md:pb-3 md:mx-auto w-full">
         <ScrollUpComponent />
 
         {openForm ? (
@@ -31,12 +31,16 @@ export const Distributor = ({ locale }) => {
             </div>
 
             <div className="container mt-8 text-xs px-4">
-              <p className="text-gray-500">{t("distributor_msg_1")}</p>
+              <p className="text-gray-500 text-[12px] md:text-[14px] 2xl:text-[15px]">
+                {t("distributor_msg_1")}
+              </p>
               <h3 className="py-2 text-sm  font-medium">
                 {t("distributor_msg_2")}
               </h3>
-              <p className="text-gray-500">{t("distributor_msg_3")}</p>
-              <ul className="list-decimal px-4 flex flex-col gap-2 my-4">
+              <p className="text-gray-500 text-[12px] md:text-[14px] 2xl:text-[15px]">
+                {t("distributor_msg_3")}
+              </p>
+              <ul className="list-decimal px-4 flex flex-col gap-2 my-4 text-[12px] md:text-[14px] 2xl:text-[15px]">
                 <li>{t("distributor_msg_4")}</li>
                 <li>{t("distributor_msg_5")}</li>
                 <li>{t("distributor_msg_6")}</li>
@@ -52,20 +56,26 @@ export const Distributor = ({ locale }) => {
               <h3 className="py-2 text-sm text-opink font-medium mt-4">
                 {t("distributor_msg_14")}
               </h3>
-              <p className="text-gray-500 mt-1">{t("distributor_msg_15")}</p>
-              <p className="text-gray-500 mt-1">{t("distributor_msg_16")}</p>
+              <p className="text-gray-500 mt-1 text-[12px] md:text-[14px] 2xl:text-[15px]">
+                {t("distributor_msg_15")}
+              </p>
+              <p className="text-gray-500 mt-1 text-[12px] md:text-[14px] 2xl:text-[15px]">
+                {t("distributor_msg_16")}
+              </p>
               <h3 className="py-2 text-sm text-opink font-medium mt-4">
                 {t("join_us_msg_27")}
               </h3>
-              <p className="text-gray-500 mt-1">{t("join_us_msg_28")}</p>
+              <p className="text-gray-500 mt-1 text-[12px] md:text-[14px] 2xl:text-[15px]">
+                {t("join_us_msg_28")}
+              </p>
 
               <h4 className="py-2 text-xs  font-medium mt-2">
                 {t("join_us_msg_29")}
               </h4>
-              <p className="text-gray-500 flex items-center gap-2 px-4">
+              <p className="text-gray-500 flex items-center gap-2 px-4 text-[12px] md:text-[14px] 2xl:text-[15px]">
                 {t("join_us_msg_30")}
               </p>
-              <ul className="list-disc px-4 flex flex-col gap-2 my-4">
+              <ul className="list-disc px-4 flex flex-col gap-2 my-4 text-[12px] md:text-[14px] 2xl:text-[15px]">
                 <li>{t("join_us_msg_31")}</li>
                 <li>{t("join_us_msg_32")}</li>
                 <li>{t("join_us_msg_33")}</li>
@@ -77,35 +87,39 @@ export const Distributor = ({ locale }) => {
               <h4 className="py-2 text-xs  font-medium mt-2">
                 {t("join_us_msg_37")}
               </h4>
-              <p className="text-gray-500 flex items-center gap-2 px-4">
+              <p className="text-gray-500 flex items-center gap-2 px-4 text-[12px] md:text-[14px] 2xl:text-[15px]">
                 {t("join_us_msg_38")}
               </p>
               <h4 className="py-2 text-xs  font-medium mt-2">
                 {t("join_us_msg_39")}
               </h4>
-              <p className="text-gray-500 flex items-center gap-2 px-4">
+              <p className="text-gray-500 text-[12px] md:text-[14px] 2xl:text-[15px] flex items-center gap-2 px-4">
                 {t("join_us_msg_40")}
               </p>
               <h4 className="py-2 text-xs  font-medium mt-2">
                 {t("join_us_msg_41")}
               </h4>
-              <p className="text-gray-500 flex items-center gap-2 px-4">
+              <p className="text-gray-500 text-[12px] md:text-[14px] 2xl:text-[15px] flex items-center gap-2 px-4">
                 {t("join_us_msg_42")}
               </p>
 
               <h3 className="py-2 text-sm text-opink font-medium mt-4">
                 {t("join_us_msg_43")}
               </h3>
-              <p className="text-gray-500 mt-1">{t("join_us_msg_44")}</p>
-              <ul className="list-disc px-4 flex flex-col gap-2 my-4">
+              <p className="text-gray-500 text-[12px] md:text-[14px] 2xl:text-[15px] mt-1">
+                {t("join_us_msg_44")}
+              </p>
+              <ul className="list-disc px-4 flex flex-col text-[12px] md:text-[14px] 2xl:text-[15px] gap-2 my-4">
                 <li>{t("join_us_msg_45")}</li>
                 <li>{t("join_us_msg_46")}</li>
               </ul>
               <h3 className="py-2 text-sm text-opink font-medium mt-4">
                 {t("distributor_msg_33")}
               </h3>
-              <p className="text-gray-500 mt-1">{t("distributor_msg_34")}</p>
-              <ul className="list-disc px-4 flex flex-col gap-2 my-4">
+              <p className="text-gray-500 text-[12px] md:text-[14px] 2xl:text-[15px] mt-1">
+                {t("distributor_msg_34")}
+              </p>
+              <ul className="list-disc text-[12px] md:text-[14px] 2xl:text-[15px] px-4 flex flex-col gap-2 my-4">
                 <li>{t("distributor_msg_35")}</li>
                 <li>{t("distributor_msg_36")}</li>
                 <li>{t("distributor_msg_37")}</li>
@@ -119,7 +133,7 @@ export const Distributor = ({ locale }) => {
               <h3 className="py-2 text-sm text-opink font-medium mt-4">
                 {t("distributor_msg_44")}
               </h3>
-              <ul className="list-disc px-4 flex flex-col gap-2 my-4">
+              <ul className="list-disc px-4 flex text-[12px] md:text-[14px] 2xl:text-[15px] flex-col gap-2 my-4">
                 <li>{t("distributor_msg_45")}</li>
                 <li>{t("distributor_msg_46")}</li>
                 <li>{t("distributor_msg_47")}</li>
@@ -132,12 +146,14 @@ export const Distributor = ({ locale }) => {
               <h3 className="py-2 text-sm text-opink font-medium mt-4">
                 {t("distributor_msg_52")}
               </h3>
-              <p className="text-gray-500 mb-2">{t("distributor_msg_53")}</p>
+              <p className="text-gray-500 text-[12px] md:text-[14px] 2xl:text-[15px] mb-2">
+                {t("distributor_msg_53")}
+              </p>
 
               <h3 className="py-2 text-sm text-opink font-medium mt-4">
                 {t("distributor_msg_54")}
               </h3>
-              <ul className="list-decimal px-4 flex flex-col gap-2 my-4">
+              <ul className="list-decimal text-[12px] md:text-[14px] 2xl:text-[15px] px-4 flex flex-col gap-2 my-4">
                 <li>{t("distributor_msg_55")}</li>
                 <li>{t("distributor_msg_56")}</li>
                 <li>{t("distributor_msg_57")}</li>
@@ -151,17 +167,23 @@ export const Distributor = ({ locale }) => {
               <h3 className="py-2 text-sm text-opink font-medium mt-4">
                 {t("distributor_msg_63")}
               </h3>
-              <p className="text-gray-500 mb-2">{t("distributor_msg_64")}</p>
+              <p className="text-gray-500 text-[12px] md:text-[14px] 2xl:text-[15px] mb-2">
+                {t("distributor_msg_64")}
+              </p>
 
               <h3 className="py-2 text-sm text-opink font-medium mt-4">
                 {t("distributor_msg_65")}
               </h3>
-              <p className="text-gray-500 mb-2">{t("distributor_msg_66")}</p>
+              <p className="text-gray-500 text-[12px] md:text-[14px] 2xl:text-[15px] mb-2">
+                {t("distributor_msg_66")}
+              </p>
 
               <h3 className="py-2 text-sm text-opink font-medium mt-4">
                 {t("distributor_msg_67")}
               </h3>
-              <p className="text-gray-500 mb-2">{t("distributor_msg_68")}</p>
+              <p className="text-gray-500 text-[12px] md:text-[14px] 2xl:text-[15px] mb-2">
+                {t("distributor_msg_68")}
+              </p>
 
               <button
                 onClick={() => setOpenForm(true)}
@@ -169,12 +191,14 @@ export const Distributor = ({ locale }) => {
               >
                 {t("distributor_msg_69")}
               </button>
-              <p className="text-gray-500 mb-2">{t("distributor_msg_70")}</p>
-              <p className="mb-1">
+              <p className="text-gray-500 text-[12px] md:text-[14px] 2xl:text-[15px] mb-2">
+                {t("distributor_msg_70")}
+              </p>
+              <p className="mb-1 text-[12px] md:text-[14px] 2xl:text-[15px]">
                 {t("email_service")}:{" "}
                 <a href="mailto:service@kadinle.com">service@kadinle.com</a>
               </p>
-              <p className="mb-1">
+              <p className="mb-1 text-[12px] md:text-[14px] 2xl:text-[15px]">
                 {t("WhatsApp")}:{" "}
                 <a href="whatsapp://send?abid=00905527869824">
                   0090 552 786 98 24‬‏{" "}
@@ -184,6 +208,6 @@ export const Distributor = ({ locale }) => {
           </>
         )}
       </div>
-    </>
+    </div>
   );
 };

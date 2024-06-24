@@ -17,9 +17,9 @@ const page = async ({ params: { locale } }) => {
     <Layout locale={locale} bodyClassName="!max-w-full">
       <ScrollUpComponent />
       <StaticPageTitle title={t("Money_Back_Guarantee")} />
-      <div className="flex flex-col poppins   md:max-w-[575px] md:mx-auto w-full">
+      <div className="flex flex-col poppins md:max-w-full md:mx-auto w-full static md:pb-2">
         <div className="flex justify-center text-[12px] text-[#707070]">
-          <div className="flex flex-col w-[90%] max-w-[500px]">
+          <div className="flex flex-col w-[90%] max-w-[500px] md:max-w-full">
             <div className="flex flex-col mt-3 self-center">
               <h2 className="text-black font-semibold text-center">
                 {t("money_back_msg1")}
@@ -48,7 +48,7 @@ const page = async ({ params: { locale } }) => {
         </div>
 
         <div className="flex justify-center text-[12px] text-[#707070] bg-[#F8F8F8] mt-3 py-2">
-          <div className="flex flex-col w-[90%] max-w-[500px]">
+          <div className="flex flex-col w-[90%] max-w-[500px] md:max-w-full">
             <div className="self-center mt-6">
               <Image
                 src={Money2}

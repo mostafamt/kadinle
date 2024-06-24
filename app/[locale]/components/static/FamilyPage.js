@@ -86,9 +86,9 @@ const FamilyPage = () => {
     <>
       <ScrollUpComponent />
       <StaticPageTitle title={t("kadinleFamily")} />
-      <div className="flex flex-col poppins md:max-w-[575px] md:mx-auto w-full pb-10">
+      <div className="flex flex-col poppins md:max-w-full md:pb-3 md:mx-auto w-full pb-10 static">
         <div className="flex justify-center text-[12px] text-[#707070]">
-          <div className="flex flex-col w-[90%] max-w-[500px]">
+          <div className="flex flex-col w-[90%] max-w-[500px] md:max-w-full">
             <div className="self-center ">
               <Image
                 src="https://kadinle.com/media/images/Family1.svg"
@@ -155,7 +155,7 @@ const FamilyPage = () => {
         </div>
 
         <div className="flex justify-center bg-[#F8F8F8] mt-3 pb-4 text-[12px] text-[#707070]">
-          <div className="flex flex-col w-[95%] max-w-[500px]">
+          <div className="flex flex-col w-[95%] max-w-[500px] md:max-w-full">
             <div className="self-center mt-6">
               <Image
                 src="https://kadinle.com/media/images/Family4.svg"
@@ -185,7 +185,7 @@ const FamilyPage = () => {
         </div>
 
         <div className="flex justify-center mt-3  text-[12px] text-[#707070]">
-          <div className="flex flex-col w-[95%] max-w-[500px]">
+          <div className="flex flex-col w-[95%] md:max-w-full">
             <div className="self-center mt-6">
               <Image
                 src="https://kadinle.com/media/images/Family5.svg"
@@ -292,7 +292,9 @@ const FamilyPage = () => {
                     <h3 className="text-black font-[500] mt-3">
                       {t(item?.title)}
                     </h3>
-                    <p className="text-center mt-3 max-w-[250px]">{t(item?.description)}</p>
+                    <p className="text-center mt-3 max-w-[250px]">
+                      {t(item?.description)}
+                    </p>
                   </div>
                 </SwiperSlide>
               ))}

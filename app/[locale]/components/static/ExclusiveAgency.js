@@ -12,10 +12,10 @@ const ExclusiveAgency = ({ locale }) => {
   const [openForm, setOpenForm] = useState(false);
 
   return (
-    <>
+    <div className="static">
       <ScrollUpComponent />
       <StaticPageTitle title={t("ExclusiveAgency")} />
-      <div className="px-4 flex flex-col poppins  md:max-w-[575px] md:mx-auto w-full">
+      <div className="px-4 flex flex-col poppins  md:max-w-full md:pb-3 md:mx-auto w-full">
         {openForm ? (
           <OurFranchiseForm
             locale={locale}
@@ -24,9 +24,9 @@ const ExclusiveAgency = ({ locale }) => {
         ) : (
           <>
             <div className="flex flex-col space-y-[1px] self-center mt-8">
-              <p className=" text-[18px] lg:text-[20px] 2xl:text-[30px]">
+              <h2 className=" text-[18px] lg:text-[20px] 2xl:text-[30px]">
                 {t("family_msg")}
-              </p>
+              </h2>
               <div className="bg-opink w-[67px] 2xl:w-[100px] h-[8px] rounded-xl "></div>
             </div>
 
@@ -144,7 +144,7 @@ const ExclusiveAgency = ({ locale }) => {
           </>
         )}
       </div>
-    </>
+    </div>
   );
 };
 

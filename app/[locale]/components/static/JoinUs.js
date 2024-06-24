@@ -14,7 +14,7 @@ const JoinUs = ({ locale }) => {
     <>
       <ScrollUpComponent />
       <StaticPageTitle title={t("JoinUs")} />
-      <div className="px-4 flex flex-col poppins  md:max-w-[575px] md:mx-auto w-full">
+      <div className="px-4 flex flex-col poppins md:max-w-full md:mx-auto w-full static md:pb-2">
         {openForm ? (
           <OurFranchiseForm
             locale={locale}

@@ -18,7 +18,7 @@ const Page = async ({ params: { locale } }) => {
     <Layout locale={locale} bodyClassName="!max-w-full">
       <ScrollUpComponent />
       <StaticPageTitle title={t("common_questions")} />
-      <div className="px-4 flex flex-col poppins  md:max-w-[575px] md:mx-auto w-full">
+      <div className="px-4 flex flex-col poppins  md:max-w-full md:pb-5 md:mx-auto w-full">
         <div className="flex flex-col space-y-[1px] self-center mt-8">
           <p className="text-[18px] lg:text-[20px] 2xl:text-[30px]">
             {t("weCareAboutYou")}
@@ -26,9 +26,11 @@ const Page = async ({ params: { locale } }) => {
           <div className="bg-opink w-[67px] 2xl:w-[100px] h-[8px] rounded-xl "></div>
         </div>
         <div className="container mt-8">
-          <ul className="list-decimal px-6 text-xs flex flex-col gap-4">
+          <ul className="list-decimal px-6 text-xs text-[12px] md:text-[14px] 2xl:text-[15px] flex flex-col gap-4">
             <li className="flex flex-col gap-1">
-              <h4 className="text-black font-semibold mb-1">{t("q1")}</h4>
+              <h4 className="text-black text-[14px] md:text-[20px] font-semibold mb-1">
+                {t("q1")}
+              </h4>
               <p>
                 {t("answer1")}
                 <Link className="text-opink px-1 font-medium" href="/profile">
@@ -38,9 +40,13 @@ const Page = async ({ params: { locale } }) => {
               </p>
             </li>
             <li className="flex flex-col gap-1">
-              <h4 className="text-black font-semibold mb-1">{t("q2")}</h4>
-              <p>{t("q2_subtitle")}</p>
-              <ul className="list-disc text-xs px-4 my-1">
+              <h4 className="text-black text-[14px] md:text-[20px] font-semibold mb-1">
+                {t("q2")}
+              </h4>
+              <p className="text-[12px] md:text-[14px] 2xl:text-[15px]">
+                {t("q2_subtitle")}
+              </p>
+              <ul className="list-disc text-xs text-[12px] md:text-[14px] 2xl:text-[15px] px-4 my-1">
                 <li>
                   {t("answer2")}
                   <Link className="text-opink px-1 font-medium" href="/profile">
@@ -58,15 +64,23 @@ const Page = async ({ params: { locale } }) => {
                 <li>{t("answer2_2")}</li>
                 <li>{t("answer2_3")}</li>
               </ul>
-              <p>{t("q2_note")}</p>
+              <p className="text-[12px] md:text-[14px] 2xl:text-[15px]">
+                {t("q2_note")}
+              </p>
             </li>
             <li className="flex flex-col gap-1">
-              <h4 className="text-black font-semibold  mb-1">{t("q3")}</h4>
-              <p>{t("answer3_1")}</p>
+              <h4 className="text-black text-[14px] md:text-[20px] font-semibold  mb-1">
+                {t("q3")}
+              </h4>
+              <p className="text-[12px] md:text-[14px] 2xl:text-[15px]">
+                {t("answer3_1")}
+              </p>
               <p>{t("answer3_2")}</p>
             </li>
             <li className="flex flex-col gap-1">
-              <h4 className="text-black font-semibold  mb-1">{t("q4")}</h4>
+              <h4 className="text-black text-[14px] md:text-[20px] font-semibold  mb-1">
+                {t("q4")}
+              </h4>
               <p>
                 {t("answer4")}
                 <Link className="text-opink px-1 font-medium" href="/profile">
@@ -76,7 +90,9 @@ const Page = async ({ params: { locale } }) => {
               <p>{t("answer4_1")}</p>
             </li>
             <li className="flex flex-col gap-1">
-              <h4 className="text-black font-semibold  mb-1">{t("q5")}</h4>
+              <h4 className="text-black text-[14px] md:text-[20px] font-semibold  mb-1">
+                {t("q5")}
+              </h4>
               <p>
                 {t("answer5")}
                 <Link className="text-opink px-1 font-medium" href="/profile">
@@ -92,7 +108,9 @@ const Page = async ({ params: { locale } }) => {
               </ul>
             </li>
             <li className="flex flex-col gap-1">
-              <h4 className="text-black font-semibold  mb-1">{t("q6")}</h4>
+              <h4 className="text-black text-[14px] md:text-[20px] font-semibold  mb-1">
+                {t("q6")}
+              </h4>
               <p>
                 {t("answer6")}
                 {t("answer6_1")}
@@ -109,11 +127,15 @@ const Page = async ({ params: { locale } }) => {
               </ul>
             </li>
             <li className="flex flex-col gap-1">
-              <h4 className="text-black font-semibold  mb-1">{t("q7")}</h4>
+              <h4 className="text-black text-[14px] md:text-[20px] font-semibold  mb-1">
+                {t("q7")}
+              </h4>
               <p>{t("answer7")}</p>
             </li>
             <li className="flex flex-col gap-1">
-              <h4 className="text-black font-semibold  mb-1">{t("q8")}</h4>
+              <h4 className="text-black text-[14px] md:text-[20px] font-semibold  mb-1">
+                {t("q8")}
+              </h4>
               <p>{t("answer8")}</p>
               <ul className="flex flex-col gap-1 list-decimal my-2 px-8">
                 <li>
@@ -126,11 +148,15 @@ const Page = async ({ params: { locale } }) => {
               <p>{t("answer8_3")}</p>
             </li>
             <li className="flex flex-col gap-1">
-              <h4 className="text-black font-semibold  mb-1">{t("q9")}</h4>
+              <h4 className="text-black text-[14px] md:text-[20px] font-semibold  mb-1">
+                {t("q9")}
+              </h4>
               <p>{t("answer9")}</p>
             </li>
             <li className="flex flex-col gap-1">
-              <h4 className="text-black font-semibold  mb-1">{t("q10")}</h4>
+              <h4 className="text-black text-[14px] md:text-[20px] font-semibold  mb-1">
+                {t("q10")}
+              </h4>
               <p>{t("answer10")}</p>
               <ul className="flex flex-col gap-1 list-decimal my-2 px-8">
                 <li>{t("answer10_1")}</li>
@@ -142,7 +168,9 @@ const Page = async ({ params: { locale } }) => {
               </ul>
             </li>
             <li className="flex flex-col gap-1">
-              <h4 className="text-black font-semibold  mb-1">{t("q11")}</h4>
+              <h4 className="text-black text-[14px] md:text-[20px] font-semibold  mb-1">
+                {t("q11")}
+              </h4>
               <p>
                 {t("answer11")}
                 <Link className="text-opink px-1 font-medium" href="/profile">
@@ -153,7 +181,9 @@ const Page = async ({ params: { locale } }) => {
               </p>
             </li>
             <li className="flex flex-col gap-1">
-              <h4 className="text-black font-semibold  mb-1">{t("q12")}</h4>
+              <h4 className="text-black text-[14px] md:text-[20px] font-semibold  mb-1">
+                {t("q12")}
+              </h4>
               <p>
                 {t("answer12")}
                 <Link className="text-opink px-1 font-medium" href="/profile">
@@ -170,7 +200,9 @@ const Page = async ({ params: { locale } }) => {
               <p>{t("answer12_4")}</p>
             </li>
             <li className="flex flex-col gap-1">
-              <h4 className="text-black font-semibold  mb-1">{t("q13")}</h4>
+              <h4 className="text-black text-[14px] md:text-[20px] font-semibold  mb-1">
+                {t("q13")}
+              </h4>
               <p>
                 {t("answer13")}
                 <Link className="text-opink px-1 font-medium" href="/profile">
@@ -188,7 +220,9 @@ const Page = async ({ params: { locale } }) => {
               <p>{t("answer13_5")}</p>
             </li>
             <li className="flex flex-col gap-1">
-              <h4 className="text-black font-semibold  mb-1">{t("q14")}</h4>
+              <h4 className="text-black text-[14px] md:text-[20px] font-semibold  mb-1">
+                {t("q14")}
+              </h4>
               <p>
                 {t("answer14")}
                 <Link className="text-opink px-1 font-medium" href="/profile">
@@ -204,7 +238,9 @@ const Page = async ({ params: { locale } }) => {
               </p>
             </li>
             <li className="flex flex-col gap-1">
-              <h4 className="text-black font-semibold  mb-1">{t("q15")}</h4>
+              <h4 className="text-black text-[14px] md:text-[20px] font-semibold  mb-1">
+                {t("q15")}
+              </h4>
               <p>
                 {t("answer15")}
                 <Link className="text-opink px-1 font-medium" href="/profile">
@@ -214,7 +250,9 @@ const Page = async ({ params: { locale } }) => {
               </p>
             </li>
             <li className="flex flex-col gap-1">
-              <h4 className="text-black font-semibold  mb-1">{t("q16")}</h4>
+              <h4 className="text-black text-[14px] md:text-[20px] font-semibold  mb-1">
+                {t("q16")}
+              </h4>
               <ul className="px-8 list-disc flex flex-col gap-1">
                 <li>{t("answer16")}</li>
                 <li>
@@ -227,11 +265,15 @@ const Page = async ({ params: { locale } }) => {
               </ul>
             </li>
             <li className="flex flex-col gap-1">
-              <h4 className="text-black font-semibold  mb-1">{t("q17")}</h4>
+              <h4 className="text-black text-[14px] md:text-[20px] font-semibold  mb-1">
+                {t("q17")}
+              </h4>
               <p>{t("answer17")}</p>
             </li>
             <li className="flex flex-col gap-1">
-              <h4 className="text-black font-semibold  mb-1">{t("q18")}</h4>
+              <h4 className="text-black text-[14px] md:text-[20px] font-semibold  mb-1">
+                {t("q18")}
+              </h4>
               <p>
                 {t("answer18")}
                 {t("answer18_1")}
