@@ -17,7 +17,7 @@ const page = ({ params: { locale } }) => {
     <Layout locale={locale} bodyClassName="!max-w-full">
       <ScrollUpComponent />
       <StaticPageTitle title={t("Wholesaler")} />
-      <div className="px-4 flex flex-col poppins  md:max-w-[575px] md:mx-auto w-full">
+      <div className="px-4 flex flex-col poppins md:max-w-full static md:mx-auto w-full">
         <div className="flex flex-col space-y-[1px] self-center mt-8">
           <h2 className=" text-[18px] lg:text-[20px] 2xl:text-[30px]">
             {t("family_msg")}

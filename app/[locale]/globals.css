@@ -923,7 +923,7 @@ div:has(> input:required)::after {
 .static h4,
 .static h3,
 .static h2 {
-  @apply text-[14px] md:text-[20px];
+  @apply text-[14px] md:text-[20px] leading-[1.5rem];
 }
 
 .static p,

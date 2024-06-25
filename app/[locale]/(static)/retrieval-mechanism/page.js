@@ -20,14 +20,14 @@ const page = async ({ params: { locale } }) => {
     <Layout locale={locale} bodyClassName="!max-w-full">
       <ScrollUpComponent />
       <StaticPageTitle title={t("thankYouForChoosing")} />
-      <div className="flex flex-col poppins pb-[120px] md:max-w-[575px] md:mx-auto w-full">
+      <div className="flex flex-col poppins pb-[120px] md:max-w-full static md:mx-auto w-full">
         <h2 className="text-opink mx-auto w-fit my-2 text-xs">
           <span className="block text-center">{t("thanks_Kadinle")}</span>
           <span className="block text-center">{t("thanks_Kadinle_msg")}</span>
         </h2>
 
         <div className="flex justify-center text-[12px] text-[#707070]">
-          <div className="flex flex-col w-[90%] max-w-[500px]">
+          <div className="flex flex-col w-[90%] max-w-[500px] md:max-w-full">
             <div className="flex flex-col mt-3">
               <h3 className="text-black font-[500]">{t("howCanReturn")}</h3>
             </div>

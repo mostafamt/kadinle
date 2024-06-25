@@ -23,7 +23,7 @@ const page = async ({ params: { locale } }) => {
     <Layout locale={locale} bodyClassName="!max-w-full">
       <ScrollUpComponent />
       <StaticPageTitle title={t("supplier_registration")} />
-      <div className="px-4 flex flex-col poppins  md:max-w-[575px] md:mx-auto w-full text-xs">
+      <div className="px-4 flex flex-col poppins md:max-w-full static md:mx-auto w-full text-xs">
         <SuppliersForm />
       </div>
     </Layout>

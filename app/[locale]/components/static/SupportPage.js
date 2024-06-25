@@ -71,10 +71,10 @@ const SupportPage = ({ locale }) => {
       <div className="flex flex-col poppins mb-10">
         <MainTitle title={t("Talk_to_support")} />
         <div className="container mt-8 mx-auto">
-          <h2 className="text-gray-500 mb-4 max-w-[700px] mx-auto">
+          <h2 className="text-gray-500 mb-4 md:max-w-full static mx-auto">
             {t("support_msg_1")}
           </h2>
-          <ul className="px-4 list-disc justify-center mx-auto max-w-[500px] flex flex-col gap-4">
+          <ul className="px-4 list-disc justify-center mx-auto max-w-[500px] md:max-w-full flex flex-col gap-4">
             <li>
               <label className="mb-4">{t("support_msg_2")}</label>
               <textarea

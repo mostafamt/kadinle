@@ -15,9 +15,9 @@ const page = async ({ params: { locale } }) => {
     <Layout locale={locale} bodyClassName="!max-w-full">
       <ScrollUpComponent />
       <StaticPageTitle title={t("Terms_of_use")} />
-      <div className="flex flex-col poppins   md:max-w-[575px] md:mx-auto w-full">
+      <div className="flex flex-col poppins md:max-w-full static md:pb-2 md:mx-auto w-full">
         <div className="flex justify-center text-[12px] text-[#707070]">
-          <div className="flex flex-col w-[90%] max-w-[500px]">
+          <div className="flex flex-col w-[90%] max-w-[500px] md:max-w-full">
             <p className="mt-2">{t("terms_msg")}</p>
             <p className="mt-6">{t("terms_msg_2")}</p>
             <p>{t("terms_msg_3_3")}</p>
