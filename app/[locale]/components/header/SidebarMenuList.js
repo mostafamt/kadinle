@@ -33,7 +33,7 @@ export const SidebarMenuList = ({
                   alt={content?.title}
                   height={90}
                   width={90}
-                  className="h-10 w-10 rounded-full shrink-0 shadow object-cover bg-gray-100"
+                  className="h-16 w-16 rounded-full shrink-0 shadow object-cover bg-gray-100"
                 />
               ) : (
                 <span className="h-12 w-12 rounded-full shrink-0 bg-gray-100 shadow flex items-center justify-center">

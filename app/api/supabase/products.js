@@ -19,14 +19,14 @@ export const getProductCardById = async (param_id) => {
 
 // multiple details for category
 export const getCategoryDetails = async (param_id) => {
-  const res = await supabase.rpc("get_category_details", {
+  const res = await supabase.rpc("get_category_details_test", {
     param_id,
   });
   return res;
 };
 // multiple product cards for category
 export const getProductByCategory = async (param_id) => {
-  const res = await supabase.rpc("get_category_details", {
+  const res = await supabase.rpc("get_category_details_test", {
     param_id,
   });
   return res;
@@ -294,7 +294,6 @@ export const getSeasons = async () => {
   const res = supabase.from("season").select("*, content:season_content(*)");
   return res;
 };
-
 
 export const getProductCategorySliders = async (
   param_limit,
