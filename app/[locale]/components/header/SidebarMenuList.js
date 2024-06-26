@@ -27,12 +27,12 @@ export const SidebarMenuList = ({
               key={category?.id}
               onClick={() => onClick(category)}
             >
-              {content?.web_image ? (
+              {category?.image ? (
                 <Image
-                  src={content?.web_image ? content?.web_image : ""}
+                  src={category?.image ? category?.image : ""}
                   alt={content?.title}
-                  height={10}
-                  width={10}
+                  height={90}
+                  width={90}
                   className="h-10 w-10 rounded-full shrink-0 shadow object-cover bg-gray-100"
                 />
               ) : (
