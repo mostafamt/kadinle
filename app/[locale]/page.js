@@ -77,6 +77,7 @@ export default async function Home({ params: { locale } }) {
   const offersFetch = await getOffers();
   const offers = offersFetch?.data;
 
+  console.log("homeSectionsFetch2", homeSectionsFetch);
   return (
     <LocaleLayout
       locale={locale}

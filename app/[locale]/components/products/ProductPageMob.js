@@ -164,13 +164,13 @@ const ProductPageMob = ({
       const imageSku = cur?.pattern_sku;
       return acc[imageSku]
         ? {
-          ...acc,
-          [imageSku]: [...acc[imageSku], cur],
-        }
+            ...acc,
+            [imageSku]: [...acc[imageSku], cur],
+          }
         : {
-          ...acc,
-          [imageSku]: [cur],
-        };
+            ...acc,
+            [imageSku]: [cur],
+          };
     }, {});
     setProductImagesPatternSku(productImagesSku);
   }, [filterImages]);
@@ -482,14 +482,13 @@ const ProductPageMob = ({
         numbers.push(chart?.number);
       }
       setChartNumbers(numbers);
-    } catch (error) { }
+    } catch (error) {}
   }, [productChart]);
 
   useEffect(() => {
     if (!productChart?.length) return;
     fetchChartNumber();
   }, [fetchChartNumber, productChart]);
-
 
   return (
     <>
@@ -569,13 +568,14 @@ const ProductPageMob = ({
             <div className="flex flex-col items-center xs:max-w-[400px] w-full">
               <div className="relative w-full flex justify-center">
                 <ProductSlider
-                  productId={product?.productinfo?.id}
-                  color={color}
-                  section={section}
-                  filterImages={filterImages}
-                  product={product}
-                  productImagesPatternSku={productImagesPatternSku}
-                  selectedPatternSku={selectedPatternSku}
+                cart={addToCart}
+                productId={product?.productinfo?.id}
+                color={color}
+                section={section}
+                filterImages={filterImages}
+                product={product}
+                productImagesPatternSku={productImagesPatternSku}
+                selectedPatternSku={selectedPatternSku}
                 />
               </div>
             </div>
@@ -645,22 +645,25 @@ const ProductPageMob = ({
               <div className="flex w-[80%] justify-between text-[15px]">
                 <button
                   onClick={(e) => setSection("Description")}
-                  className={`${section === "Description" && "bg-owhite text-opink"
-                    } rounded-full text-[#727C8E] w-[70px] h-[25px] flex items-center justify-center`}
+                  className={`${
+                    section === "Description" && "bg-owhite text-opink"
+                  } rounded-full text-[#727C8E] w-[70px] h-[25px] flex items-center justify-center`}
                 >
                   <p>{t("Product")}</p>
                 </button>
                 <button
                   onClick={(e) => setSection("Details")}
-                  className={`${section === "Details" && "bg-owhite text-opink"
-                    } rounded-full text-[#727C8E] w-[70px] h-[25px] flex items-center justify-center`}
+                  className={`${
+                    section === "Details" && "bg-owhite text-opink"
+                  } rounded-full text-[#727C8E] w-[70px] h-[25px] flex items-center justify-center`}
                 >
                   <p>{t("Details")}</p>
                 </button>
                 <button
                   onClick={(e) => setSection("Size Chart")}
-                  className={`${section === "Size Chart" && "bg-owhite text-opink"
-                    } rounded-full text-[#727C8E] w-[80px] h-[30px] flex items-center justify-center`}
+                  className={`${
+                    section === "Size Chart" && "bg-owhite text-opink"
+                  } rounded-full text-[#727C8E] w-[80px] h-[30px] flex items-center justify-center`}
                 >
                   <p className="whitespace-nowrap">{t("Size_Chart")}</p>
                 </button>
@@ -693,10 +696,11 @@ const ProductPageMob = ({
                     <button
                       onClick={(e) => setSelectedRegion(region)}
                       key={region?.name}
-                      className={`flex  flex-col items-center cursor-pointer px-2 pb-1 ${selectedRegion?.id === region?.id
+                      className={`flex  flex-col items-center cursor-pointer px-2 pb-1 ${
+                        selectedRegion?.id === region?.id
                           ? "text-opink border-b-2 border-opink "
                           : ""
-                        } `}
+                      } `}
                     >
                       {region?.name}
                     </button>
@@ -725,10 +729,11 @@ const ProductPageMob = ({
                                 className="border border-[#E264AD] rounded-[5px] px-1  h-[43px] md:h-[48px] flex items-center justify-center"
                               >
                                 <div
-                                  className={`${size?.id === theSizeContent?.id
+                                  className={`${
+                                    size?.id === theSizeContent?.id
                                       ? "bg-opink text-owhite font-[300]"
                                       : "bg-owhite text-black border"
-                                    } cursor-pointer px-2 h-[34px] rounded-[3px] min-w-[30px] flex items-center justify-center `}
+                                  } cursor-pointer px-2 h-[34px] rounded-[3px] min-w-[30px] flex items-center justify-center `}
                                 >
                                   <p className="text-[15px]">
                                     {theSizeContent?.name}
@@ -764,8 +769,9 @@ const ProductPageMob = ({
                       <Image
                         key={currentColor?.id}
                         onClick={() => filterColors(currentColor)}
-                        className={`w-[45px]  h-16 object-contain border ${currentColor?.id === color?.id && "border-opink"
-                          }`}
+                        className={`w-[45px]  h-16 object-contain border ${
+                          currentColor?.id === color?.id && "border-opink"
+                        }`}
                         src={currentColor?.image}
                         alt="product color"
                         height={45}
@@ -777,8 +783,9 @@ const ProductPageMob = ({
                         {filterVideos?.map((vid) => (
                           <div
                             key={vid?.id}
-                            className={`relative cursor-pointer border h-16 w-20 ${vid?.id === color?.id && "border-opink"
-                              }`}
+                            className={`relative cursor-pointer border h-16 w-20 ${
+                              vid?.id === color?.id && "border-opink"
+                            }`}
                           >
                             <video
                               key={vid?.id}
@@ -820,8 +827,9 @@ const ProductPageMob = ({
                               onClick={() =>
                                 setSelectedPatternSku(imagePattern)
                               }
-                              className={`max-w-[60px] h-16 object-contain border ${selected && "border-opink"
-                                }`}
+                              className={`max-w-[60px] h-16 object-contain border ${
+                                selected && "border-opink"
+                              }`}
                               src={imageSrc}
                               alt="product pattern sku"
                               height={64}
@@ -857,8 +865,9 @@ const ProductPageMob = ({
                         <button
                           disabled={quantity === 1}
                           onClick={decreaseQuantity}
-                          className={`disabled:text-opink disabled:cursor-not-allowed  cursor-pointer ${quantity <= 1 && "text-[#D8D8D8]"
-                            }`}
+                          className={`disabled:text-opink disabled:cursor-not-allowed  cursor-pointer ${
+                            quantity <= 1 && "text-[#D8D8D8]"
+                          }`}
                         >
                           -
                         </button>

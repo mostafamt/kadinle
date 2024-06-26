@@ -30,6 +30,7 @@ import ProductSliderFull from "./ProductSliderFull";
 import { ProductStarReviews } from "./ProductStarReviews";
 import { AdsTapeBar } from "./AdsTapeBar";
 import { SizeInfoBtn } from "./SizeInfoBtn";
+import ProductSlider from "./ProductSlider";
 
 SwiperCore.use([Pagination, Navigation]);
 
@@ -452,7 +453,7 @@ const Product = ({
                 </div>
               </div>
             ) : null}
-            <div className="absolute right-[10px] top-[10px] flex flex-col z-[5000]">
+            {/* <div className="absolute right-[10px] top-[10px] flex flex-col z-[5000]">
               <Image
                 onClick={() => {
                   toggleFavorite();
@@ -476,8 +477,9 @@ const Product = ({
                   width={35}
                 />
               </button>
-            </div>
-            <Swiper
+            </div> */}
+
+            {/* <Swiper
               dir="ltr"
               onSwiper={setSwiper}
               modules={[Pagination, Navigation]}
@@ -510,7 +512,16 @@ const Product = ({
                   )}
                 </SwiperSlide>
               ))}
-            </Swiper>
+            </Swiper> */}
+            <div className="">
+            <ProductSlider productId={product?.productinfo?.id}
+            cart= {addToCart}
+                  color={color}
+                  filterImages={filterImages}
+                  product={product}
+                  productImagesPatternSku={productImagesPatternSku}
+                  selectedPatternSku={selectedPatternSku}/>
+            </div>
           </div>
 
           <div className="flex flex-col gap-1 ">
@@ -559,7 +570,6 @@ const Product = ({
                 ( {t("See_size_table")} )
               </a>
             </div>
-
             <div className="flex gap-9 text-[14px] md:text-[16px] my-4 ltr:ml-4 rtl:mr-4 font-[300]">
               {regions?.map((region) => (
                 <button

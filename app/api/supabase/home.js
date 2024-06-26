@@ -9,7 +9,7 @@ export const getHomeData = async (param_limit) => {
 };
 
 export const getHomeSections = async (param_limit) => {
-  const res = await supabase.rpc("get_home_sections", {
+  const res = await supabase.rpc("get_home_sections_test", {
     param_limit,
   });
   return res;
@@ -91,13 +91,13 @@ export const getBrandDetails = async (brandId) => {
   return res;
 };
 export const getCollectionDetails = async (collectionId) => {
-  let res = await supabase.rpc("get_collection_details", {
+  let res = await supabase.rpc("get_collection_details_test", {
     param_id: collectionId,
   });
   return res;
 };
 export const getLatestProductsDetails = async (limit) => {
-  let res = await supabase.rpc("get_latest_products", {
+  let res = await supabase.rpc("get_latest_products_test", {
     param_limit: limit,
   });
   return res;
@@ -109,13 +109,13 @@ export const getBestSellingDetails = async (limit) => {
   return res;
 };
 export const getSearchResults = async (key) => {
-  let res = await supabase.rpc("get_search", {
+  let res = await supabase.rpc("get_search_test", {
     param_search: key,
   });
   return res;
 };
 export const getProductsLessThan = async (param_limit) => {
-  let res = await supabase.rpc("get_less_than", {
+  let res = await supabase.rpc("get_less_than_test", {
     param_limit,
   });
   return res;

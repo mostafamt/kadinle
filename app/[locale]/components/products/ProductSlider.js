@@ -24,6 +24,7 @@ const discount = "https://kadinle.com/media/images/discount.svg";
 const shareIcon = "https://kadinle.com/media/images/shareIcon.png";
 
 const ProductSlider = ({
+  cart,
   product,
   productId,
   filterImages,
@@ -128,7 +129,7 @@ const ProductSlider = ({
       </div>
 
       {product?.discount ? (
-        <div className="absolute top-4 ltr:left-6 rtl:right-6 w-[42px]  z-[500]">
+        <div className="absolute top-4 ltr:left-6 rtl:right-6 w-[42px]  z-1">
           <Image
             className="w-full"
             src={discount}
@@ -143,7 +144,7 @@ const ProductSlider = ({
         </div>
       ) : null}
 
-      <div className="absolute top-4 ltr:right-6 rtl:left-6 z-30">
+      <div className="absolute top-4 ltr:right-6 rtl:left-6 z-10">
         <div className="flex justify-center items-center flex-col gap-4">
           <button
             className="flex gap-2 items-center h-8 w-8  bg-white rounded-full  justify-center"
@@ -166,6 +167,14 @@ const ProductSlider = ({
               src={shareIcon}
               height={20}
               width={20}
+            />
+          </button>
+          <button className="" onClick={cart}>
+            <Image
+              width="30"
+              height="30"
+              src="https://img.icons8.com/ios-glyphs/30/E264AD/shopping-cart--v1.png"
+              alt="shopping-cart--v1"
             />
           </button>
         </div>
