@@ -1,8 +1,9 @@
 import React from "react";
-import {unstable_setRequestLocale} from 'next-intl/server';
+
 import SingleCategory from "../../components/categories/SingleCategory";
 import Layout from "../../components/layout/Layout";
 import { getSearchResults } from "@/app/api/supabase/home";
+import SingleCategoryDT from "../../components/categories/SingleCategoryDT";
 
 export const metadata = {
   title: "KADINLE | Search",
@@ -10,13 +11,19 @@ export const metadata = {
 
 const page = async ({ params }) => {
   const { key, locale } = params;
-  unstable_setRequestLocale(locale);
   const res = await getSearchResults(key);
 
   return (
+    <>
     <Layout locale={locale} searchOnly>
-      <SingleCategory layout="search" category={res?.data} />
-    </Layout>
+        <div className="full-screen">
+          <SingleCategoryDT layout="search" category={res?.data} />
+        </div>
+        <div className="mob-screen">
+          <SingleCategory layout="search" category={res?.data} />
+        </div>
+      </Layout>
+    </>
   );
 };
 export default page;

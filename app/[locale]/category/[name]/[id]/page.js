@@ -7,6 +7,7 @@ import React from "react";
 import {unstable_setRequestLocale} from 'next-intl/server';
 import SingleCategory from "../../../components/categories/SingleCategory";
 import Layout from "../../../components/layout/Layout";
+import SingleCategoryDT from "@/app/[locale]/components/categories/SingleCategoryDT";
 
 export async function generateMetadata({ params: { locale, name } }) {
   unstable_setRequestLocale(locale);
@@ -39,10 +40,18 @@ const page = async ({ params }) => {
 
   return (
     <Layout locale={locale} showCategoryBar categoryId={id} searchOnly>
-      <SingleCategory
-        searchKey={selectedRequest?.searchKey}
-        category={category}
-      />
+      <div className="full-screen">
+        <SingleCategoryDT
+          searchKey={selectedRequest?.searchKey}
+          category={category}
+        />
+      </div>
+      <div className="mob-screen">
+        <SingleCategory
+          searchKey={selectedRequest?.searchKey}
+          category={category}
+        />
+      </div>
     </Layout>
   );
 };
