@@ -931,3 +931,7 @@ div:has(> input:required)::after {
   @apply text-[12px] md:text-[14px] 2xl:text-[15px] leading-[1.5rem];
 }
 
+.custom-pagination {
+  margin-bottom: 10px;
+}
+
