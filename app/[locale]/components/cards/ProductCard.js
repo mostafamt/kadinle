@@ -9,6 +9,7 @@ import HeartIcon from "../Icons/HeartIcon";
 import { likeProduct, unlikeProduct } from "@/app/api/supabase/user";
 import { StarIcon } from "../Icons/StarIcon";
 import { getFormatPrice } from "@/app/api/lib/functions";
+import ProductCardSwiper from "../products/ProductCardSwiper";
 const discount = "https://kadinle.com/media/images/discount.svg";
 const like = "https://kadinle.com/media/images/like.svg";
 const liked = "https://kadinle.com/media/images/liked.svg";
@@ -77,7 +78,7 @@ function ProductCard({ item, layout, index, inSimilar }) {
           layout === "category" ? "md:min-h-[300px] min-h-[400px]" : ""
         }`}
       >
-        <Image
+        {/* <Image
           onClick={handelLink}
           src={item?.image ? item?.image : ''}
           alt={content?.image_alt || content?.name}
@@ -85,7 +86,8 @@ function ProductCard({ item, layout, index, inSimilar }) {
           height={300}
           width={200}
           className="object-cover cursor-pointer rounded-t-lg w-full min-h-[80%]"
-        />
+        /> */}
+        <ProductCardSwiper item={item}/>
         <div className="absolute top-[4%] w-[25px]  h-[25px] rtl:left-[5%] ltr:right-[5%]">
           {inFavorite ? (
             <button

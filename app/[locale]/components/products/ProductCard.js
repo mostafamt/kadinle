@@ -10,6 +10,8 @@ import { useRouter } from "next/navigation";
 import FlashIcon from "../Icons/FlashIcon";
 import { StarIcon } from "../Icons/StarIcon";
 import ProductSlider from "./ProductSlider";
+import ProductCardSwiper from "./ProductCardSwiper";
+import { default as Swiper } from "../../components/swiper/swiper";
 
 const discount = "https://kadinle.com/media/images/discount.svg";
 
@@ -99,7 +101,7 @@ const ProductCard = ({
           } overflow-hidden`}
           onClick={handelLink}
         >
-          <Image
+          {/* <Image
             className={`!w-full !h-auto cursor-pointer ${
               small ? "min-h-[150px] object-cover" : "min-h-[200px]"
             }  rounded-t-[5px] max-h-full ${inFavoriteLayout ? "" : ""}`}
@@ -107,7 +109,10 @@ const ProductCard = ({
             alt={content?.image_alt}
             height={150}
             width={200}
-          />
+          /> */}
+          {item && <ProductCardSwiper item={item} />}
+          {/* <Swiper/> */}
+
           {/* <ProductSlider
             icon={10}
             imageH={"50px"}
