@@ -10,15 +10,21 @@ import Link from "next/link";
 import { useGlobalOptions } from "@/app/context/GlobalOptionsContext";
 import { useRouter } from "next/navigation";
 import { FavoriteBarFull } from "./FavoriteBarFull";
+import { useTranslations } from "next-intl";
 
 export const IconsBarFull = ({ locale, languages, countries }) => {
   const router = useRouter();
   const { showOptions, setShowOptions, showAuthPopup, setShowAuthPopup } =
     useGlobalOptions();
+    const t = useTranslations();
 
   return (
     <div className="flex gap-2 lg:gap-4 items-center justify-between order-2 xs:order-3">
-      <MenuBar />
+      
+      <div className="flex flex-col items-center justify-center">
+        <MenuBar />
+        <div className="text-[10px] text-[#727C8E]">{t("Category")}</div>
+      </div>
       <CartBar />
       <UserBarFull />
       <FavoriteBarFull />

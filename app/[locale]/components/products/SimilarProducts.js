@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Fragment } from "react";
 
-import ProductCard from "./ProductCard";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
@@ -10,10 +10,23 @@ import "swiper/components/navigation/navigation.min.css";
 import SwiperCore, { Pagination, Navigation } from "swiper";
 import ProductsSliderSkeleton from "../skeletons/ProductsSliderSkeleton";
 import { getSimilarProducts } from "@/app/api/supabase/products";
+import ProductCard from "../cards/ProductCard";
 
 SwiperCore.use([Pagination, Navigation]);
 
-const SimilarProducts = ({ sku }) => {
+const SimilarProducts = ({
+  sku,
+  regions,
+  selectedRegion,
+  setSelectedRegion,
+  availableSizes,
+  setSize,
+  size,
+  modelSize,
+  setOpenSizeInfo,
+  productChart,
+  CACHE_SIZES,
+}) => {
   const [swiper, setSwiper] = useState(null);
   const [target, setTarget] = useState(0);
   const [products, setProducts] = useState([]);
@@ -22,7 +35,7 @@ const SimilarProducts = ({ sku }) => {
   const [end, setEnd] = useState(14);
   const [preventLoadMore, setPreventLoadMore] = useState(false);
   const [loading, setLoading] = useState(true);
-
+console.log("products",products)
   useEffect(() => {
     if (swiper !== null) {
       swiper.slideTo(target);
@@ -96,7 +109,22 @@ const SimilarProducts = ({ sku }) => {
                 >
                   {products?.map((item) => (
                     <SwiperSlide key={item?.id}>
-                      <ProductCard small item={item} key={item?.id} inSimilar />
+                      <ProductCard
+                        small
+                        item={item}
+                        key={item?.id}
+                        inSimilar
+                        regions={regions}
+                        selectedRegion={selectedRegion}
+                        setSelectedRegion={setSelectedRegion}
+                        availableSizes={availableSizes}
+                        setSize={setSize}
+                        size={size}
+                        modelSize={modelSize}
+                        setOpenSizeInfo={setOpenSizeInfo}
+                        productChart={productChart}
+                        CACHE_SIZES={CACHE_SIZES}
+                      />
                     </SwiperSlide>
                   ))}
                 </Swiper>

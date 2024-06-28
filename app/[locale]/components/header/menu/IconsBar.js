@@ -10,15 +10,22 @@ import Link from "next/link";
 import { useGlobalOptions } from "@/app/context/GlobalOptionsContext";
 import { useRouter } from "next/navigation";
 import { SearchBar } from "./SearchBar";
+import { useTranslations } from "next-intl";
 
 export const IconsBar = ({ locale, languages, countries, searchOnly }) => {
   const router = useRouter();
   const { showOptions, setShowOptions, showAuthPopup, setShowAuthPopup } =
     useGlobalOptions();
 
+    const t = useTranslations();
+
   return (
     <div className="flex gap-2 items-center justify-between">
-      {searchOnly ? null : <MenuBar />}
+      <div className="flex flex-col items-center justify-center">
+        {searchOnly ? null : <MenuBar />}
+        <div className="text-[10px] text-[#727C8E]">{t("Category")}</div>
+      </div>
+
       <SearchBar />
       {searchOnly ? null : (
         <div className="gap-2 flex">

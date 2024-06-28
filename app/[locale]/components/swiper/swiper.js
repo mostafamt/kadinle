@@ -19,12 +19,9 @@ const HomeSwiper = async () => {
   const data = sliders?.data;
 
   return (
-    <div className="max-w-[406px] h-[199px] md:max-w-[1200px] md:h-[400px] px-2 pb-96 m-auto">
+    <div className="h-[199px] md:h-[400px]">
       <Swiper
-        pagination={{
-          clickable: true,
-          
-        }}
+        navigation
         modules={[Autoplay, Pagination, Navigation]}
         autoplay={{
           delay: 2500,
@@ -34,11 +31,11 @@ const HomeSwiper = async () => {
         {data.map((item) => (
           <SwiperSlide key={item.image}>
             <Image
-              className="max-w-[1200px] h-[400px]"
+              className="h-[199px] md:h-[400px] object-cover"
               src={item.image}
               alt={item.description}
-              width={1200}
-              height={400}
+              width={4800}
+              height={4800}
               style={{
                 width: "100%",
               }}

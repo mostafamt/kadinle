@@ -40,13 +40,15 @@ export const SubCategoriesBar = ({ subCategories: categories, category }) => {
             >
               <FallbackImage
                 containerClassName="bg-gray-100"
-                src={content?.web_image ? content?.web_image : ""}
+                src={category?.image ? category?.image : ""}
                 alt={content?.title}
                 height={80}
                 width={80}
                 className="object-contain w-20 h-20 bg-white"
               />
-              <h3 className="text-[10px] capitalize whitespace-nowrap text-center w-full font-medium">{content?.title}</h3>
+              <h3 className="text-[10px] capitalize whitespace-nowrap text-center w-full font-medium">
+                {content?.title}
+              </h3>
             </Link>
           );
         })}

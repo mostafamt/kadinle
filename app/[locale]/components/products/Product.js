@@ -31,6 +31,8 @@ import { ProductStarReviews } from "./ProductStarReviews";
 import { AdsTapeBar } from "./AdsTapeBar";
 import { SizeInfoBtn } from "./SizeInfoBtn";
 import ProductSlider from "./ProductSlider";
+import ProductSize from "./ProductSize";
+import ProductCardSize from "./ProductCardSize";
 
 SwiperCore.use([Pagination, Navigation]);
 
@@ -54,7 +56,7 @@ const Product = ({
   productChart,
   CACHE_SIZES,
   color,
-  setColor
+  setColor,
 }) => {
   const {
     user,
@@ -89,7 +91,6 @@ const Product = ({
   const [CACHE_CART, setCACHE_CART] = useState({});
   const [stockCount, setStockCount] = useState(0);
 
-  
   const getHashCart = async () => {
     const res = await getUserCart();
     if (res?.error || !res?.data?.length) return;
@@ -453,74 +454,18 @@ const Product = ({
                 </div>
               </div>
             ) : null}
-            {/* <div className="absolute right-[10px] top-[10px] flex flex-col z-[5000]">
-              <Image
-                onClick={() => {
-                  toggleFavorite();
-                  isFavoriteProduct
-                    ? setIsFavoriteProduct(false)
-                    : setIsFavoriteProduct(true);
-                }}
-                className="w-[35px] mb-[5px] cursor-pointer"
-                src={isFavoriteProduct ? liked : productLike}
-                alt="product favorite"
-                height={35}
-                width={35}
-              />
-              <button>
-                <Image
-                  onClick={(e) => setShare(true)}
-                  className="w-[35px] cursor-pointer"
-                  src={productShare}
-                  alt="share product"
-                  height={35}
-                  width={35}
-                />
-              </button>
-            </div> */}
-
-            {/* <Swiper
-              dir="ltr"
-              onSwiper={setSwiper}
-              modules={[Pagination, Navigation]}
-              direction="horizontal"
-              spaceBetween={10}
-              slidesPerView={1}
-              onSlideChange={() => {
-                setTarget2(swiperRef?.current?.realIndex);
-              }}
-              className="mySwiper single-product-slider"
-              onBeforeInit={(swiper) => {
-                swiperRef.current = swiper;
-              }}
-              showsPagination={true}
-              pagination={{
-                renderBullet: function (index, className) {
-                  return `<span className="${className}"></span>`;
-                },
-                clickable: true,
-                bulletClass: "swiper-bullet",
-                bulletActiveClass: "swiper-bullet-active",
-              }}
-            >
-              {sortedImages?.map((img) => (
-                <SwiperSlide key={img?.image}>
-                  {!!hoveredImage ? (
-                    <ProductSliderFull src={hoveredImage} />
-                  ) : (
-                    <ProductSliderFull src={img?.image} />
-                  )}
-                </SwiperSlide>
-              ))}
-            </Swiper> */}
+        
+          
             <div className="">
-            <ProductSlider productId={product?.productinfo?.id}
-            cart= {addToCart}
-                  color={color}
-                  filterImages={filterImages}
-                  product={product}
-                  productImagesPatternSku={productImagesPatternSku}
-                  selectedPatternSku={selectedPatternSku}/>
+              <ProductSlider
+                productId={product?.productinfo?.id}
+                cart={addToCart}
+                color={color}
+                filterImages={filterImages}
+                product={product}
+                productImagesPatternSku={productImagesPatternSku}
+                selectedPatternSku={selectedPatternSku}
+              />
             </div>
           </div>
 
@@ -558,11 +503,23 @@ const Product = ({
               </p>
             </div>
 
-            <div className="flex items-center gap-6 mt-[10px]">
+            <div className="mt-[10px]">
               <h4 className="font-[600] text-[12px] md:text-[14px]">
                 {t("Size")}:
               </h4>
-              <a
+              <ProductSize
+                regions={regions}
+                selectedRegion={selectedRegion}
+                setSelectedRegion={setSelectedRegion}
+                availableSizes={availableSizes}
+                setSize={setSize}
+                size={size}
+                modelSize={modelSize}
+                setOpenSizeInfo={setOpenSizeInfo}
+                productChart={productChart}
+                CACHE_SIZES={CACHE_SIZES}
+              />
+              {/* <a
                 href="#sizeChart"
                 onClick={() => setTarget("Size Chart")}
                 className="flex gap-3 text-[12px] text-opink"
@@ -618,8 +575,13 @@ const Product = ({
                   {t("modelSize")}:
                   <span className="font-medium text-sm">{modelSize}</span>
                 </p>
-                <SizeInfoBtn selectedRegion={selectedRegion} setOpenSizeInfo={setOpenSizeInfo} productChart={productChart} sizes={CACHE_SIZES} />
-              </div>
+                <SizeInfoBtn
+                  selectedRegion={selectedRegion}
+                  setOpenSizeInfo={setOpenSizeInfo}
+                  productChart={productChart}
+                  sizes={CACHE_SIZES}
+                />
+              </div> */}
             </div>
 
             <div className="flex flex-col w-full my-2">

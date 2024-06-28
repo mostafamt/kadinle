@@ -10,12 +10,30 @@ import { likeProduct, unlikeProduct } from "@/app/api/supabase/user";
 import { StarIcon } from "../Icons/StarIcon";
 import { getFormatPrice } from "@/app/api/lib/functions";
 import ProductCardSwiper from "../products/ProductCardSwiper";
+import ProductSize from "../products/ProductSize";
+import ProductCardSize from "../products/ProductCardSize";
 const discount = "https://kadinle.com/media/images/discount.svg";
 const like = "https://kadinle.com/media/images/like.svg";
 const liked = "https://kadinle.com/media/images/liked.svg";
 const star = "https://kadinle.com/media/images/star.svg";
 
-function ProductCard({ item, layout, index, inSimilar }) {
+function ProductCard({
+  item,
+  layout,
+  index,
+  inSimilar,
+  regions,
+  selectedRegion,
+  setSelectedRegion,
+  availableSizes,
+  setSize,
+  size,
+  modelSize,
+  setOpenSizeInfo,
+  productChart,
+  CACHE_SIZES,
+}) {
+  const [showDetails, setShowDetails] = useState(false);
   const {
     flashProducts,
     language,
@@ -78,17 +96,17 @@ function ProductCard({ item, layout, index, inSimilar }) {
           layout === "category" ? "md:min-h-[300px] min-h-[400px]" : ""
         }`}
       >
-        {/* <Image
+        <Image
           onClick={handelLink}
-          src={item?.image ? item?.image : ''}
+          src={item?.image ? item?.image : ""}
           alt={content?.image_alt || content?.name}
           priority
           height={300}
           width={200}
           className="object-cover cursor-pointer rounded-t-lg w-full min-h-[80%]"
-        /> */}
-        <ProductCardSwiper item={item}/>
-        <div className="absolute top-[4%] w-[25px]  h-[25px] rtl:left-[5%] ltr:right-[5%]">
+        />
+        {/* <ProductCardSwiper item={item}/> */}
+        <div className="absolute top-[4%] w-[25px]  h-[25px] rtl:left-[5%] ltr:right-[5%] lg:m-3">
           {inFavorite ? (
             <button
               className="h-6 w-6 bg-white pt-[2px] rounded-full flex items-center justify-center"
@@ -148,7 +166,7 @@ function ProductCard({ item, layout, index, inSimilar }) {
                 </del>
               ) : null}
             </div>
-            <div className="flex gap-1 text-white items-center px-2 py-1 bg-opink rounded-md justify-center">
+            <div className="flex gap-1 text-white items-center px-1 lg:px-2 py-1 bg-opink rounded-md justify-center">
               <StarIcon
                 className={"h-4 w-4 shrink-0 fill-white text-pink-100"}
               />
@@ -157,6 +175,34 @@ function ProductCard({ item, layout, index, inSimilar }) {
               </span>
             </div>
           </div>
+          <button
+            className="flex item-center justify-start"
+            onClick={() => setShowDetails(!showDetails)}
+          >
+            <Image
+              width="20"
+              height="20"
+              src="https://img.icons8.com/ios-glyphs/30/E264AD/shopping-cart--v1.png"
+              alt="shopping-cart--v1"
+            />
+            <span className="text-[10px] pt-1">{t("ADD_TO_CART")}</span>
+          </button>
+          {showDetails && (
+            <div className="absolute top-0 left-0 w-full h-full bg-white bg-opacity-90 flex flex-col justify-center items-center p-4">
+              <ProductCardSize
+                regions={regions}
+                selectedRegion={selectedRegion}
+                setSelectedRegion={setSelectedRegion}
+                availableSizes={availableSizes}
+                setSize={setSize}
+                size={size}
+                modelSize={modelSize}
+                setOpenSizeInfo={setOpenSizeInfo}
+                productChart={productChart}
+                CACHE_SIZES={CACHE_SIZES}
+              />
+            </div>
+          )}
         </div>
       </div>
     </div>

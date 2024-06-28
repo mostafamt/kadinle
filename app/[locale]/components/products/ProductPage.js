@@ -47,8 +47,9 @@ export const ProductPage = ({
   const [color, setColor] = useState();
   const [chartNumbers, setChartNumbers] = useState(null);
   const [openSizeInfo, setOpenSizeInfo] = useState(false);
-
-  useEffect(() => {
+ const [availableSizes, setAvailableSizes] = useState([]);
+  const [size, setSize] = useState(); 
+ useEffect(() => {
     if (!product?.productinfo?.id) router.push("/404");
   }, [product, router]);
 
@@ -60,6 +61,22 @@ export const ProductPage = ({
 
   // model size
   useEffect(() => {
+     if (product?.productvariants?.length) {
+       let hashSize = {};
+       for (const variants of product?.productvariants) {
+         if (
+           variants?.color_id === product?.productimages?.[0]?.color_id ||
+           variants?.size_id === product?.productimages?.[0]?.size_id
+         ) {
+           hashSize[variants?.size_id] = {
+             size_sku: variants?.size_sku,
+             content: variants?.sizeContents,
+             size_id: variants?.size_id,
+           };
+         }
+       }
+       setAvailableSizes(Object.values(hashSize));
+     }
     if (CACHE_SIZES) {
       const { productimages } = product || {};
       const imageModelSize = productimages?.[0]?.size_id;
@@ -71,7 +88,25 @@ export const ProductPage = ({
       setModelSize(sizeBasedOnRegion?.name);
     }
   }, [product, selectedRegion?.id, CACHE_SIZES]);
-
+  useEffect(() => {
+    if (availableSizes?.length) {
+      if (size?.id) {
+        let currentSelectedSize = availableSizes?.find(
+          (currentSize) => currentSize?.id === size?.id
+        );
+        let currentSizeRegion = currentSelectedSize?.find(
+          (currentRegion) => currentRegion?.region_id === selectedRegion?.id
+        );
+        setSize(currentSizeRegion);
+      }
+      for (const currentSize of availableSizes?.[0]?.content) {
+        if (currentSize?.region_id === selectedRegion?.id) {
+          setSize(currentSize);
+          break;
+        }
+      }
+    }
+  }, [selectedRegion?.id, availableSizes]);
   const fetchChartNumber = useCallback(async () => {
     try {
       let ids = [];
@@ -350,6 +385,17 @@ export const ProductPage = ({
                   }
                   sku={sku}
                   locale={locale}
+
+                regions={regions}
+                selectedRegion={selectedRegion}
+                setSelectedRegion={setSelectedRegion}
+                availableSizes={availableSizes}
+                // setSize={setSize}
+                // size={size}
+                modelSize={modelSize}
+                setOpenSizeInfo={setOpenSizeInfo}
+                productChart={productChart}
+                CACHE_SIZES={CACHE_SIZES}
                 />
               </Suspense>
               <SuggestionsProductsFull

@@ -11,8 +11,21 @@ import "swiper/swiper.min.css";
 import SliderNavigationBtn from "../global/SliderNavigationBtn";
 import ProductCard from "../cards/ProductCard";
 
-const SimilarProductsFull = ({ sku, locale }) => {
-  const t = useTranslations()
+const SimilarProductsFull = ({
+  sku,
+  locale,
+  regions,
+  selectedRegion,
+  setSelectedRegion,
+  availableSizes,
+  setSize,
+  size,
+  modelSize,
+  setOpenSizeInfo,
+  productChart,
+  CACHE_SIZES,
+}) => {
+  const t = useTranslations();
   const swiperRef = useRef(null);
   const [target, setTarget] = useState(0);
   const [products, setProducts] = useState([]);
@@ -62,9 +75,7 @@ const SimilarProductsFull = ({ sku, locale }) => {
 
   return (
     <div className="container border-t border-t-[#AEAEAE] px-5 pt-5 mt-14 mb-5">
-      <h3 className="font-bold text-[26px] mb-2">
-        {t("Similar_Products")}
-      </h3>
+      <h3 className="font-bold text-[26px] mb-2">{t("Similar_Products")}</h3>
       <div className="relative w-full py-4">
         <div className=" relative flex flex-col space-y-3 ">
           <div className="flex items-center relative container-lrg w-[100%] carousl-section">
@@ -110,7 +121,20 @@ const SimilarProductsFull = ({ sku, locale }) => {
                 >
                   {products?.map((item) => (
                     <SwiperSlide key={item?.id}>
-                      <ProductCard item={item} inSimilar />
+                      <ProductCard
+                        item={item}
+                        inSimilar
+                        regions={regions}
+                        selectedRegion={selectedRegion}
+                        setSelectedRegion={setSelectedRegion}
+                        availableSizes={availableSizes}
+                        setSize={setSize}
+                        size={size}
+                        modelSize={modelSize}
+                        setOpenSizeInfo={setOpenSizeInfo}
+                        productChart={productChart}
+                        CACHE_SIZES={CACHE_SIZES}
+                      />
                     </SwiperSlide>
                   ))}
                 </Swiper>
