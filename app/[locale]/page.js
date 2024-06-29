@@ -30,6 +30,7 @@ import { OurPartners } from "./components/home/OurPartners";
 import ReviewsMob from "./components/home/ReviewsMob";
 import { NextIntlClientProvider, useTranslations } from "next-intl";
 import { default as Swiper } from "./components/swiper/swiper";
+import AboutUs from "./components/home/AboutUs";
 
 export const revalidate = 60;
 
@@ -148,6 +149,7 @@ function PageContent({
       <Benefits t={t} />
       <SaleTimer remainingTime={remainingTime} />
       <FlashSale offer={offers?.at(0)} languageId={LANGUAGES?.[locale]} />
+      <AboutUs/>
       <PriceLimit t={t} />
       {offers?.at(1) ? (
         <Offer offer={offers?.at(1)} languageId={LANGUAGES?.[locale]} />

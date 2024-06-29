@@ -7,6 +7,7 @@
   "country": "Ülke",
   "phone_number": "telefon numarası",
   "Email": "E-posta",
+  "who_we_are": "Biz kimiz ?",
   "type_shipping": "Kargo Türü",
   "fast_shipping": "Hızlı kargo",
   "add_payment_method": "ödeme yöntemi ekle",
@@ -340,7 +341,7 @@
   "season_spring": "Summer",
   "season_autumn": "Autumn",
   "season_whole_years": "Throughout the year",
-  
+
   "company_prices_1": "Very Low",
   "company_prices_3": "Medium",
   "company_prices_4": "High",
@@ -1345,7 +1346,7 @@
   "terms_videos_msg10": "Başarılarımızda ortağımız olun ve sosyal medya platformlarında deneyiminizi ve görüşlerinizi paylaşın, puan kazanma şansınızı artırın ve değerli ödülünüze daha da yaklaşın.",
   "terms_videos_msg11": "Sosyal medya sayfalarındaki paylaşım düğmesi (Facebook, Twitter, Instagram, WhatsApp, Telegram) bağlantısı aracılığıyla etkinleştirin.",
   "terms_msg_9": "Once registered, a user can order any product.",
- 
+
   "terms_videos_msg12": "Ürün değerlendirme politikasını okuyabilirsiniz.",
   "terms_videos_msg13": "Bağlantı",
   "terms_videos_msg14": "Video göndermeniz, Kardinly markası için yayınlama, tanıtma, reklam ve pazarlama haklarının yanı sıra diğer hakların kullanımını kabul ettiğiniz anlamına gelir.",
@@ -2615,7 +2616,7 @@
   "style": "Stil",
   "package_contents": "Paket İçeriği  ",
   "sleeve_length": "Kol Boyu",
-  "sleeve_type":"Kol Tipi",
+  "sleeve_type": "Kol Tipi",
   "waist": "Bel",
   "belt_condition": "Kuşak Durumu",
   "pocket": "Cep",

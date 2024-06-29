@@ -145,3 +145,14 @@ export function getMonthCount(startDate, endDate) {
 
   return (endYear - startYear) * 12 + (endMonth - startMonth);
 }
+
+export const getSearchKey = (langName) => {
+  switch (langName) {
+    case "English":
+      return "name";
+    case "Arabic":
+      return "ar_name";
+    case "Turkish":
+      return "tr_name";
+  }
+};
