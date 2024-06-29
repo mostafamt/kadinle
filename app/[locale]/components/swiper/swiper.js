@@ -18,6 +18,7 @@ const HomeSwiper = async () => {
   const sliders = await getHomeSliders();
   const data = sliders?.data;
 
+  console.log("data",data)
   return (
     <div className="h-[199px] md:h-[400px]">
       <Swiper
@@ -31,8 +32,18 @@ const HomeSwiper = async () => {
         {data.map((item) => (
           <SwiperSlide key={item.image}>
             <Image
-              className="h-[199px] md:h-[400px] object-cover"
-              src={item.image}
+              className="h-[199px] lg:h-[400px] object-cover full-screen"
+              src={item.web_image}
+              alt={item.description}
+              width={4800}
+              height={4800}
+              style={{
+                width: "100%",
+              }}
+            />
+            <Image
+              className="h-[199px] lg:h-[400px] object-cover mob-screen"
+              src={item.mobile_image}
               alt={item.description}
               width={4800}
               height={4800}
