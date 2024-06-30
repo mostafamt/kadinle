@@ -18,7 +18,7 @@ export const MenuFull = async ({ locale }) => {
         className="sm:order-2 order-1 md:flex-1 flex justify-center"
       >
         <Image
-          src="https://kadinle.com/media/images/logo.svg"
+          src="/logo.svg"
           alt="kadinle logo"
           height={80}
           width={120}

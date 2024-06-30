@@ -187,7 +187,7 @@ function ProductCard({
             />
             <span className="text-[10px] pt-1">{t("ADD_TO_CART")}</span>
           </button>
-          {showDetails && (
+          {/* {showDetails && (
             <div className="absolute top-0 left-0 w-full h-full bg-white bg-opacity-90 flex flex-col justify-center items-center p-4">
               <ProductCardSize
                 regions={regions}
@@ -202,7 +202,7 @@ function ProductCard({
                 CACHE_SIZES={CACHE_SIZES}
               />
             </div>
-          )}
+          )} */}
         </div>
       </div>
     </div>

@@ -21,7 +21,7 @@ export const Menu = async ({ locale, router, searchOnly }) => {
         <NotificationBar />
         <Link href="/" className="md:flex-1 flex justify-center">
           <Image
-            src="https://kadinle.com/media/images/logo.svg"
+            src="/logo.svg"
             alt="kadinle logo"
             height={20}
             width={120}

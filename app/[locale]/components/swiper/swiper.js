@@ -18,7 +18,6 @@ const HomeSwiper = async () => {
   const sliders = await getHomeSliders();
   const data = sliders?.data;
 
-  console.log("data",data)
   return (
     <div className="h-[199px] md:h-[400px]">
       <Swiper
