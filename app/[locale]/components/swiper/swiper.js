@@ -31,21 +31,21 @@ const HomeSwiper = async () => {
         {data.map((item) => (
           <SwiperSlide key={item.image}>
             <Image
-              className="h-[199px] lg:h-[400px] w-fit full-screen"
+              className="w-fit full-screen"
               src={item.web_image}
               alt={item.description}
-              width={4800}
-              height={4800}
+              width={1200}
+              height={500}
               style={{
                 width: "100%",
               }}
             />
             <Image
-              className="h-[199px] lg:h-[400px] w-fit object-cover mob-screen"
+              className="w-fit mob-screen"
               src={item.mobile_image}
               alt={item.description}
-              width={4800}
-              height={4800}
+              width={500}
+              height={200}
               style={{
                 width: "100%",
               }}
