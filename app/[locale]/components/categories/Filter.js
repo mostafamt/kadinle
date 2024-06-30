@@ -93,6 +93,7 @@ const Filter = ({
         </div>
 
         <div className="flex flex-col  mt-4">
+          {/* category */}
           <FilterRow
             onChange={insertIntoFilter}
             title={t("category")}
@@ -101,21 +102,8 @@ const Filter = ({
             keyValue={language?.id}
             name="title"
           />
-          <FilterRow
-            onChange={insertIntoBrands}
-            title={t("brand")}
-            list={filters?.CACHE_BRANDS}
-            keySearch={"id"}
-          />
 
-          <FilterRow
-            onChange={insertIntoSeasons}
-            title={t("season")}
-            list={filters?.CACHE_SEASONS}
-            keySearch={"language_id"}
-            keyValue={language?.id}
-          />
-
+          {/* color */}
           <div
             className="py-4 border-t  justify-between flex text-[12px]"
             onClick={() => setOpenColors(true)}
@@ -167,6 +155,7 @@ const Filter = ({
             </div>
           </div>
 
+          {/* size */}
           <FilterRow
             onChange={insertIntoSizes}
             title={t("size")}
@@ -175,6 +164,24 @@ const Filter = ({
             keyValue={currency?.region_id}
           />
 
+          {/* season */}
+          <FilterRow
+            onChange={insertIntoSeasons}
+            title={t("season")}
+            list={filters?.CACHE_SEASONS}
+            keySearch={"language_id"}
+            keyValue={language?.id}
+          />
+
+          {/* brand */}
+          <FilterRow
+            onChange={insertIntoBrands}
+            title={t("brand")}
+            list={filters?.CACHE_BRANDS}
+            keySearch={"id"}
+          />
+
+          {/* price */}
           <div className="flex flex-col">
             <div className="py-4 border-t  justify-between flex text-[12px] ">
               <p className="capitalize">{t("priceRange")}</p>
