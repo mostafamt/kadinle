@@ -138,6 +138,14 @@ function PageContent({
   locale,
 }) {
   const t = useTranslations();
+    const translations = {
+      who_we_are: t("who_we_are"),
+      sales: t("sales"),
+      rating: t("ratings"),
+      map: t("map"),
+      best_quality: t("best_quality"),
+      kadinle_blog: t("kadinle_blog"),
+    };
 
   return (
     <>
@@ -149,7 +157,7 @@ function PageContent({
       <Benefits t={t} />
       <SaleTimer remainingTime={remainingTime} />
       <FlashSale offer={offers?.at(0)} languageId={LANGUAGES?.[locale]} />
-      <AboutUs/>
+      <AboutUs translations={translations} />
       <PriceLimit t={t} />
       {offers?.at(1) ? (
         <Offer offer={offers?.at(1)} languageId={LANGUAGES?.[locale]} />

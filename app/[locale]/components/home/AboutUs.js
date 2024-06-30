@@ -1,43 +1,69 @@
-"use client"
+"use client";
+
 import React from "react";
 import AboutUsBox from "./AboutUsBox";
-import { useTranslations } from "next-intl";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation, Autoplay } from "swiper";
 
-
-const AboutUs = () => {
-const t = useTranslations();
-const aboutUsObj = [
-  {
-    id: 1,
-    text: t("who_we_are"),
-  },
-  {
-    id: 2,
-    text: t("who_we_are"),
-  },
-  {
-    id: 3,
-    text: t("who_we_are"),
-  },
-  {
-    id: 4,
-    text: t("who_we_are"),
-  },
-  {
-    id: 5,
-    text: t("who_we_are"),
-  },
-  {
-    id: 6,
-    text: t("who_we_are"),
-  },
-];
+const AboutUs = ({ translations }) => {
+  const aboutUsObj = [
+    {
+      id: 1,
+      text: translations.who_we_are,
+    },
+    {
+      id: 2,
+      text: translations.sales,
+    },
+    {
+      id: 3,
+      text: translations.rating,
+    },
+    {
+      id: 4,
+      text: translations.map,
+    },
+    {
+      id: 5,
+      text: translations.best_quality,
+    },
+    {
+      id: 6,
+      text: translations.kadinle_blog,
+    },
+  ];
 
   return (
-    <div className="m-2 p-6 rounded-md grid gap-2 md:gap-4 grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
-      {aboutUsObj.map((item) => (
-        <AboutUsBox key={item.id}>{item.text}</AboutUsBox>
-      ))}
+    <div className="mb-3 container mx-auto overflow-hidden">
+      <Swiper
+        dir="ltr"
+        pagination={{
+          renderBullet: function (index, className) {
+            return `<span class="${className}"></span>`;
+          },
+          clickable: true,
+          bulletClass: "swiper-bullet",
+          bulletActiveClass: "swiper-bullet-active",
+        }}
+        modules={[Pagination]}
+        direction="horizontal"
+        spaceBetween={5}
+        slidesPerView={3.1}
+        slidesPerGroup={3}
+        breakpoints={{
+          0: { slidesPerView: 2.3 },
+          300: { slidesPerView: 3.2 },
+        }}
+        className="mySwiper"
+      >
+        {aboutUsObj.map((item) => (
+          <SwiperSlide key={item.id}>
+            <div className="m-2 rounded-md">
+              <AboutUsBox>{item.text}</AboutUsBox>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
 };
