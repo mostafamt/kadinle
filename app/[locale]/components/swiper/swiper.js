@@ -31,7 +31,7 @@ const HomeSwiper = async () => {
         {data.map((item) => (
           <SwiperSlide key={item.image}>
             <Image
-              className="h-[199px] lg:h-[400px] w-fit object-cover full-screen"
+              className="h-[199px] lg:h-[400px] w-fit full-screen"
               src={item.web_image}
               alt={item.description}
               width={4800}
