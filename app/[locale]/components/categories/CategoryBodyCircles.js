@@ -42,9 +42,9 @@ const CategoryBodyCircles = ({ id }) => {
   }, [id]);
 
   return (
-    <>
+    <div>
      
-    </>
+    </div>
   );
 };
 
