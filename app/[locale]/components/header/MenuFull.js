@@ -21,8 +21,8 @@ export const MenuFull = async ({ locale }) => {
           src="/logo.svg"
           alt="kadinle logo"
           height={80}
-          width={120}
-          className="w-[120px] lg:w-[200px]"
+          width={150}
+          className="w-[150px] lg:w-[200px]"
         />
       </Link>
       <IconsBarFull locale={locale} languages={languages} countries={countries} />

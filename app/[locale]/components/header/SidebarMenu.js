@@ -52,9 +52,20 @@ export const SidebarMenu = ({ categories }) => {
         className="fixed top-0 w-full h-full z-[11000] bg-[#000000c7]"
         onClick={() => setShowOptions(false)}
       />
+
       <div
-        className={`fixed top-0 w-full md:max-w-[350px]  duration-300 h-screen z-[12000] bg-white shadow`}
+        className={`fixed top-0 w-[70%] md:max-w-[350px]  duration-300 h-screen z-[12000] bg-white shadow`}
       >
+        <button
+          className="w-full flex justify-end my-2 ltr:mr-3 rtl:ml-3"
+          onClick={() => setShowOptions(false)}
+        >
+          <Image
+            src="https://img.icons8.com/?size=20&id=71200&format=png&color=727C8E"
+            width={20}
+            height={20}
+          />
+        </button>
         {!selectedCategory?.id ? (
           <SidebarMenuList
             categories={categories}

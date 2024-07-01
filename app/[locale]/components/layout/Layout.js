@@ -46,10 +46,14 @@ const Layout = ({
           hideUpperMenu={hideUpperMenu}
         />
       )}
-      <div className={`md:max-w-[575px] md:mx-auto w-full full-page ${bodyClassName}`}>
+      <div
+        className={`md:max-w-[575px] md:mx-auto w-full full-page ${bodyClassName}`}
+      >
         {children}
       </div>
-      <Footer locale={locale} />
+      <div className="full-screen">
+        <Footer locale={locale} />
+      </div>
       {/* {showFooter ? <Footer locale={locale} /> : null}
       {hideBottomNav ? null : <BottomNav />} */}
       <BottomNav />

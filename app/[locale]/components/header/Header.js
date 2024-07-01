@@ -31,16 +31,18 @@ export const Header = async ({
   const categories = categoriesData;
   return (
     <header>
-      <NewsBar news={news?.data} setOpenNews={false} locale={locale} />
-      {hideUpperMenu ? null : <UpperBar locale={locale} />}
       <div className="full-screen">
+        <NewsBar news={news?.data} setOpenNews={false} locale={locale} />
+        {hideUpperMenu ? null : <UpperBar locale={locale} />}
         <MenuFull locale={locale} searchOnly={searchOnly} />
       </div>
       <div className="mob-screen">
         <Menu locale={locale} searchOnly={searchOnly} />
       </div>
       {/* <UpperMenu categories={categories} language={LANGUAGES?.[locale]}/> */}
-      <SubMenu language={LANGUAGES?.[locale]} categories={categories} />
+      <div className="full-screen">
+        <SubMenu language={LANGUAGES?.[locale]} categories={categories} />
+      </div>
       <SidebarMenu categories={categoriesTopLevel} />
     </header>
   );

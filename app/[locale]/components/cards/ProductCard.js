@@ -175,7 +175,7 @@ function ProductCard({
               </span>
             </div>
           </div>
-          <button
+          {/* <button
             className="flex item-center justify-start"
             onClick={() => setShowDetails(!showDetails)}
           >
@@ -186,7 +186,7 @@ function ProductCard({
               alt="shopping-cart--v1"
             />
             <span className="text-[10px] pt-1">{t("ADD_TO_CART")}</span>
-          </button>
+          </button> */}
           {/* {showDetails && (
             <div className="absolute top-0 left-0 w-full h-full bg-white bg-opacity-90 flex flex-col justify-center items-center p-4">
               <ProductCardSize

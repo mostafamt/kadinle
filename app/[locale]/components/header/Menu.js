@@ -23,9 +23,9 @@ export const Menu = async ({ locale, router, searchOnly }) => {
           <Image
             src="/logo.svg"
             alt="kadinle logo"
-            height={20}
-            width={120}
-            className="w-[110px] logo-sec"
+            height={28}
+            width={150}
+            className="w-[150px] logo-sec"
           />
         </Link>
         <div className="flex gap-2">

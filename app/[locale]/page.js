@@ -179,6 +179,7 @@ function PageContent({
             key={category?.id}
             languageId={LANGUAGES?.[locale]}
             t={t}
+            page="main"
           />
         ))}
         <CustomSlider

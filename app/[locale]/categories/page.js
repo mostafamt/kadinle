@@ -15,7 +15,7 @@ const page = async ({ params: { locale } }) => {
   return (
     <Layout locale={locale} searchOnly hideUpperMenu>
       <div className="full-screen">
-      <CategoriesBodyFull
+      <CategoriesBody
         categories={categoriesData}
         languageId={LANGUAGES?.[locale]}
       />

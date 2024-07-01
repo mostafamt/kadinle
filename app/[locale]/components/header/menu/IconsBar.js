@@ -11,22 +11,31 @@ import { useGlobalOptions } from "@/app/context/GlobalOptionsContext";
 import { useRouter } from "next/navigation";
 import { SearchBar } from "./SearchBar";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 export const IconsBar = ({ locale, languages, countries, searchOnly }) => {
   const router = useRouter();
   const { showOptions, setShowOptions, showAuthPopup, setShowAuthPopup } =
     useGlobalOptions();
 
-    const t = useTranslations();
-
+  const t = useTranslations();
   return (
-    <div className="flex gap-2 items-center justify-between">
+    <div className="flex gap-2 items-center justify-between relative">
       <div className="flex flex-col items-center justify-center">
-        {searchOnly ? null : <MenuBar />}
+        <MenuBar />
         <div className="text-[10px] text-[#727C8E]">{t("Category")}</div>
       </div>
 
-      <SearchBar />
+      <div className="flex gap-2 items-center">
+        <button className="mob-screen" onClick={() => router.back()}>
+          <Image
+            src="https://img.icons8.com/?size=100&id=39815&format=png&color=727C8E"
+            width={30}
+            height={30}
+          />
+        </button>
+        <SearchBar />
+      </div>
       {searchOnly ? null : (
         <div className="gap-2 flex">
           <LanguageBar languages={languages} locale={locale} />

@@ -104,15 +104,43 @@ const Filter = ({
           />
 
           {/* color */}
-          <div
-            className="py-4 border-t  justify-between flex text-[12px]"
-            onClick={() => setOpenColors(true)}
-          >
-            <label htmlFor="color" className="capitalize">
-              {t("color")}
-            </label>
-            <div className="flex gap-2 relative">
-              <button
+          <div className="py-1 border-t  justify-between flex gap-2 text-[12px]">
+            <div className="py-2">
+              <label htmlFor="color" className="capitalize bg-[#EFEFEF] h-fit">
+                {t("color")}
+              </label>
+            </div>
+            <div className="flex-1 flex flex-wrap gap-1">
+              {filters?.CACHE_COLORS?.map((color) => {
+                if (!color?.parent_id) {
+                  return (
+                    <label
+                      key={color?.id}
+                      onClick={(e) => insertIntoColors(color?.id)}
+                      name="color"
+                      className={`gap-1 cursor-pointer flex items-center justify-center overflow-hidden border-4 border-transparent ${
+                        selectedColors?.[color?.id] ? " !border-black" : ""
+                      } `}
+                    >
+                      {color?.hex === "multi" ? (
+                        <div className="h-5 w-5 border relative flex flex-wrap gap-1 p-1 justify-center overflow-hidden">
+                          <span className="rounded-full block w-[40%] h-[40%] bg-green-400" />
+                          <span className="rounded-full block w-[40%] h-[40%] bg-red-400" />
+                          <span className="rounded-full block w-[40%] h-[40%] bg-yellow-400" />
+                        </div>
+                      ) : (
+                        <span
+                          className="h-5 w-5 block rounded-full border !border-gray-500"
+                          style={{ background: color?.hex }}
+                        ></span>
+                      )}
+                    </label>
+                  );
+                }
+              })}
+            </div>
+            {/* <div className="flex gap-2 relative"> */}
+            {/* <button
                 style={{
                   background:
                     selectedColors?.hex === "multi"
@@ -144,25 +172,53 @@ const Filter = ({
                     }
                   })}
                 </ul>
-              ) : null}
+              ) : null} */}
 
-              <Image
+            {/* <Image
                 className={`w-[14px] ${openColors ? "rotate-90" : ""}`}
                 src={choose}
                 height={14}
                 width={14}
-              />
-            </div>
+              /> */}
+            {/* </div> */}
           </div>
 
           {/* size */}
-          <FilterRow
+          <div className="py-1 border-t  justify-between flex gap-2 text-[12px]">
+            <div className="py-2">
+              <label htmlFor="color" className="capitalize bg-[#EFEFEF] h-fit">
+                {t("size")}
+              </label>
+            </div>
+            <div className="flex-1 flex flex-wrap gap-1">
+              {filters?.CACHE_SIZES?.map((size) => {
+                return (
+                  <button
+                    key={size?.name}
+                    onClick={() => insertIntoSizes(size?.id)}
+                    className={`border h-7 px-2 w-fit ${
+                      selectedSizes?.hasOwnProperty(size?.id)
+                        ? "bg-opink text-owhite"
+                        : ""
+                    }`}
+                  >
+                    {
+                      size?.content?.find(
+                        (size) => size?.region_id === currency?.region_id
+                      )?.name
+                    }
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+          {/* <FilterRow
             onChange={insertIntoSizes}
             title={t("size")}
             list={filters?.CACHE_SIZES}
             keySearch={"region_id"}
             keyValue={currency?.region_id}
-          />
+          /> */}
 
           {/* season */}
           <FilterRow
