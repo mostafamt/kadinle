@@ -51,6 +51,7 @@ export default async function RootLayout({ children, params }) {
     notFound();
   }
 
+  console.log(locale,'locale');
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <NextIntlClientProvider locale={locale} messages={messages}>

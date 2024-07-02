@@ -400,7 +400,7 @@ const SingleCategoryDT = ({
                       <option value="POPULAR">{t("highestRated")}</option>
                     </select>
                   </div>
-                  <label
+                  {/* <label
                     className={`py-[3px] whitespace-nowrap capitalize ltr:lg:ml-auto rtl:lg:mr-auto px-2 flex justify-center gap-2 rounded-sm ${
                       isPlusSize ? "bg-primary text-white" : "text-primary"
                     } border border-primary items-center px-2"`}
@@ -413,7 +413,7 @@ const SingleCategoryDT = ({
                     />
 
                     {t("PLUS_SIZE")}
-                  </label>
+                  </label> */}
                 </div>
                 {!!productsFilter?.length ? (
                   <>

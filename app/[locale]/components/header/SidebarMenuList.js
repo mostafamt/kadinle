@@ -23,7 +23,8 @@ export const SidebarMenuList = ({
           );
           return (
             <li
-              className="flex gap-4 items-center px-4 py-2 hover:bg-gray-100 hover:shadow"
+              role="link"
+              className="flex cursor-pointer gap-4 items-center px-4 py-2 hover:bg-gray-100 hover:shadow border-b"
               key={category?.id}
               onClick={() => onClick(category)}
             >
@@ -41,7 +42,7 @@ export const SidebarMenuList = ({
                 </span>
               )}
               {content?.title}
-              <ChevronIcon className="ltr:ml-auto rtl:mr-auto w-7 h-7 ltr:-rotate-90 rtl:rotate-90 border border-transparent text-gray-600 hover:bg-white hover:border-gray-500 p-1 rounded-full" />
+              <ChevronIcon className="ltr:ml-auto cursor-poninter rtl:mr-auto w-7 h-7 ltr:-rotate-90 rtl:rotate-90 border border-transparent text-gray-600 hover:bg-white hover:border-gray-500 p-1 rounded-full" />
             </li>
           );
         })}

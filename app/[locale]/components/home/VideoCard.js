@@ -5,6 +5,7 @@ import React from "react";
 import { PlayCircleIcon } from "../Icons/PlayCircleIcon";
 import { StarIcon } from "./../Icons/StarIcon";
 import { useTranslations } from "next-intl";
+import { EyeIcon } from "../Icons/EyeIcon";
 const play = "https://kadinle.com/media/images/play.svg";
 
 function VideoCard({ review, layout, isLarge }) {
@@ -47,8 +48,9 @@ function VideoCard({ review, layout, isLarge }) {
         </h4>
         <div className="flex gap-2 items-center">
           <p className="text-[12px] flex-1 whitespace-nowrap text-ellipsis lg:text-[14px] text-gray-500">
+            <EyeIcon className="h-5 w-5" />
             {review?.views > 0
-              ? `${t("View_count")}: ${review?.views}`
+              ? `${review?.views}`
               : t("no_views")}
           </p>
           {review?.rating ? (

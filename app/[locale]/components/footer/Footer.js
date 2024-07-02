@@ -231,7 +231,7 @@ const Footer = ({ locale }) => {
               <span className="text-primary">{t("KADINLE_STORE")}</span> ©{" "}
               <span className="text-white">{new Date().getFullYear()}</span> -{" "}
               {t("DESIGNED_BY")}{" "}
-              <span className="text-dblue">WHY NOT Tech!</span> {t("copyright")}
+              <a href="https://www.whynot-tech.com/" className="text-dblue">WHY NOT Tech!</a> {t("copyright")}
             </p>
           </div>
         </div>

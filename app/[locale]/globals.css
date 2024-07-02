@@ -14,6 +14,13 @@
   }
 }
 
+.direction-ltr {
+  direction: ltr;
+}
+.direction-rtl {
+  direction: rtl;
+}
+
 body {
   overflow-x: hidden;
 }

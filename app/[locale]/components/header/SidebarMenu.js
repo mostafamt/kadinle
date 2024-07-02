@@ -8,6 +8,7 @@ import { useTranslations } from "next-intl";
 import { ChevronIcon } from "../Icons/ChevronIcon";
 import { useParams, usePathname, useRouter } from "next/navigation";
 import { getCategoriesById, getSingleCategory } from "@/app/api/supabase/home";
+import CloseIcon from "../Icons/CloseIcon";
 
 export const SidebarMenu = ({ categories }) => {
   const { language, setShowOptions, showOptions } = useGlobalOptions();
@@ -30,7 +31,7 @@ export const SidebarMenu = ({ categories }) => {
 
   const getCategory = async () => {
     const cate = await getSingleCategory(params?.id);
-    if(!cate?.error) setSelectedCategory(cate?.data?.at(0));
+    if (!cate?.error) setSelectedCategory(cate?.data?.at(0));
   };
 
   const getSubCategories = async () => {
@@ -42,6 +43,12 @@ export const SidebarMenu = ({ categories }) => {
         setShowOptions(false);
       }
     }
+  };
+
+  const backCategories = async () => {
+    if (selectedCategory?.parent_id) {
+      const cateRes = await getCategoriesById(selectedCategory?.parent_id);
+    } else setSelectedCategory(null);
   };
 
   if (!showOptions) return;
@@ -56,16 +63,16 @@ export const SidebarMenu = ({ categories }) => {
       <div
         className={`fixed top-0 w-[70%] md:max-w-[350px]  duration-300 h-screen z-[12000] bg-white shadow`}
       >
-        <button
-          className="w-full flex justify-end my-2 ltr:mr-3 rtl:ml-3"
-          onClick={() => setShowOptions(false)}
-        >
-          <Image
-            src="https://img.icons8.com/?size=20&id=71200&format=png&color=727C8E"
-            width={20}
-            height={20}
-          />
-        </button>
+        <div className="border-b p-4 flex items-center justify-between">
+          <h4>{t("Category")}</h4>
+          <button
+            onClick={() => setShowOptions(false)}
+            className="h-10 w-10 flex items-center justify-center bg-[#00000021] hover:bg-[#00000041] rounded-full"
+          >
+            <CloseIcon className="h-4 w-4 text-black" />
+          </button>
+        </div>
+
         {!selectedCategory?.id ? (
           <SidebarMenuList
             categories={categories}
@@ -74,7 +81,10 @@ export const SidebarMenu = ({ categories }) => {
         ) : (
           <div className="flex flex-col text-sm">
             <div className="flex items-center gap-2 p-2">
-              <button className="ltr:rotate-90 rtl:-rotate-180">
+              <button
+                onClick={backCategories}
+                className="flex ltr:rotate-90 rtl:-rotate-90 rotate"
+              >
                 <ChevronIcon />
               </button>
               <h3 className="flex-1 text-center md:text-lg font-medium">
