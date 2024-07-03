@@ -14,6 +14,7 @@ import SwiperCore, { Pagination, Navigation, Autoplay } from "swiper";
 
 SwiperCore.use([Pagination, Autoplay, Navigation]);
 
+// eslint-disable-next-line @next/next/no-async-client-component
 const HomeSwiper = async () => {
   const sliders = await getHomeSliders();
   const data = sliders?.data;
