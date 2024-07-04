@@ -8,6 +8,7 @@ import "swiper/swiper-bundle.min.css";
 
 SwiperCore.use([Pagination, Autoplay, Navigation]);
 
+<<<<<<< HEAD
 const HomeSwiper = () => {
   const [data, setData] = useState([]);
   const swiperRef = useRef(null);
@@ -26,6 +27,12 @@ const HomeSwiper = () => {
       console.log("Swiper instance:", swiperRef.current.swiper);
     }
   }, [swiperRef]);
+=======
+// eslint-disable-next-line @next/next/no-async-client-component
+const HomeSwiper = async () => {
+  const sliders = await getHomeSliders();
+  const data = sliders?.data;
+>>>>>>> 96c6b05dff06f1098887c4739e3906ceb1c1f57c
 
   return (
     <div className="h-[199px] md:h-[400px]">
