@@ -14,6 +14,7 @@ import { SubMenu } from "./SubMenu";
 import { UpperBar } from "./UpperBar";
 import { UpperMenu } from "./UpperMenu";
 import { SidebarMenu } from "./SidebarMenu";
+import { UpperBarDT } from "./UpperBarDT";
 
 export const Header = async ({
   locale,
@@ -26,23 +27,25 @@ export const Header = async ({
   const news = await getNews(LANGUAGES?.[locale]);
 
   const categoriesData = await getCategories();
-  const categoriesTopLevel = await getCategoriesTopLevel()
+  const categoriesTopLevel = await getCategoriesTopLevel();
 
   const categories = categoriesData;
   return (
     <header>
+      <NewsBar news={news?.data} setOpenNews={false} locale={locale} />
+
       <div className="full-screen">
-        <NewsBar news={news?.data} setOpenNews={false} locale={locale} />
-        {hideUpperMenu ? null : <UpperBar locale={locale} />}
+        {hideUpperMenu ? null : <UpperBarDT locale={locale} />}
         <MenuFull locale={locale} searchOnly={searchOnly} />
       </div>
       <div className="mob-screen">
+        {hideUpperMenu ? null : <UpperBar locale={locale} />}
         <Menu locale={locale} searchOnly={searchOnly} />
       </div>
       {/* <UpperMenu categories={categories} language={LANGUAGES?.[locale]}/> */}
-      <div className="full-screen">
+    
         <SubMenu language={LANGUAGES?.[locale]} categories={categories} />
-      </div>
+
       <SidebarMenu categories={categoriesTopLevel} />
     </header>
   );

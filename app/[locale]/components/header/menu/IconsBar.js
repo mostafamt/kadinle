@@ -26,16 +26,8 @@ export const IconsBar = ({ locale, languages, countries, searchOnly }) => {
         <div className="text-[10px] text-[#727C8E]">{t("Category")}</div>
       </div>
 
-      <div className="flex gap-2 items-center">
-        <button className="mob-screen" onClick={() => router.back()}>
-          <Image
-            src="https://img.icons8.com/?size=100&id=39815&format=png&color=727C8E"
-            width={30}
-            height={30}
-          />
-        </button>
-        <SearchBar />
-      </div>
+      <SearchBar />
+
       {searchOnly ? null : (
         <div className="gap-2 flex">
           <LanguageBar languages={languages} locale={locale} />

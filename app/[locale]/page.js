@@ -31,6 +31,7 @@ import ReviewsMob from "./components/home/ReviewsMob";
 import { NextIntlClientProvider, useTranslations } from "next-intl";
 import { default as Swiper } from "./components/swiper/swiper";
 import AboutUs from "./components/home/AboutUs";
+import { BenefitsDT } from "./components/home/BenefitsDT";
 
 export const revalidate = 60;
 
@@ -78,7 +79,6 @@ export default async function Home({ params: { locale } }) {
   const offersFetch = await getOffers();
   const offers = offersFetch?.data;
 
-  console.log("homeSectionsFetch2", homeSectionsFetch);
   return (
     <LocaleLayout
       locale={locale}
@@ -138,14 +138,20 @@ function PageContent({
   locale,
 }) {
   const t = useTranslations();
-    const translations = {
-      who_we_are: t("who_we_are"),
-      sales: t("sales"),
-      rating: t("ratings"),
-      map: t("map"),
-      best_quality: t("best_quality"),
-      kadinle_blog: t("kadinle_blog"),
-    };
+  const translations = {
+    who_we_are: t("who_we_are"),
+    sales: t("sales"),
+    rating: t("ratings"),
+    map: t("map"),
+    best_quality: t("best_quality"),
+    kadinle_blog: t("kadinle_blog"),
+    flashSale: t("flashSale"),
+    endAt: t("endAt"),
+    days: t("days"),
+    hours: t("hours"),
+    minutes: t("minutes"),
+    seconds: t("seconds"),
+  };
 
   return (
     <>
@@ -154,8 +160,14 @@ function PageContent({
       <PopupNameForm />
       {/* <Banner /> */}
       <WhyChooseUs t={t} />
-      <Benefits t={t} />
-      <SaleTimer remainingTime={remainingTime} />
+      <div className="full-screen">
+        <BenefitsDT t={t} />
+      </div>
+      <div className="mob-screen">
+        <Benefits t={t} />
+      </div>
+
+      <SaleTimer remainingTime={remainingTime} translations={translations} />
       <FlashSale offer={offers?.at(0)} languageId={LANGUAGES?.[locale]} />
       <AboutUs translations={translations} />
       <PriceLimit t={t} />

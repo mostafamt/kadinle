@@ -51,9 +51,9 @@ const Layout = ({
       >
         {children}
       </div>
-      <div className="full-screen">
+      
         <Footer locale={locale} />
-      </div>
+
       {/* {showFooter ? <Footer locale={locale} /> : null}
       {hideBottomNav ? null : <BottomNav />} */}
       <BottomNav />

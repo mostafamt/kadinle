@@ -67,7 +67,7 @@ export const NewsLatter = ({ locale, banner }) => {
             -10%
           </p>
         </div>
-        <div className="container relative z-10 flex-col h-fit justify-center gap-[20px] md:flex-row md:justify-between w-full flex  md:items-start">
+        <div className="container relative z-10 lg:px-4 flex-col h-fit justify-center gap-[20px] md:flex-row md:justify-between w-full flex  md:items-start">
           <p className="text-white ltr:text-left rtl:text-right lg:mt-0 w-full max-w-[370px] text-[16px] md:text-[20px] -mt-0.5 md:mt-0 xl:text-xl ">
             {t("subscribe_msg")}
           </p>

@@ -20,6 +20,7 @@ const Collections = ({ collections: collectionsData, locale, languageId }) => {
   const [swipeNum, setSwipeNum] = useState("");
 
   const t = useTranslations();
+  console.log("t2",t)
   const swiperRef = useRef(null);
 
   useEffect(() => {

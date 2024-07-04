@@ -6,9 +6,6 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 import { upperMenu } from "@/app/api/static/links";
 
-import { DrawerDow } from "./DrawerDow";
-import { links } from "@/app/api/static/links";
-
 export const SubMenu = ({ categories, language }) => {
   const t = useTranslations();
   const router = useRouter();
@@ -41,7 +38,7 @@ export const SubMenu = ({ categories, language }) => {
   }, [originalTop, sticky, myRef?.current]);
 
   return (
-    <nav className="flex flex-col relative menu bg-[#E1E1E1] text-[10px] text-[#767C89] py-1">
+    <nav className="flex flex-col relative menu bg-[#E1E1E1] text-[10px] text-[#767C89] py-1 lg:px-4">
       <div className="relative container mx-auto">
         <div
           ref={myRef}
@@ -51,7 +48,7 @@ export const SubMenu = ({ categories, language }) => {
         >
           <div className="relative container mx-auto">
             <div className={` top-0 ltr:left-0 rtl:right-0 z-20 w-full`}>
-              <ul className="flex items-center w-full justify-between scroll-hide gap-5 py-3 overflow-auto">
+              <ul className="flex flex-row-reverse items-center w-full justify-between scroll-hide gap-5 py-3 overflow-auto">
                 {upperMenu?.map((link) => (
                   <Link
                     key={link?.path}
@@ -59,7 +56,7 @@ export const SubMenu = ({ categories, language }) => {
                     className="text-[15px] font-normal"
                   >
                     <span className="text-gray-500 whitespace-nowrap min-w-fit flex-1 capitalize cursor-pointer text-center hover:text-[#111] hover:font-medium ">
-                      {link?.name}
+                      {t(link?.name)}
                     </span>
                   </Link>
                 ))}

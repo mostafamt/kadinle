@@ -2,10 +2,8 @@
 import { useEffect, useState } from "react";
 import { Timer } from "./Timer";
 import SaleTimerSkeleton from "../skeletons/SaleTimerSkeleton";
-import { useTranslations } from "next-intl";
 
-export const SaleTimer = ({ remainingTime: timer }) => {
-  const t = useTranslations();
+export const SaleTimer = ({ remainingTime: timer, translations }) => {
   const [remainingTime, setRemainingTime] = useState(null);
 
   useEffect(() => {
@@ -15,10 +13,10 @@ export const SaleTimer = ({ remainingTime: timer }) => {
   useEffect(() => {
     const timer = setInterval(() => {
       if (
-        remainingTime?.days === 0 &&
-        remainingTime?.hours === 0 &&
-        remainingTime?.minutes === 0 &&
-        remainingTime?.seconds === 0
+        remainingTime.days === 0 &&
+        remainingTime.hours === 0 &&
+        remainingTime.minutes === 0 &&
+        remainingTime.seconds === 0
       ) {
         clearInterval(timer);
       } else {
@@ -45,17 +43,17 @@ export const SaleTimer = ({ remainingTime: timer }) => {
   if (!remainingTime) return <SaleTimerSkeleton />;
 
   return (
-    <div className="w-full bg-primary text-white ">
-      <div className="w-[90%] mx-auto flex justify-center gap-2 xs:gap-8 items-center py-2">
-        <div className="flex flex-col capitalize">
-          <h3 className="text-xs xs:text-[16px] uppercase mb-[4px] whitespace-nowrap">
-            {t("flashSale")}
-          </h3>
-          <h4 className="text-xs xs:text-[16px] uppercase whitespace-nowrap">
-            {t("endAt")}:
-          </h4>
+    <div className="w-full bg-primary text-white mb-4">
+      <div className="container">
+        <div className="flex justify-center gap-8 md:gap-22 lg:gap-40 items-center p-2 max-w-[90%] mx-auto">
+          <div className="flex flex-col capitalize">
+            <h3 className="text-[22px] -mb-2 font-medium capitalize">
+              {translations.flashSale}
+            </h3>
+            <h4 className="text-[22px] font-medium">{translations.endAt}:</h4>
+          </div>
+          <Timer remainingTime={remainingTime} translations={translations}/>
         </div>
-        <Timer remainingTime={remainingTime} />
       </div>
     </div>
   );
