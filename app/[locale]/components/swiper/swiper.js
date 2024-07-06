@@ -17,11 +17,11 @@ SwiperCore.use([Pagination, Autoplay, Navigation]);
 const HomeSwiper = async () => {
   const sliders = await getHomeSliders();
   const data = sliders?.data;
-  console.log("HomeSwiper", sliders);
+  console.log("HomeSwiper", data);
 
   return (
     <div className="h-[199px] md:h-[400px]">
-      {/* <Swiper
+      <Swiper
         navigation
         modules={[Autoplay, Pagination, Navigation]}
         autoplay={{
@@ -44,7 +44,7 @@ const HomeSwiper = async () => {
             />
           </SwiperSlide>
         ))}
-      </Swiper> */}
+      </Swiper>
     </div>
   );
 };
