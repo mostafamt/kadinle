@@ -163,7 +163,7 @@ function PageContent({
 
   return (
     <>
-      <Swiper />
+      <Swiper languageId={LANGUAGES?.[locale]} />
       <ScrollUpComponent />
       <PopupNameForm />
       <WhyChooseUs t={t} />

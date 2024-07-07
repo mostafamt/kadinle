@@ -1,6 +1,4 @@
 "use client";
-import Image from "next/image";
-import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { CategoriesHead } from "./CategoriesHead";
 import { CategoryBanner } from "../home/CategoryBanner";

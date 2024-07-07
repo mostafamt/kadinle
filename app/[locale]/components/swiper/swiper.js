@@ -14,10 +14,10 @@ import SwiperCore, { Pagination, Navigation, Autoplay } from "swiper";
 
 SwiperCore.use([Pagination, Autoplay, Navigation]);
 
-const HomeSwiper = async () => {
+const HomeSwiper = async ({languageId}) => {
   const sliders = await getHomeSliders();
   const data = sliders?.data;
-  console.log("HomeSwiper", data);
+  const content = data?.filter((c) => c?.language_id == languageId);
 
   return (
     <div className="h-[199px] md:h-[400px]">
@@ -28,10 +28,10 @@ const HomeSwiper = async () => {
           delay: 2500,
           disableOnInteraction: false,
         }}
+        loop={true}
       >
-        {data.map((item) => (
+        {content.map((item) => (
           <SwiperSlide key={item.image}>
-	
             <Image
               className="w-fit object-cover max-h-[199px] md:max-h-[400px]"
               src={item.mobile_image}
