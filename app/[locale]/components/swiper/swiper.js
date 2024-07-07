@@ -18,6 +18,7 @@ const HomeSwiper = async ({languageId}) => {
   const sliders = await getHomeSliders();
   const data = sliders?.data;
   const content = data?.filter((c) => c?.language_id == languageId);
+  console.log("HomeSwiper", content);
 
   return (
     <div className="h-[199px] md:h-[400px]">
@@ -32,16 +33,30 @@ const HomeSwiper = async ({languageId}) => {
       >
         {content.map((item) => (
           <SwiperSlide key={item.image}>
-            <Image
-              className="w-fit object-cover max-h-[199px] md:max-h-[400px]"
-              src={item.mobile_image}
-              alt={item.description}
-              width={500}
-              height={200}
-              style={{
-                width: "100%",
-              }}
-            />
+            <div className="mob-screen">
+              <Image
+                className="w-fit object-cover max-h-[199px] md:max-h-[400px]"
+                src={item.mobile_image}
+                alt={item.description}
+                width={500}
+                height={200}
+                style={{
+                  width: "100%",
+                }}
+              />
+            </div>
+            <div className="full-screen">
+              <Image
+                className="w-fit object-cover max-h-[199px] md:max-h-[400px]"
+                src={item.web_image}
+                alt={item.description}
+                width={500}
+                height={200}
+                style={{
+                  width: "100%",
+                }}
+              />
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>
