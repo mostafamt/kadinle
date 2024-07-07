@@ -88,6 +88,7 @@ export const CategoryBanner = async ({
   const t = useTranslations()
   if (category?.content?.at(0)?.id) console.log(category, "category");
 
+  // const categoryInfo = category?.content?.find(
   const categoryInfo = category?.content?.find(
     (cat) => cat.language_id === languageId
   );
