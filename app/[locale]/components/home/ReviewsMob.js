@@ -14,7 +14,7 @@ SwiperCore.use([Pagination, Navigation]);
 
 const Curve2 = "https://kadinle.com/media/images/Curve2.svg";
 
-const ReviewsMob = ({ reviews, sectionSettings }) => {
+const ReviewsMob = ({ reviews, sectionSettings, CustomersReviews }) => {
   const t = useTranslations();
   return (
     <div
@@ -26,7 +26,7 @@ const ReviewsMob = ({ reviews, sectionSettings }) => {
       className="relative w-full mb-8  flex flex-col items-center justify-center overflow-y-visible"
     >
       <SectionTitle
-        title={t("customersReviews")}
+        title={CustomersReviews}
         containerClassName="!justify-start !items-start !mb-8 !px-4"
       />
 

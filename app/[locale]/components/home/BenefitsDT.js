@@ -39,14 +39,16 @@ const benefitsList = [
 export const BenefitsDT = ({ t }) => {
   return (
     <div className="flex flex-col space-y-4 items-center mt-4">
-      {/* <div className="flex flex-col space-y-1 justify-center md:justify-start text-center">
+      <div className="full-screen">
+        <div className="flex flex-col space-y-1 justify-center md:justify-start text-center">
         <h2 className="text-xl md:text-2xl font-medium hover:text-primary cursor-pointer">
           {t("many_benefits")}
         </h2>
         <div className="bg-primary w-[20%] lg:w-[80px] h-[8px] rounded-xl"></div>
-      </div> */}
+      </div>
+      </div>
       <div className="flex justify-center bg-[#e2e2e2] w-full">
-        <div className="container-v-lrg w-[100%] px-4">
+        <div className="container-v-lrg w-[100%] p-4">
           <div className="w-full flex justify-center">
             <div className="flex lg:w-none lg:max-w-none lg:space-y-0 justify-center gap-4 lg:gap-6 py-6">
               {benefitsList?.map((info) => (

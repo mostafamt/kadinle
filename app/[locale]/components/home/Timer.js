@@ -11,7 +11,7 @@ export const Timer = ({ remainingTime, translations }) => {
       {Object.entries(remainingTime)?.map(([key, value], index) => {
         return (
           <div className="flex items-center gap-2" key={key}>
-            <div className="flex flex-col w-[45px]">
+            <div className="flex flex-col w-[50px]">
               <div className="bg-white text-black py-[1px] rounded-t-md flex items-center justify-center">
                 <p className="text-primary font-medium text-[22px]">
                   {!isNaN(value) ? value?.toString()?.padStart(2, "0") : 0}

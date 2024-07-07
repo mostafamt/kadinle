@@ -39,6 +39,9 @@ export const getCategories = async () => {
   return categoriesWithoutKidsCategory;
 };
 
+export const getCollections = async () =>
+  await supabase.from("collection").select(`*, collection_content(*)`);
+
 export const getOfferedProduct = async () => {
   const res = await supabase.from("sale").select("*");
   const data = res?.data?.[0];

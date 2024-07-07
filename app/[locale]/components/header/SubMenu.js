@@ -48,7 +48,7 @@ export const SubMenu = ({ categories, language }) => {
         >
           <div className="relative container mx-auto">
             <div className={` top-0 ltr:left-0 rtl:right-0 z-20 w-full`}>
-              <ul className="flex flex-row-reverse items-center w-full justify-between scroll-hide gap-5 py-3 overflow-auto">
+              <ul className="flex flex-row-reverse items-center w-full justify-between scroll-hide px-5 py-4 overflow-auto">
                 {upperMenu?.map((link) => (
                   <Link
                     key={link?.path}

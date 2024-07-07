@@ -9,7 +9,10 @@ export const OurPartners = async ({ locale, partners }) => {
 
   return (
     <div className="bg-white p-4 my-4 relative">
-      <SectionTitle title={"our partners"} containerClassName="!mt-0" />
+      <div className="w-full flex justify-center items-center">
+        <SectionTitle title={"our partners"} containerClassName="!mt-0" />
+      </div>
+
       <div className="grid grid-cols-2 xs:grid-cols-3 md:grid-cols-4 gap-4 mt-8 container mx-auto">
         {partners?.map((partner, index) => (
           <Link
@@ -28,7 +31,9 @@ export const OurPartners = async ({ locale, partners }) => {
               width={80}
               className="object-contain w-20 h-20"
             />
-            <h3 className="text-gray-600 text-xs capitalize">{partner?.name}</h3>
+            <h3 className="text-gray-600 text-xs capitalize">
+              {partner?.name}
+            </h3>
           </Link>
         ))}
       </div>

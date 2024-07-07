@@ -17,7 +17,7 @@ function VideoCard({ review, layout, isLarge }) {
   };
 
   return (
-    <div className="relative flex flex-col border border-[#E264AD] p-[3px] rounded-md">
+    <div className="relative flex flex-col border border-[#E264AD] p-[3px] rounded-md min-w-[100%]">
       <div
         className={`relative w-full ${
           isLarge ? "h-full" : " h-[220px] sm:h-[280px]"
@@ -47,11 +47,13 @@ function VideoCard({ review, layout, isLarge }) {
             : review?.name}
         </h4>
         <div className="flex gap-2 items-center">
-          <p className="text-[12px] flex-1 whitespace-nowrap text-ellipsis lg:text-[14px] text-gray-500">
+          <p className="text-[12px] flex-1 whitespace-nowrap text-ellipsis lg:text-[14px] text-gray-500 flex gap-1 items-center">
             <EyeIcon className="h-5 w-5" />
-            {review?.views > 0
-              ? `${review?.views}`
-              : t("no_views")}
+            {review?.views > 0 ? (
+              <span> {review?.views}</span>
+            ) : (
+              t("no_views")
+            )}
           </p>
           {review?.rating ? (
             <div className="flex gap-1 text-white items-center px-1 py-[2px] bg-primary rounded-md">

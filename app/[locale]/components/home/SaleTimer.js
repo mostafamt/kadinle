@@ -52,7 +52,7 @@ export const SaleTimer = ({ remainingTime: timer, translations }) => {
             </h3>
             <h4 className="text-[22px] font-medium">{translations.endAt}:</h4>
           </div>
-          <Timer remainingTime={remainingTime} translations={translations}/>
+          <Timer remainingTime={remainingTime} translations={translations} />
         </div>
       </div>
     </div>

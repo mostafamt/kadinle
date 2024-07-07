@@ -8,12 +8,11 @@ const FlashSale = ({ languageId, offer }) => {
   );
 
   return (
-    <div className="mx-2 my-3 container mx-auto">
-
+    <div className="my-3 container mx-auto px-4">
       <div className="flash-full">
         <Link
           href="/categories/flash-sale"
-          className={`relative rounded-xl overflow-hidden h-[250px] flex items-center justify-center w-full mt-5`}
+          className={`relative rounded-xl overflow-hidden md:h-[350px] flex items-center justify-center w-full mt-5`}
         >
           <Image
             src={

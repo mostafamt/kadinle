@@ -12,7 +12,7 @@ import { SmallCard } from "./SmallCard";
 
 SwiperCore.use([Pagination]);
 
-export const OurNew = ({ products, sectionSettings, order }) => {
+export const OurNew = ({ products, sectionSettings, order, ourNew,seeMore }) => {
   const t = useTranslations();
   const [target, setTarget] = useState(0);
   const [swiper, setSwiper] = useState(null);
@@ -31,16 +31,13 @@ export const OurNew = ({ products, sectionSettings, order }) => {
         display: !sectionSettings?.display_home && "none !important",
       }}
     >
-      <div className=" w-full px-2 mb-2 flex justify-between items-center container mx-auto">
-        <SectionTitle
-          title={t("ourNew")}
-          containerClassName="!w-auto !mt-0 !mb-0"
-        />
+      <div className=" w-full px-4 mb-2 flex justify-between items-center container mx-auto">
+        <SectionTitle title={ourNew} containerClassName="!w-auto !mt-0 !mb-0" />
         <Link
           href={`/categories/new-arrivals`}
-          className="capitalize text-sm text-primary no-underline cursor-pointer"
+          className="capitalize text-sm md:text-xl md:font-semibold text-primary no-underline cursor-pointer"
         >
-          {t("SEE_MORE")}
+          {seeMore}
         </Link>
       </div>
       <div className="flex relative justify-center w-full bg-opink my-2 mt-4">

@@ -15,9 +15,11 @@ const PriceLimitCard = ({ text, link, img }) => {
         height={200}
         width={200}
       />
-      <h3 className="absolute w-full h-full flex items-center justify-center top-0 left-0 text-white font-semibold capitalize text-center text-base">
-        {text}
-      </h3>
+
+        <h3 className="absolute w-full lg:w-[200px] h-full flex items-center justify-center top-0 left-0 lg:left-[30%] md:m-auto text-white font-semibold capitalize text-center max-lg:text-base lg:text-[24px]">
+          {text}
+        </h3>
+
     </Link>
   );
 };

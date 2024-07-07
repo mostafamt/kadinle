@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { unstable_setRequestLocale } from "next-intl/server";
 import { LANGUAGES, SECTIONS_ORDER } from "../api/static/constants";
 import {
+  getCollections,
   getCustomersReviews,
   getHomeCategory,
   getHomeSections,
@@ -59,6 +60,9 @@ export default async function Home({ params: { locale } }) {
     }
   };
 
+  const collectionsFetch = await getCollections();
+  const collections = collectionsFetch?.data;
+
   const res = await supabase.auth.getUser();
   const homeSectionsOrder = await homeSectionsOrderFetch();
 
@@ -89,6 +93,7 @@ export default async function Home({ params: { locale } }) {
       homeSections={homeSections}
       reviews={reviews}
       offers={offers}
+      collections={collections}
     />
   );
 }
@@ -110,6 +115,7 @@ function LocaleLayout({
   homeSections,
   reviews,
   offers,
+  collections,
 }) {
   return (
     <Layout locale={locale} showFooter>
@@ -122,6 +128,7 @@ function LocaleLayout({
           reviews={reviews}
           offers={offers}
           locale={locale}
+          collections={collections}
         />
       </NextIntlClientProvider>
     </Layout>
@@ -136,6 +143,7 @@ function PageContent({
   reviews,
   offers,
   locale,
+  collections,
 }) {
   const t = useTranslations();
   const translations = {
@@ -158,7 +166,6 @@ function PageContent({
       <Swiper />
       <ScrollUpComponent />
       <PopupNameForm />
-      {/* <Banner /> */}
       <WhyChooseUs t={t} />
       <div className="full-screen">
         <BenefitsDT t={t} />
@@ -175,14 +182,17 @@ function PageContent({
         <Offer offer={offers?.at(1)} languageId={LANGUAGES?.[locale]} />
       ) : null}
       <Collections
-        collections={homeSections?.home_collections}
+        collections={collections}
         locale={locale}
         languageId={LANGUAGES?.[locale]}
+        seeMore={t("SEE_MORE")}
       />
-      <SectionTitle
-        title={t("All_your_needs_here")}
-        classname="container mx-auto"
-      />
+      <div className="flex flex-col space-y-4 items-center my-4">
+        <SectionTitle
+          title={t("All_your_needs_here")}
+          className="container mx-auto"
+        />
+      </div>
       <div className="flex flex-col">
         {categories?.map((category) => (
           <CategoryBanner
@@ -202,6 +212,9 @@ function PageContent({
         <VideoSection
           videos={homeSections?.our_videos}
           head={t("ourVideos")}
+          seeMore={t("seeMore")}
+          viewCount={t("View_count")}
+          noView={t("no_views")}
           layout="our-videos"
           sectionSettings={homeSectionsOrder?.["our videos"]}
           locale={locale}
@@ -227,13 +240,17 @@ function PageContent({
           products={homeSections?.latest_products}
           sectionSettings={homeSectionsOrder?.["our new"]}
           order={20}
+          ourNew={t("ourNew")}
+          seeMore={t("SEE_MORE")}
         />
       </div>
+
       <div className="full-screen">
         <Reviews
           reviews={reviews}
           sectionSettings={homeSectionsOrder?.["reviews"]}
           locale={locale}
+          CustomersReviews={t("Customers_Reviews")}
         />
       </div>
       <div className="mob-screen">
@@ -241,6 +258,7 @@ function PageContent({
           reviews={reviews}
           sectionSettings={homeSectionsOrder?.["reviews"]}
           locale={locale}
+          CustomersReviews={t("Customers_Reviews")}
         />
       </div>
       <OurPartners locale={locale} partners={homeSections?.partners ?? []} />

@@ -3,7 +3,8 @@ import Link from "next/link";
 
 import { PrimaryArrowIcon } from "../Icons/PrimaryArrowIcon";
 
-export const CollectionCard = ({ collection, t }) => {
+export const CollectionCard = ({ collection,seeMore }) => {
+  
   return (
     <div className="relative overflow-hidden rounded-lg">
       <div className="bg-gray-50">
@@ -21,7 +22,7 @@ export const CollectionCard = ({ collection, t }) => {
         className="absolute bottom-4 ltr:left-4 rtl:right-4 transition-all duration-300 w-fit text-primary px-1 cursor-pointer flex rtl:flex-row-reverse items-center  scale-[1] bg-[#FFFFFF] hover:scale-[1.1]  py-[2px] rounded-3xl justify-between gap-2"
       >
         <span className="text-sm  text-[10px] flex-1 text-center px-2">
-          {t("SEE_MORE")}
+          {seeMore}
         </span>
         <PrimaryArrowIcon
           containerClassName="!h-8 !w-8"

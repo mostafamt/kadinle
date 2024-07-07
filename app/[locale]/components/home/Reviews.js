@@ -11,7 +11,7 @@ import { TestimonialCard } from "../cards/TestimonialCard";
 const circle2 = "https://kadinle.com/media/images/circle2.png";
 const Curve = "https://kadinle.com/media/images/curve.svg";
 
-export const Reviews = ({ reviews, sectionSettings }) => {
+export const Reviews = ({ reviews, sectionSettings, CustomersReviews }) => {
   const t = useTranslations();
   const { language } = useGlobalOptions();
   const [forward, setForward] = useState(true);
@@ -73,7 +73,7 @@ export const Reviews = ({ reviews, sectionSettings }) => {
       id="reviews"
       className="h-[740px] overflow-hidden relative w-full mt-[75px] flex flex-col items-center"
     >
-      <SectionTitle title={t("Customers_Reviews")} />
+      <SectionTitle title={CustomersReviews} />
       <div className={`absolute block w-full  mt-[50px] lg:mt-[4%]`}>
         <Image
           src={Curve}

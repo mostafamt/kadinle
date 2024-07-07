@@ -14,13 +14,11 @@ import { CollectionsSkeleton } from "../skeletons/CollectionsSkeleton";
 
 SwiperCore.use([Pagination, Navigation]);
 
-const Collections = ({ collections: collectionsData, locale, languageId }) => {
+const Collections = ({ collections: collectionsData, locale, languageId,seeMore }) => {
   const [collections, setCollections] = useState(null);
   const [loading, setLoading] = useState(true);
   const [swipeNum, setSwipeNum] = useState("");
 
-  const t = useTranslations();
-  console.log("t2",t)
   const swiperRef = useRef(null);
 
   useEffect(() => {
@@ -90,7 +88,7 @@ const Collections = ({ collections: collectionsData, locale, languageId }) => {
                   if (collectionContent) {
                     return (
                       <SwiperSlide key={collection?.id}>
-                        <CollectionCard t={t} collection={collectionContent} />
+                        <CollectionCard seeMore={seeMore} collection={collectionContent} />
                       </SwiperSlide>
                     );
                   }

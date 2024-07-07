@@ -13,6 +13,7 @@ import { useTranslations } from "next-intl";
 import VideoCard from "./VideoCard";
 import { SectionTitle } from "../global/SectionTitle";
 import VideosSliderSkeleton from "../skeletons/VideosSliderSkeleton";
+import VideoCardDT from "./VideoCardDT";
 SwiperCore.use([Pagination, Navigation]);
 
 export const VideoSection = ({
@@ -22,6 +23,9 @@ export const VideoSection = ({
   sectionSettings,
   locale,
   order,
+  seeMore,
+  viewCount,
+  noView,
 }) => {
   const [loadingClient, setLoadingClient] = useState(true);
   const t = useTranslations();
@@ -67,7 +71,7 @@ export const VideoSection = ({
             order: sectionSettings?.section_order,
             display: !sectionSettings?.display_home && "none !important",
           }}
-          className={`my-3 px-2 container mx-auto`}
+          className={`my-3 px-4 py-10 container mx-auto`}
         >
           <div className="flex flex-col space-y-3">
             <div className=" w-full flex justify-between items-center">
@@ -77,13 +81,13 @@ export const VideoSection = ({
               />
               <Link
                 href={`/videos/${layout}?v=${randomVideo}`}
-                className="capitalize text-sm text-primary no-underline cursor-pointer"
+                className="capitalize text-sm md:text-xl md:font-semibold text-primary no-underline cursor-pointer"
               >
-                {t("SEE_MORE")}
+                {seeMore}
               </Link>
             </div>
-            <div className="w-[100%] flex items-center relative">
-              <div className=" overflow-hidden">
+            <div className="w-[100%]  md:w-[80%] flex items-center relative">
+              <div className="w-[100%] md:w-[80%]">
                 <Swiper
                   dir="ltr"
                   pagination={{
@@ -110,7 +114,17 @@ export const VideoSection = ({
                 >
                   {videos.slice(0, 31)?.map((review) => (
                     <SwiperSlide key={review?.id}>
-                      <VideoCard review={review} layout={layout} />
+                      <div className="full-screen">
+                        <VideoCardDT
+                          viewCount={viewCount}
+                          noView={noView}
+                          review={review}
+                          layout={layout}
+                        />
+                      </div>
+                      <div className="mob-screen">
+                        <VideoCard review={review} layout={layout} />
+                      </div>
                     </SwiperSlide>
                   ))}
                 </Swiper>

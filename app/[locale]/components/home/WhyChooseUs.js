@@ -29,10 +29,10 @@ const whyList = [
 ];
 export const WhyChooseUs = ({ t }) => {
   return (
-    <div className={` flex justify-center items-center mt-[40px] mb-8 whychoose-parent`}>
+    <div className={` flex justify-center items-center mt-[40px] mb-8 whychoose-parent px-4`}>
       <div className="flex flex-col space-y-4 items-center container w-[100%]">
         <div className="flex flex-col space-y-1 justify-center md:justify-start">
-          <p className="text-xl md:text-2xl font-medium text-sec ">{t("why_us_msg")}</p>
+          <p className="text-xl md:text-2xl font-medium">{t("why_us_msg")}</p>
           <div className="bg-primary w-[80px] h-[8px] rounded-xl "></div>
         </div>
         <div className="flex justify-start lg:space-y-0  gap-4 lg:gap-10 sm:p-0 whychoose">

@@ -22,7 +22,7 @@ const PriceLimit = ({ t }) => {
   ];
 
   return (
-    <div className="w-full px-2 mb-3 container mx-auto">
+    <div className="w-full px-4 mb-3 mt-10 container mx-auto flex flex-col space-y-4 items-center">
       <SectionTitle title={t("lessThan")} />
       <div className="w-full grid grid-cols-3 h-[110px] items-center gap-1 limit-parent">
         {DATA.map((item) => (

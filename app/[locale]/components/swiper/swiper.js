@@ -33,7 +33,7 @@ const HomeSwiper = async () => {
           <SwiperSlide key={item.image}>
 	
             <Image
-              className="w-fit mob-screen"
+              className="w-fit object-cover max-h-[199px] md:max-h-[400px]"
               src={item.mobile_image}
               alt={item.description}
               width={500}

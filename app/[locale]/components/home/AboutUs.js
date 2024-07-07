@@ -34,7 +34,7 @@ const AboutUs = ({ translations }) => {
   ];
 
   return (
-    <div className="mb-3 container mx-auto overflow-hidden">
+    <div className="mb-3 container mx-auto overflow-hidden px-4">
       <Swiper
         dir="ltr"
         pagination={{
