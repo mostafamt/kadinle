@@ -45,7 +45,7 @@ export const Benefits = ({ t }) => {
       <div className="flex justify-center bg-[#e2e2e2] w-full benefit-parent">
         <div className="container-v-lrg w-[100%]">
           <div className="w-full flex justify-center">
-            <div className="flex justify-between gap-2 py-5 w-[90%]  scroll-hide overflow-auto">
+            <div className="flex justify-between gap-2 w-[90%]  scroll-hide overflow-auto">
               {benefitsList?.map((info) => (
                 <Link
                   key={info?.title}

@@ -38,17 +38,17 @@ export const SubMenu = ({ categories, language }) => {
   }, [originalTop, sticky, myRef?.current]);
 
   return (
-    <nav className="flex flex-col relative menu bg-[#E1E1E1] text-[10px] text-[#767C89] py-1 lg:px-4">
-      <div className="relative container mx-auto">
+    <nav className="flex flex-col relative menu bg-[#E1E1E1] text-[10px] text-[#767C89]">
+      <div className="relative">
         <div
           ref={myRef}
           className={`${
             sticky === true ? "fixed " : "relative"
           } bg-[#E1E1E1] top-0 ltr:left-0 rtl:right-0 z-20 w-full`}
         >
-          <div className="relative container mx-auto">
+          <div className="relative">
             <div className={` top-0 ltr:left-0 rtl:right-0 z-20 w-full`}>
-              <ul className="flex flex-row-reverse items-center w-full justify-between scroll-hide px-5 py-4 overflow-auto">
+              <ul className="flex flex-row-reverse items-center w-full justify-between gap-4 scroll-hide px-5 py-4 overflow-auto">
                 {upperMenu?.map((link) => (
                   <Link
                     key={link?.path}

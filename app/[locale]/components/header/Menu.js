@@ -16,16 +16,16 @@ export const Menu = async ({ locale, router, searchOnly }) => {
   const countries = responseCountries;
 
   return (
-    <div className="pt-3 pb-1 md:mx-auto w-full container mx-auto">
+    <div className="px-2 pt-3 pb-1 md:max-w-[575px] md:mx-auto w-full">
       <div className="flex gap-2 mb-2 justify-between items-center">
         <NotificationBar />
         <Link href="/" className="md:flex-1 flex justify-center">
           <Image
             src="/logo.svg"
             alt="kadinle logo"
-            height={28}
-            width={150}
-            className="w-[150px] logo-sec"
+            height={20}
+            width={120}
+            className="w-[110px]"
           />
         </Link>
         <div className="flex gap-2">

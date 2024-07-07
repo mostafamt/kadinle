@@ -14,6 +14,7 @@ import SwiperCore, { Pagination, Navigation, Autoplay } from "swiper";
 
 SwiperCore.use([Pagination, Autoplay, Navigation]);
 
+// eslint-disable-next-line @next/next/no-async-client-component
 const HomeSwiper = async ({languageId}) => {
   const sliders = await getHomeSliders();
   const data = sliders?.data;
@@ -21,46 +22,72 @@ const HomeSwiper = async ({languageId}) => {
   console.log("HomeSwiper", content);
 
   return (
-    <div className="h-[199px] md:h-[400px]">
-      <Swiper
-        navigation
-        modules={[Autoplay, Pagination, Navigation]}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-        loop={true}
-      >
-        {content.map((item) => (
-          <SwiperSlide key={item.image}>
-            <div className="mob-screen">
+    <div className="">
+      <div className="full-screen">
+        <Swiper
+          navigation
+          modules={[Autoplay, Pagination, Navigation]}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          loop={true}
+        >
+          {content.map((item) => (
+            <SwiperSlide key={item.image}>
               <Image
-                className="w-fit object-cover max-h-[199px] md:max-h-[400px]"
-                src={item.mobile_image}
-                alt={item.description}
-                width={500}
-                height={200}
-                style={{
-                  width: "100%",
-                }}
-              />
-            </div>
-            <div className="full-screen">
-              <Image
-                className="w-fit object-cover max-h-[199px] md:max-h-[400px]"
+                className="w-fit object-cover"
                 src={item.web_image}
                 alt={item.description}
-                width={500}
-                height={200}
+                width={1200}
+                height={400}
                 style={{
                   width: "100%",
                 }}
               />
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+      <div className="mob-screen">
+        <Swiper
+          pagination={{
+            renderBullet: function (index, className) {
+              return `<span class="${className}"></span>`;
+            },
+            clickable: true,
+            bulletClass: "swiper-bullet",
+            bulletActiveClass: "swiper-bullet-active",
+          }}
+          modules={[Pagination]}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          loop={true}
+        >
+          {content.map((item) => (
+            <SwiperSlide key={item.image}>
+              <Image
+                className="w-fit object-cover"
+                src={item.mobile_image}
+                alt={item.description}
+                width={1000}
+                height={500}
+                style={{
+                  width: "100%",
+                }}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </div>
   );
 };
 export default HomeSwiper;
+       {
+         /* <div className="mob-screen">
+              
+            </div> */
+       }
