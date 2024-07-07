@@ -77,13 +77,15 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { PrimaryArrowIcon } from "../Icons/PrimaryArrowIcon";
+import { useTranslations } from "next-intl";
 
 export const CategoryBanner = async ({
   category,
   homeSectionsOrder,
   languageId,
-  t,
+
 }) => {
+  const t = useTranslations()
   if (category?.content?.at(0)?.id) console.log(category, "category");
 
   const categoryInfo = category?.content?.find(

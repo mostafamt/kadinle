@@ -86,7 +86,7 @@ export default async function Home({ params: { locale } }) {
   return (
     <LocaleLayout
       locale={locale}
-      messages={await getMessages(locale)}
+      messages={(await import(`../../messages/${locale}.json`)).default}
       homeSectionsOrder={homeSectionsOrder}
       remainingTime={remainingTime}
       categories={categories}
