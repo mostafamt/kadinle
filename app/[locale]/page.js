@@ -176,7 +176,7 @@ function PageContent({
       </div>
 
       <SaleTimer remainingTime={remainingTime} translations={translations} />
-      {/* <FlashSale offer={offers?.at(0)} languageId={LANGUAGES?.[locale]} /> */}
+      <FlashSale offer={offers?.at(0)} languageId={LANGUAGES?.[locale]} />
       {/* anther vercel issue */}
       {/* anther vercel issue */}
       <div className="lg:max-w-[1400px] lg:m-auto lg:px-4">
