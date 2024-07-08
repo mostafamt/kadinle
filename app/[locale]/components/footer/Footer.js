@@ -9,6 +9,7 @@ import Link from "next/link";
 import React from "react";
 import { NewsLatter } from "../home/NewsLatter";
 import { useTranslations } from "next-intl";
+import { NewsLatterDT } from "../home/NewsLatterDT";
 const banner = "https://kadinle.com/media/images/banner.png";
 
 const Footer = ({ locale }) => {
@@ -16,7 +17,12 @@ const Footer = ({ locale }) => {
 
   return (
     <footer>
-      <NewsLatter banner={banner} locale={locale} />
+      <div className="full-screen">
+        <NewsLatter banner={banner} locale={locale} />
+      </div>
+      <div className="mob-screen">
+        <NewsLatterDT banner={banner} locale={locale} />
+      </div>
       <div className="flex flex-col justify-center items-center bg-fgray">
         <div className="flex flex-col items-center w-[90%] lg:w-[98%]">
           <div className="flex flex-col md:items-center lg:items-start w-full justify-between pt-5 pb-3 lg:py-20 px-0 text-xs dir-footer  ">

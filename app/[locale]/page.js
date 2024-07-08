@@ -33,6 +33,7 @@ import { NextIntlClientProvider, useTranslations } from "next-intl";
 import { default as Swiper } from "./components/swiper/swiper";
 import AboutUs from "./components/home/AboutUs";
 import { BenefitsDT } from "./components/home/BenefitsDT";
+import CollectionsDT from "./components/home/CollectionsDT";
 
 export const revalidate = 60;
 
@@ -176,21 +177,30 @@ function PageContent({
 
       <SaleTimer remainingTime={remainingTime} translations={translations} />
       {/* <FlashSale offer={offers?.at(0)} languageId={LANGUAGES?.[locale]} /> */}
-      {offers?.at(1) ? (
-        <Offer offer={offers?.at(1)} languageId={LANGUAGES?.[locale]} />
-      ) : null}
+
       <div className="lg:max-w-[1400px] lg:m-auto lg:px-4">
+        {offers?.at(1) ? (
+          <Offer offer={offers?.at(1)} languageId={LANGUAGES?.[locale]} />
+        ) : null}
         <AboutUs translations={translations} />
         <PriceLimit t={t} />
-      
+        <div className="mob-screen">
           <Collections
             collections={collections}
             locale={locale}
             languageId={LANGUAGES?.[locale]}
             seeMore={t("SEE_MORE")}
           />
-        
-        {/* <div className="flex flex-col space-y-4 items-center my-4">
+        </div>
+        <div className="full-screen">
+          <CollectionsDT
+            collections={collections}
+            locale={locale}
+            languageId={LANGUAGES?.[locale]}
+            seeMore={t("SEE_MORE")}
+          />
+        </div>
+        <div className="flex flex-col space-y-4 items-center my-4">
           <SectionTitle
             title={t("All_your_needs_here")}
             className="container mx-auto"
@@ -246,7 +256,7 @@ function PageContent({
             ourNew={t("ourNew")}
             seeMore={t("SEE_MORE")}
           />
-        </div> */}
+        </div>
       </div>
       <div className="full-screen">
         <Reviews

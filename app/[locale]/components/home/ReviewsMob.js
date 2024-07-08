@@ -25,10 +25,12 @@ const ReviewsMob = ({ reviews, sectionSettings, CustomersReviews }) => {
       }}
       className="relative w-full mb-8  flex flex-col items-center justify-center overflow-y-visible"
     >
-      <SectionTitle
-        title={CustomersReviews}
-        containerClassName="!justify-start !items-start !mb-8 !px-4"
-      />
+      <div className="m-4">
+        <SectionTitle
+          title={CustomersReviews}
+          containerClassName="!justify-start !items-start !mb-8 !px-4"
+        />
+      </div>
 
       <div className={`absolute block h-60 top-28  w-full overflow-hidden`}>
         <Image

@@ -98,7 +98,7 @@ export const CategoryBanner = async ({
   return (
     <Link
       href={`/categories/${categoryInfo?.category_id}?parent_id=${categoryInfo?.category_id}`}
-      className="cursor-pointer block relative w-full mb-2 lg:container min-h-[140px bg-gray-100 w-full lg:mx-auto"
+      className="cursor-pointer block relative w-full mb-2 lg:container min-h-[140px w-full lg:mx-auto"
       style={{
         order: sectionSettings?.section_order,
         display: !sectionSettings?.display_home && "none !important",
@@ -116,7 +116,7 @@ export const CategoryBanner = async ({
       <div className=" relative flex flex-col space-y-3 lg:mx-6">
         <div className="flex flex-col space-y-4 items-center w-full lg:container">
           <div className="relative w-full ">
-            <div className="flex bg-gray-50 lg:rounded-2xl overflow-hidden justify-center w-full h-[140px] md:h-[320px] lg:h-[350px]">
+            <div className="flex lg:rounded-2xl overflow-hidden justify-center w-full h-[140px] md:h-[320px] lg:h-[350px]">
               {categoryInfo?.web_image ? (
                 <Image
                   src={categoryInfo?.web_image ? categoryInfo?.web_image : ""}

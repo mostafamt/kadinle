@@ -15,8 +15,8 @@ const BottomNav = () => {
   return (
     <>
       {openChat ? <ChatModal setOpenChat={setOpenChat} /> : null}
-      <div className="flex justify-center w-full fixed h-[70px] z-20  bottom-0 ltr:left-0 rtl:right-0  bg-owhite py-2 mob-footer">
-        <div className=" flex justify-between mx-auto w-[100%] xs:max-w-[400px] items-start">
+      <div className="flex justify-center w-full fixed h-[70px] z-20  bottom-0 ltr:left-0 rtl:right-0  bg-owhite py-2 ">
+        <div className=" flex justify-between w-[90%] xs:max-w-[400px] items-start">
           <Link
             href="/"
             className="flex flex-col flex-1  items-center h-[100%] justify-between"

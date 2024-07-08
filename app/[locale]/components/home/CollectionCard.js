@@ -6,7 +6,7 @@ import { PrimaryArrowIcon } from "../Icons/PrimaryArrowIcon";
 export const CollectionCard = ({ collection,seeMore }) => {
   
   return (
-    <div className="relative overflow-hidden rounded-lg">
+    <div className="relative overflow-hidden rounded-lg lg:mx-2">
       <div className="bg-gray-50">
         {collection?.image ? (
           <Image

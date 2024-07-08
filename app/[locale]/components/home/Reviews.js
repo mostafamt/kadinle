@@ -73,7 +73,10 @@ export const Reviews = ({ reviews, sectionSettings, CustomersReviews }) => {
       id="reviews"
       className="h-[740px] overflow-hidden relative w-full mt-[75px] flex flex-col items-center"
     >
-      <SectionTitle title={CustomersReviews} />
+      <div className="m-4">
+        <SectionTitle title={CustomersReviews} />
+      </div>
+
       <div className={`absolute block w-full  mt-[50px] lg:mt-[4%]`}>
         <Image
           src={Curve}

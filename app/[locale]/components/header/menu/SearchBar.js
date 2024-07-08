@@ -23,12 +23,12 @@ export const SearchBar = () => {
       onSubmit={handleSearch}
       className=" flex justify-between text-sm bg-white  border px-2 rounded-[9px]  flex-1 mx-4"
     >
-      <div className="Search flex items-center gap-2 w-[80%] ">
+      <div className="Search flex items-center gap-2 w-[80%] lg:w-[60%] ">
         <input
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder={t("search")}
-          className="w-full outline-0 !border-0 montserrat text flex-1 bg-inherit focus-within:bg-inherit active:bg-inherit focus:bg-inherit"
+          className="w-full lg:py-2 outline-0 !border-0 montserrat text flex-1 bg-inherit focus-within:bg-inherit active:bg-inherit focus:bg-inherit"
         />
       </div>
       <button className="cursor-pointer m-[5px]">

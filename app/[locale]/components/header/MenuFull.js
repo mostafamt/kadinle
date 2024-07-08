@@ -11,7 +11,7 @@ export const MenuFull = async ({ locale }) => {
   const languages = responseLanguages;
   const countries = responseCountries;
   return (
-    <div className="xs:h-16 container flex flex-col xs:flex-row gap-4 items-center justify-between mx-auto">
+    <div className="w-full xs:h-16 container flex gap-4 items-center justify-between px-4">
       <SearchBar />
       <Link
         href="/"
@@ -20,12 +20,17 @@ export const MenuFull = async ({ locale }) => {
         <Image
           src="/logo.svg"
           alt="kadinle logo"
+          className="w-[250px]"
           height={80}
-          width={150}
-          className="w-[150px] lg:w-[200px]"
+          width={200}
         />
       </Link>
-      <IconsBarFull locale={locale} languages={languages} countries={countries} />
+      <IconsBarFull
+        locale={locale}
+        languages={languages}
+        countries={countries}
+      />
     </div>
   );
 };
+
