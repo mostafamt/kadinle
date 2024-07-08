@@ -185,14 +185,6 @@ function PageContent({
         ) : null}
         <AboutUs translations={translations} />
         <PriceLimit t={t} />
-        <div className="mob-screen">
-          <Collections
-            collections={collections}
-            locale={locale}
-            languageId={LANGUAGES?.[locale]}
-            seeMore={t("SEE_MORE")}
-          />
-        </div>
         <div className="full-screen">
           <CollectionsDT
             collections={collections}
@@ -201,6 +193,15 @@ function PageContent({
             seeMore={t("SEE_MORE")}
           />
         </div>
+        <div className="mob-screen">
+          <Collections
+            collections={collections}
+            locale={locale}
+            languageId={LANGUAGES?.[locale]}
+            seeMore={t("SEE_MORE")}
+          />
+        </div>
+
         <div className="flex flex-col space-y-4 items-center my-4">
           <SectionTitle
             title={t("All_your_needs_here")}

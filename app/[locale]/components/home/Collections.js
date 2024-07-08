@@ -59,10 +59,9 @@ const Collections = ({ collections: collectionsData, locale, languageId,seeMore 
       {collections?.length ? (
         <div className="mb-3 lg:container lg:mx-auto">
           <div className="flex items-center relative w-[100%]">
-            <div className=" w-[100%] overflow-hidden">
+            <div className=" w-[100%] overflow-hidden rtl:pl-4 ltr:pr-4">
               <Swiper
                 dir="ltr"
-                modules={[Pagination]}
                 pagination={{
                   renderBullet: function (index, className) {
                     return `<span class="${className}"></span>`;
@@ -70,16 +69,17 @@ const Collections = ({ collections: collectionsData, locale, languageId,seeMore 
                   clickable: true,
                   bulletClass: "swiper-bullet",
                   bulletActiveClass: "swiper-bullet-active",
-                  paginationClass: "flex gap-2 -bottom-8",
                 }}
+                modules={[Pagination]}
                 direction="horizontal"
-                spaceBetween={10}
-                slidesPerView={swipeNum}
-                className="mySwiper"
-                onBeforeInit={(swiper) => {
-                  swiperRef.current = swiper;
+                spaceBetween={5}
+                slidesPerView={3.1}
+                slidesPerGroup={3}
+                breakpoints={{
+                  0: { slidesPerView: 2.3 },
+                  300: { slidesPerView: 3.2 },
                 }}
-                showsPagination={true}
+                className="mySwiper"
               >
                 {collections?.map((collection) => {
                   let collectionContent = collection?.collection_content?.find(
@@ -88,14 +88,16 @@ const Collections = ({ collections: collectionsData, locale, languageId,seeMore 
                   if (collectionContent) {
                     return (
                       <SwiperSlide key={collection?.id}>
-                        <CollectionCard seeMore={seeMore} collection={collectionContent} />
+                        <CollectionCard
+                          seeMore={seeMore}
+                          collection={collectionContent}
+                        />
                       </SwiperSlide>
                     );
                   }
                 })}
               </Swiper>
             </div>
-            
           </div>
         </div>
       ) : null}
