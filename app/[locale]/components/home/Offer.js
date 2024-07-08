@@ -8,7 +8,7 @@ export const Offer = ({ offer, languageId }) => {
   );
 
   return (
-    <div className="!my-4 lg:!mb-5 container mx-auto lg:rounded-md lg:!px-4">
+    <div className="!my-4 lg:!mb-5 lg:container lg:mx-auto lg:rounded-md lg:!px-4">
       <Link
         href={`/category/offer/${offer?.id}`}
         className="lg:py-36 offerBanner relative before:absolute before:w-full before:h-full before:top-0 before:left-0 before:bg-[#000080b3] cursor-pointer overflow-hidden text-white h-40 lg:h-60 flex items-center justify-center offer-sec lg:p-24 lg:rounded-lg"

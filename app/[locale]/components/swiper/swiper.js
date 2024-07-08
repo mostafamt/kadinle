@@ -19,7 +19,6 @@ const HomeSwiper = async ({languageId}) => {
   const sliders = await getHomeSliders();
   const data = sliders?.data;
   const content = data?.filter((c) => c?.language_id == languageId);
-  console.log("HomeSwiper", content);
 
   return (
     <div className="">

@@ -12,6 +12,7 @@ export const CollectionCard = ({ collection,seeMore }) => {
           <Image
             className="!w-full max-w-[500px] object-cover !h-[unset] "
             src={collection?.image}
+            alt="product-image"
             width={250}
             height={140}
           />

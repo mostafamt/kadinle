@@ -57,7 +57,7 @@ const Collections = ({ collections: collectionsData, locale, languageId,seeMore 
   return (
     <>
       {collections?.length ? (
-        <div className="mb-3 container mx-auto">
+        <div className="mb-3 lg:container lg:mx-auto">
           <div className="flex items-center relative w-[100%]">
             <div className=" w-[100%] overflow-hidden">
               <Swiper
@@ -95,6 +95,7 @@ const Collections = ({ collections: collectionsData, locale, languageId,seeMore 
                 })}
               </Swiper>
             </div>
+            
           </div>
         </div>
       ) : null}

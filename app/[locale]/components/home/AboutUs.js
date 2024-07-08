@@ -34,7 +34,7 @@ const AboutUs = ({ translations }) => {
   ];
 
   return (
-    <div className="mb-3 container mx-auto overflow-hidden px-4">
+    <div className="my-2 overflow-hidden rtl:pl-4 ltr:pr-4 lg:container lg:mx-auto">
       <Swiper
         dir="ltr"
         pagination={{
@@ -58,7 +58,7 @@ const AboutUs = ({ translations }) => {
       >
         {aboutUsObj.map((item) => (
           <SwiperSlide key={item.id}>
-            <div className="m-2 rounded-md">
+            <div className="rounded-md">
               <AboutUsBox>{item.text}</AboutUsBox>
             </div>
           </SwiperSlide>

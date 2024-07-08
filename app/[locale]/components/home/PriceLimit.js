@@ -5,26 +5,29 @@ import { SectionTitle } from "../global/SectionTitle";
 const PriceLimit = ({ t }) => {
   const DATA = [
     {
-      img: "https://kadinle.com/media/images/girl6.png",
+      img: "/lessthan15.jpg",
+      imgMob: "/lessthan15_Mob.jpg",
       link: "/categories/price-less-15",
       text: t("lessThanFifteen"),
     },
     {
-      img: "https://kadinle.com/media/images/girl7.png",
+      img: "/lessthan25.jpg",
+      imgMob: "/lessthan25_Mob.jpg",
       link: "/categories/price-less-25",
       text: t("lessThanTwentyFive"),
     },
     {
-      img: "https://kadinle.com/media/images/mainImage.png",
+      img: "/lessthan35.jpg",
+      imgMob: "/lessthan35_Mob.jpg",
       link: "/categories/price-less-35",
       text: t("lessThanThirtyFive"),
     },
   ];
 
   return (
-    <div className="w-full px-4 mb-3 mt-10 container mx-auto flex flex-col space-y-4 items-center">
+    <div className="w-full px-2 lg:px-4 mb-3 mt-3 lg:container mx-auto flex flex-col space-y-4 items-center">
       <SectionTitle title={t("lessThan")} />
-      <div className="w-full grid grid-cols-3 h-[110px] items-center gap-1 limit-parent">
+      <div className="w-full grid grid-cols-3 items-center gap-1 limit-parent">
         {DATA.map((item) => (
           <PriceLimitCard key={item.text} {...item} />
         ))}
