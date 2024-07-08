@@ -51,12 +51,14 @@ const Layout = ({
       >
         {children}
       </div>
-      
-        <Footer locale={locale} />
+
+      <Footer locale={locale} />
 
       {/* {showFooter ? <Footer locale={locale} /> : null}
       {hideBottomNav ? null : <BottomNav />} */}
-      <BottomNav />
+      <div className="mob-screen">
+        <BottomNav />
+      </div>
     </div>
   );
 };
