@@ -9,6 +9,7 @@ export const CategoriesHead = ({ categories, setFormat, format }) => {
   return (
     <div>
       <div className="full-screen">
+        {/* fullscreem image */}
         <div className="w-full relative mb-10">
           <Image
             className="mb-2 w-full object-cover max-w-[1500px]"
