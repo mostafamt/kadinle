@@ -7,6 +7,7 @@ import { Pagination, Navigation, Autoplay } from "swiper";
 import Image from "next/image";
 
 const AboutUs = ({ translations }) => {
+  // local data
   const aboutUsObj = [
     {
       id: 1,
