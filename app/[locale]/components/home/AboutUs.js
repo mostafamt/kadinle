@@ -4,32 +4,39 @@ import React from "react";
 import AboutUsBox from "./AboutUsBox";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper";
+import Image from "next/image";
 
 const AboutUs = ({ translations }) => {
   const aboutUsObj = [
     {
       id: 1,
       text: translations.who_we_are,
+      img:"/who-we-are.jpg",
     },
     {
       id: 2,
       text: translations.sales,
+      img:"/sales.jpg",
     },
     {
       id: 3,
       text: translations.rating,
+      img:"/ratings.jpg",
     },
     {
       id: 4,
       text: translations.map,
+      img:"/site-map.jpg",
     },
     {
       id: 5,
       text: translations.best_quality,
+      img:"/best-quality.jpg",
     },
     {
       id: 6,
       text: translations.kadinle_blog,
+      img:"/blog.jpg",
     },
   ];
 
@@ -59,7 +66,14 @@ const AboutUs = ({ translations }) => {
         {aboutUsObj.map((item) => (
           <SwiperSlide key={item.id}>
             <div className="rounded-md">
-              <AboutUsBox>{item.text}</AboutUsBox>
+              {/* <AboutUsBox>{item.text}</AboutUsBox> */}
+              <Image
+                src={item.img}
+                alt={item.text}
+                width={200}
+                height={100}
+                className="w-full h-fit object-cover rounded-md"
+              />
             </div>
           </SwiperSlide>
         ))}

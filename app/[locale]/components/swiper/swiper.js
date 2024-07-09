@@ -15,11 +15,11 @@ import SwiperCore, { Pagination, Navigation, Autoplay } from "swiper";
 SwiperCore.use([Pagination, Autoplay, Navigation]);
 
 // eslint-disable-next-line @next/next/no-async-client-component
-const HomeSwiper = async ({languageId}) => {
+const HomeSwiper = async ({ languageId }) => {
   const sliders = await getHomeSliders();
   const data = sliders?.data;
   const content = data?.filter((c) => c?.language_id == languageId);
-
+  
   return (
     <div className="">
       <div className="full-screen">
@@ -32,7 +32,7 @@ const HomeSwiper = async ({languageId}) => {
           }}
           loop={true}
         >
-          {content.map((item) => (
+          {content?.map((item) => (
             <SwiperSlide key={item.image}>
               <Image
                 className="w-fit object-cover"
@@ -85,8 +85,8 @@ const HomeSwiper = async ({languageId}) => {
   );
 };
 export default HomeSwiper;
-       {
-         /* <div className="mob-screen">
+{
+  /* <div className="mob-screen">
               
             </div> */
-       }
+}

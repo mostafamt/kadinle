@@ -2,7 +2,6 @@ import { LANGUAGES } from "@/app/api/static/constants";
 import { getHomeCategory } from "@/app/api/supabase/home";
 import {unstable_setRequestLocale} from 'next-intl/server';
 import { CategoriesBody } from "../components/categories/CategoriesBody";
-import  {CategoriesBodyFull}  from "../components/categories/CategoriesBodyFull";
 import Layout from "../components/layout/Layout";
 
 export const metadata = {
@@ -14,12 +13,6 @@ const page = async ({ params: { locale } }) => {
   const categoriesData = await getHomeCategory();
   return (
     <Layout locale={locale} searchOnly hideUpperMenu>
-      {/* <div className="full-screen">
-      <CategoriesBodyFull
-        categories={categoriesData}
-        languageId={LANGUAGES?.[locale]}
-      />
-      </div> */}
 
       <CategoriesBody
         categories={categoriesData}

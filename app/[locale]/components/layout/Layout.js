@@ -24,6 +24,7 @@ const Layout = ({
   searchOnly,
   showMobileMenu,
   hideUpperMenu,
+  hideSubMenu,
 }) => {
   unstable_setRequestLocale(locale);
   return (
@@ -39,6 +40,7 @@ const Layout = ({
       ) : null}
       {hideHeader || showMobileMenu ? null : ( //   hideBack={hideBack} //
         <Header
+          hideSubMenu={hideSubMenu}
           locale={locale}
           showCategoryBar={showCategoryBar}
           categoryId={categoryId}

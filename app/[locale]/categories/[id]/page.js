@@ -107,7 +107,7 @@ const page = async ({ params }) => {
   };
 
   return (
-    <Layout locale={locale} showCategoryBar categoryId={id} searchOnly>
+    <Layout locale={locale} showCategoryBar categoryId={id} searchOnly hideSubMenu>
       <div className="full-screen">
         <SingleCategoryDT
           searchKey={selectedRequest?.searchKey}
@@ -121,7 +121,7 @@ const page = async ({ params }) => {
           searchKey={selectedRequest?.searchKey}
           category={category}
           remainingTime={remainingTime}
-          hideUpperMenu
+        
         />
       </div>
     </Layout>

@@ -6,7 +6,7 @@ const PriceLimitCard = ({ text, link, img, imgMob }) => {
   return (
     <Link
       href={link}
-      className="flex-1 relative rounded-lg overflow-hidden"
+      className="flex-1 relative rounded-lg overflow-hidden w-fit h-fit "
     >
       <div className="full-screen">
         <Image
@@ -21,9 +21,10 @@ const PriceLimitCard = ({ text, link, img, imgMob }) => {
         <Image
           src={imgMob}
           alt={text}
-          className="w-full object-cover"
+          // className="w-full object-cover"
           height={250}
           width={250}
+          className="w-fit h-fit object-cover rounded-md"
         />
       </div>
 
