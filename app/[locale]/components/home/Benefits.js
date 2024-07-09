@@ -12,12 +12,6 @@ const benefitsList = [
     imageSrc: "https://kadinle.com/media/images/truck.gif",
   },
   {
-    title: "send_gift",
-    description: "send_gift_msg",
-    href: "/send-gift",
-    imageSrc: "https://kadinle.com/media/images/gift box.gif",
-  },
-  {
     title: "Your_Points",
     description: "Earn_points",
     href: "/points",
@@ -34,6 +28,12 @@ const benefitsList = [
     description: "Gift_Cards_msg",
     href: "/gift",
     imageSrc: "https://kadinle.com/media/images/gift-hand.gif",
+  },
+  {
+    title: "send_gift",
+    description: "send_gift_msg",
+    href: "/send-gift",
+    imageSrc: "https://kadinle.com/media/images/gift box.gif",
   },
 ];
 

@@ -29,6 +29,7 @@ const ProductCard = ({
   index,
   inSimilar,
 }) => {
+  console.log("item", item.product[0]);
   const t = useTranslations();
   const { flashProducts } = useGlobalOptions();
   const router = useRouter();
@@ -39,8 +40,8 @@ const ProductCard = ({
   let price = useMemo(() => {
     return item?.discount
       ? item?.price - (item?.discount / 100) * item?.price
-      : item?.price;
-  }, [item?.discount, item?.price]);
+      : item.product[0].price;
+  }, [item?.discount, item.product[0].price]);
 
   const content = item?.content?.find((i) => i?.language_id === language?.id);
 
@@ -102,7 +103,7 @@ const ProductCard = ({
             className={`!w-full !h-auto cursor-pointer ${
               small ? "min-h-[150px] object-cover" : "min-h-[200px]"
             }  rounded-t-[5px] max-h-full ${inFavoriteLayout ? "" : ""}`}
-            src={item?.image ? item?.image : ""}
+            src={item.images[0].image ? item.images[0].image : ""}
             alt={content?.image_alt}
             height={150}
             width={200}

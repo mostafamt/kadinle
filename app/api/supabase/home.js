@@ -15,6 +15,12 @@ export const getHomeSections = async (param_limit) => {
   return res;
 };
 
+export const getLessThenGallery = async () =>
+  await supabase.from("less_than").select("*");
+
+export const getDefinitionSlider = async () =>
+  await supabase.from("definitions").select("*");
+
 export const getHomeSectionSorted = async () => {
   const response = await supabase.from("home_sections").select("*");
   return response;

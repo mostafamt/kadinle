@@ -22,7 +22,12 @@ const Sort = dynamic(() => import("./Sort"));
 const filter = "https://kadinle.com/media/images/filter.svg";
 const sort = "https://kadinle.com/media/images/sort.svg";
 
-const SingleCategory = ({ layout, remainingTime, category, searchKey = 'category_content' }) => {
+const SingleCategory = ({
+  layout,
+  remainingTime,
+  category,
+  searchKey = "category_content",
+}) => {
   const t = useTranslations();
   const params = useParams();
   const containerRef = useRef();
@@ -261,7 +266,7 @@ const SingleCategory = ({ layout, remainingTime, category, searchKey = 'category
     }
   }
   const displayImage = useMemo(() => {
-    console.log('called', category);
+    console.log("called", category);
 
     if (layout === "offer")
       return categoryInfo?.find((c) => c?.language_id === language?.id)?.media;
@@ -272,6 +277,8 @@ const SingleCategory = ({ layout, remainingTime, category, searchKey = 'category
       return categoryInfo?.find((c) => c?.language_id === language?.id)?.image;
     }
   }, [layout, categoryInfo, language?.id]);
+
+  console.log("productsFilter", productsFilter);
 
   return (
     <div className="flex flex-col poppins mb-[65px] ">

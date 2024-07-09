@@ -5,9 +5,11 @@ import { LANGUAGES, SECTIONS_ORDER } from "../api/static/constants";
 import {
   getCollections,
   getCustomersReviews,
+  getDefinitionSlider,
   getHomeCategory,
   getHomeSections,
   getHomeSectionSorted,
+  getLessThenGallery,
   getOfferedProduct,
   getOffers,
 } from "../api/supabase/home";
@@ -84,6 +86,12 @@ export default async function Home({ params: { locale } }) {
   const offersFetch = await getOffers();
   const offers = offersFetch?.data;
 
+  const lessThenGalleryFetch = await getLessThenGallery();
+  const lessThenGallery = lessThenGalleryFetch?.data;
+
+  const definitionSliderFetch = await getDefinitionSlider();
+  const definitionSlider = definitionSliderFetch?.data;
+
   return (
     <LocaleLayout
       locale={locale}
@@ -95,6 +103,8 @@ export default async function Home({ params: { locale } }) {
       reviews={reviews}
       offers={offers}
       collections={collections}
+      lessThenGallery={lessThenGallery}
+      definitionSlider={definitionSlider}
     />
   );
 }
@@ -145,7 +155,11 @@ function PageContent({
   offers,
   locale,
   collections,
+  lessThenGallery,
+  definitionSlider,
 }) {
+  console.log("lessThenGallery", lessThenGallery);
+  console.log("definitionSlider", definitionSlider);
   const t = useTranslations();
   const translations = {
     who_we_are: t("who_we_are"),
@@ -177,13 +191,17 @@ function PageContent({
 
       <SaleTimer remainingTime={remainingTime} translations={translations} />
       <FlashSale offer={offers?.at(0)} languageId={LANGUAGES?.[locale]} />
-      
+
       <div className="lg:max-w-[1400px] lg:m-auto lg:px-4">
         {offers?.at(1) ? (
           <Offer offer={offers?.at(1)} languageId={LANGUAGES?.[locale]} />
         ) : null}
-        <AboutUs translations={translations} />
-        <PriceLimit t={t} />
+        <AboutUs
+          definitionSlider={definitionSlider}
+          translations={translations}
+        />
+        {/* less than section */}
+        <PriceLimit lessThenGallery={lessThenGallery} t={t} />
         <div className="full-screen">
           <CollectionsDT
             collections={collections}

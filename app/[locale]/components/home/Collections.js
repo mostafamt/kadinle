@@ -73,7 +73,7 @@ const Collections = ({ collections: collectionsData, locale, languageId,seeMore 
                 modules={[Pagination]}
                 direction="horizontal"
                 spaceBetween={5}
-                slidesPerView={1.4}
+                slidesPerView={1.2}
                 slidesPerGroup={1}
                 // breakpoints={{
                 //   0: { slidesPerView: 0.3 },

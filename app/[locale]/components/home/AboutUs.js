@@ -6,7 +6,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper";
 import Image from "next/image";
 
-const AboutUs = ({ translations }) => {
+const AboutUs = ({ translations,definitionSlider }) => {
+  console.log("definitionSlider", definitionSlider);
   // local data
   const aboutUsObj = [
     {
