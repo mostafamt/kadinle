@@ -48,7 +48,7 @@ const HomeSwiper = async ({languageId}) => {
           ))}
         </Swiper>
       </div>
-      <div className="mob-screen">
+      <div className="mob-screen mob-home-swiper">
         <Swiper
           pagination={{
             renderBullet: function (index, className) {

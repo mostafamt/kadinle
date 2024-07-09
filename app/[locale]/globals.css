@@ -334,7 +334,13 @@ select::-ms-expand {
   transform: translateX(-50%);
   bottom: 30px !important;
 }
-
+.mob-home-swiper .swiperContainer {
+  position: relative;
+}
+.mob-home-swiper .swiper-bullet {
+  margin-top: -50px;
+  z-index: 10;
+}
 .swiper-bullet {
   width: 8px;
   height: 8px;
