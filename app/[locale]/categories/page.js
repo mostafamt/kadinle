@@ -14,19 +14,18 @@ const page = async ({ params: { locale } }) => {
   const categoriesData = await getHomeCategory();
   return (
     <Layout locale={locale} searchOnly hideUpperMenu>
-      <div className="full-screen">
-      <CategoriesBody
+      {/* <div className="full-screen">
+      <CategoriesBodyFull
         categories={categoriesData}
         languageId={LANGUAGES?.[locale]}
       />
-      </div>
+      </div> */}
 
-      <div className="mob-screen">
       <CategoriesBody
         categories={categoriesData}
         languageId={LANGUAGES?.[locale]}
       />
-      </div>
+   
     </Layout>
   );
 };

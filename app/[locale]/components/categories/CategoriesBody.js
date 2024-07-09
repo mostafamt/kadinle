@@ -38,14 +38,14 @@ export const CategoriesBody = ({ categories, languageId }) => {
   }, []);
 
   return (
-    <div className="pb-28">
+    <div className="">
       <CategoriesHead
         categories={categories}
         setFormat={setFormat}
         format={format}
       />
       <div
-        className={`w-full grid mt-4 px-2 container mx-auto ${
+        className={`w-full grid mt-4 lg:px-2 lg:container lg:mx-auto ${
           format === 2 ? "grid-cols-1 gap-2" : "gap-3"
         } `}
       >

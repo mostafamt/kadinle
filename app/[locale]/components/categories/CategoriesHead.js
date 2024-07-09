@@ -8,26 +8,40 @@ export const CategoriesHead = ({ categories, setFormat, format }) => {
   const t = useTranslations();
   return (
     <div>
-      <div className="w-full relative">
-        <Image
-          className="mb-2 w-full object-cover"
-          src={"https://kadinle.com/media/static/general_1258_517.jpg"}
-          height={140}
-          width={500}
-          priority
-        />
-      </div>
-
-      <div className="flex justify-between w-full my-1 items-center px-2 mt-5 container mx-auto">
-        <div className="text-opink font-medium items-center flex gap-1 capitalize">
-          {t("categories")} :
-          {!!categories?.length && (
-            <span className="bg-opink text-white px-1 rounded-xl ">
-              {categories?.length}
-            </span>
-          )}
+      <div className="full-screen">
+        <div className="w-full relative mb-10">
+          <Image
+            className="mb-2 w-full object-cover max-w-[1500px]"
+            src={"https://kadinle.com/media/static/general_1258_517.jpg"}
+            height={350}
+            width={1500}
+            priority
+            alt="background"
+          />
         </div>
-        <ViewAs setFormat={setFormat} format={format} />
+      </div>
+      <div className="mob-screen">
+        <div className="w-full relative">
+          <Image
+            className="mb-2 w-full object-cover"
+            src={"https://kadinle.com/media/static/general_1258_517.jpg"}
+            height={140}
+            width={500}
+            priority
+          />
+        </div>
+
+        <div className="flex justify-between w-full my-1 items-center px-2 mt-5 container mx-auto">
+          <div className="text-opink font-medium items-center flex gap-1 capitalize">
+            {t("categories")} :
+            {!!categories?.length && (
+              <span className="bg-opink text-white px-1 rounded-xl ">
+                {categories?.length}
+              </span>
+            )}
+          </div>
+          <ViewAs setFormat={setFormat} format={format} />
+        </div>
       </div>
     </div>
   );
