@@ -24,6 +24,7 @@ export const Header = async ({
   searchOnly,
   hideUpperMenu,
   hideSubMenu,
+  hideCategoryIcon,
 }) => {
   const news = await getNews(LANGUAGES?.[locale]);
 
@@ -39,11 +40,17 @@ export const Header = async ({
         <MenuFull locale={locale} searchOnly={searchOnly} />
       </div>
       <div className="mob-screen">
-        {hideUpperMenu? null : <UpperBar locale={locale} />}
-        <Menu locale={locale} searchOnly={searchOnly} />
+        {hideUpperMenu ? null : <UpperBar locale={locale} />}
+        <Menu
+          locale={locale}
+          searchOnly={searchOnly}
+          hideCategoryIcon={hideCategoryIcon}
+        />
       </div>
       {/* <UpperMenu categories={categories} language={LANGUAGES?.[locale]}/> */}
-      {hideSubMenu? null: <SubMenu language={LANGUAGES?.[locale]} categories={categories} />}
+      {hideSubMenu ? null : (
+        <SubMenu language={LANGUAGES?.[locale]} categories={categories} />
+      )}
 
       <SidebarMenu categories={categoriesTopLevel} />
     </header>

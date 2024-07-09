@@ -42,7 +42,7 @@ const AboutUs = ({ translations }) => {
   ];
 
   return (
-    <div className="my-2 overflow-hidden ltr:pl-4 rtl:pr-4 lg:container lg:mx-auto">
+    <div className="my-2 overflow-hidden ltr:pl-2 rtl:pr-2 lg:container lg:mx-auto">
       <Swiper
         dir="ltr"
         pagination={{

@@ -9,7 +9,7 @@ import { IconsBar } from "./menu/IconsBar";
 import { NotificationBar } from "./NotificationBar";
 import { FavoriteBar } from "./menu/FavoriteBar";
 
-export const Menu = async ({ locale, router, searchOnly }) => {
+export const Menu = async ({ locale, router, searchOnly, hideCategoryIcon }) => {
   const responseLanguages = await getLanguages();
   const responseCountries = await getCountries();
   const languages = responseLanguages;
@@ -38,6 +38,7 @@ export const Menu = async ({ locale, router, searchOnly }) => {
         locale={locale}
         languages={languages}
         countries={countries}
+        hideCategoryIcon={hideCategoryIcon}
       />
     </div>
   );

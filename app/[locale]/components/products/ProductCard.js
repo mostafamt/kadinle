@@ -9,9 +9,6 @@ import { unlikeProduct, likeProduct } from "./../../../api/supabase/user";
 import { useRouter } from "next/navigation";
 import FlashIcon from "../Icons/FlashIcon";
 import { StarIcon } from "../Icons/StarIcon";
-import ProductSlider from "./ProductSlider";
-import ProductCardSwiper from "./ProductCardSwiper";
-import { default as Swiper } from "../../components/swiper/swiper";
 
 const discount = "https://kadinle.com/media/images/discount.svg";
 
@@ -105,25 +102,11 @@ const ProductCard = ({
             className={`!w-full !h-auto cursor-pointer ${
               small ? "min-h-[150px] object-cover" : "min-h-[200px]"
             }  rounded-t-[5px] max-h-full ${inFavoriteLayout ? "" : ""}`}
-            src={item?.image}
+            src={item?.image ? item?.image : ""}
             alt={content?.image_alt}
             height={150}
             width={200}
           />
-          {/* {item && <ProductCardSwiper item={item} />} */}
-
-          {/* <ProductSlider
-            icon={10}
-            imageH={"50px"}
-            // cart={addToCart}
-            // productId={product?.productinfo?.id}
-            // color={color}
-            // section={section}
-            // filterImages={filterImages}
-            // product={product}
-            // productImagesPatternSku={productImagesPatternSku}
-            // selectedPatternSku={selectedPatternSku}
-          /> */}
           {layout === "rated" ? (
             <div className="absolute bottom-2 left-2">
               <StarIcon className="h-10 w-10 text-primary fill-primary" />
@@ -133,7 +116,7 @@ const ProductCard = ({
             </div>
           ) : null}
         </div>
-        {/* <div className="absolute top-[4%] w-[20px] h-[20px] ltr:right-[5%] rtl:left-[5%]">
+        <div className="absolute top-[4%] w-[20px] h-[20px] ltr:right-[5%] rtl:left-[5%]">
           {inFavorite || inFavoriteLayout ? (
             <button
               className="h-6 w-6 bg-white pt-[2px] rounded-full flex items-center justify-center"
@@ -159,7 +142,7 @@ const ProductCard = ({
               <HeartIcon className={`h-4 w-4 text-primary`} />
             </button>
           )}
-        </div> */}
+        </div>
       </div>
 
       <div
@@ -220,7 +203,6 @@ const ProductCard = ({
         </div>
       </div>
     </div>
-    // <p> old card</p>
   );
 };
 

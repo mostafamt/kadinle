@@ -7,7 +7,7 @@ import { SECTIONS_ORDER } from "@/app/api/static/constants";
 import CategoryBodyCircles from "./CategoryBodyCircles";
 
 export const CategoriesBody = ({ categories, languageId }) => {
-  console.log("categories", categories);
+  
   const [format, setFormat] = useState(2);
   const [homeSectionsOrder, setHomeSectionsOrder] = useState(SECTIONS_ORDER);
 

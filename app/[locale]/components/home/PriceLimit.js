@@ -27,7 +27,7 @@ const PriceLimit = ({ t }) => {
   return (
     <div className="w-full px-2 lg:px-4 mb-3 mt-3 lg:container mx-auto flex flex-col space-y-4 items-center">
       <SectionTitle title={t("lessThan")} />
-      <div className="w-full grid grid-cols-3 items-center gap-1 limit-parent">
+      <div className="w-full grid grid-cols-3 items-center gap-1">
         {DATA.map((item) => (
           <PriceLimitCard key={item.text} {...item} />
         ))}

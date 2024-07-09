@@ -11,7 +11,7 @@ export const MenuFull = async ({ locale }) => {
   const languages = responseLanguages;
   const countries = responseCountries;
   return (
-    <div className="w-full xs:h-16 container flex gap-4 items-center justify-between px-4">
+    <div className="w-full xs:h-16 container flex gap-4 items-center justify-between px-12">
       <SearchBar />
       <Link
         href="/"

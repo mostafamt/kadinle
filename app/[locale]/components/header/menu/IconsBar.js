@@ -13,7 +13,13 @@ import { SearchBar } from "./SearchBar";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 
-export const IconsBar = ({ locale, languages, countries, searchOnly }) => {
+export const IconsBar = ({
+  locale,
+  languages,
+  countries,
+  searchOnly,
+  hideCategoryIcon,
+}) => {
   const router = useRouter();
   const { showOptions, setShowOptions, showAuthPopup, setShowAuthPopup } =
     useGlobalOptions();
@@ -21,10 +27,12 @@ export const IconsBar = ({ locale, languages, countries, searchOnly }) => {
   const t = useTranslations();
   return (
     <div className="flex gap-2 items-center justify-between relative">
-      <div className="flex flex-col items-center justify-center">
-        <MenuBar />
-        <div className="text-[10px] text-[#727C8E]">{t("Category")}</div>
-      </div>
+      {hideCategoryIcon ? null : (
+        <div className="flex flex-col items-center justify-center">
+          <MenuBar />
+          <div className="text-[10px] text-[#727C8E]">{t("Category")}</div>
+        </div>
+      )}
 
       <SearchBar />
 

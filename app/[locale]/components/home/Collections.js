@@ -59,7 +59,7 @@ const Collections = ({ collections: collectionsData, locale, languageId,seeMore 
       {collections?.length ? (
         <div className="mb-3 lg:container lg:mx-auto">
           <div className="flex items-center relative w-[100%]">
-            <div className=" w-[100%] overflow-hidden ltr:pl-4 rtl:pr-4">
+            <div className=" w-[100%] overflow-hidden ltr:pl-2 rtl:pr-2">
               <Swiper
                 dir="ltr"
                 pagination={{
@@ -73,12 +73,12 @@ const Collections = ({ collections: collectionsData, locale, languageId,seeMore 
                 modules={[Pagination]}
                 direction="horizontal"
                 spaceBetween={5}
-                slidesPerView={2.1}
-                slidesPerGroup={2}
-                breakpoints={{
-                  0: { slidesPerView: 1.3 },
-                  300: { slidesPerView: 2.2 },
-                }}
+                slidesPerView={1.4}
+                slidesPerGroup={1}
+                // breakpoints={{
+                //   0: { slidesPerView: 0.3 },
+                //   300: { slidesPerView: 1.9 },
+                // }}
                 className="mySwiper"
               >
                 {collections?.map((collection) => {

@@ -41,7 +41,7 @@ export const CategoriesHead = ({ categories, setFormat, format }) => {
               </span>
             )}
           </div>
-          <ViewAs setFormat={setFormat} format={format} />
+          {/* <ViewAs setFormat={setFormat} format={format} /> */}
         </div>
       </div>
     </div>

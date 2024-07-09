@@ -25,6 +25,8 @@ const Layout = ({
   showMobileMenu,
   hideUpperMenu,
   hideSubMenu,
+  hideCategoryIcon,
+  hideFooter,
 }) => {
   unstable_setRequestLocale(locale);
   return (
@@ -46,6 +48,7 @@ const Layout = ({
           categoryId={categoryId}
           searchOnly={searchOnly}
           hideUpperMenu={hideUpperMenu}
+          hideCategoryIcon={hideCategoryIcon}
         />
       )}
       <div
@@ -53,8 +56,7 @@ const Layout = ({
       >
         {children}
       </div>
-
-      <Footer locale={locale} />
+      {hideFooter? null : <Footer locale={locale} />}
 
       {/* {showFooter ? <Footer locale={locale} /> : null}
       {hideBottomNav ? null : <BottomNav />} */}

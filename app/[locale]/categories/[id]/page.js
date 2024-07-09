@@ -107,24 +107,41 @@ const page = async ({ params }) => {
   };
 
   return (
-    <Layout locale={locale} showCategoryBar categoryId={id} searchOnly hideSubMenu>
+    <>
       <div className="full-screen">
-        <SingleCategoryDT
-          searchKey={selectedRequest?.searchKey}
-          category={category}
-          remainingTime={remainingTime}
-          hideUpperMenu
-        />
+        <Layout
+          locale={locale}
+          showCategoryBar
+          categoryId={id}
+          searchOnly
+          hideSubMenu
+        >
+          <SingleCategoryDT
+            searchKey={selectedRequest?.searchKey}
+            category={category}
+            remainingTime={remainingTime}
+            hideUpperMenu
+          />
+        </Layout>
       </div>
       <div className="mob-screen">
-        <SingleCategory
-          searchKey={selectedRequest?.searchKey}
-          category={category}
-          remainingTime={remainingTime}
-        
-        />
+        <Layout
+          locale={locale}
+          showCategoryBar
+          categoryId={id}
+          searchOnly
+          hideSubMenu
+          hideCategoryIcon
+          hideFooter
+        >
+          <SingleCategory
+            searchKey={selectedRequest?.searchKey}
+            category={category}
+            remainingTime={remainingTime}
+          />
+        </Layout>
       </div>
-    </Layout>
+    </>
   );
 };
 export default page;
