@@ -8,7 +8,7 @@ import SingleCategorySkeleton from "../skeletons/SingleCategorySkeleton";
 import Image from "next/image";
 import { Loading } from "../global/Loading";
 import { ChevronIcon } from "../Icons/ChevronIcon";
-import ProductCard from "../cards/ProductCard";
+import ProductCard from "../products/ProductCard";
 import Link from "next/link";
 import { getBrands, getSeasons } from "@/app/api/supabase/products";
 import { SubCategoriesBar } from "./SubCategoriesBar";
@@ -400,7 +400,7 @@ const SingleCategoryDT = ({
                       <option value="POPULAR">{t("highestRated")}</option>
                     </select>
                   </div>
-                  {/* <label
+                  <label
                     className={`py-[3px] whitespace-nowrap capitalize ltr:lg:ml-auto rtl:lg:mr-auto px-2 flex justify-center gap-2 rounded-sm ${
                       isPlusSize ? "bg-primary text-white" : "text-primary"
                     } border border-primary items-center px-2"`}
@@ -413,7 +413,7 @@ const SingleCategoryDT = ({
                     />
 
                     {t("PLUS_SIZE")}
-                  </label> */}
+                  </label>
                 </div>
                 {!!productsFilter?.length ? (
                   <>

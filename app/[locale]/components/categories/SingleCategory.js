@@ -36,7 +36,6 @@ const SingleCategory = ({
   const [openSort, setOpenSort] = useState(false);
   const [format, setFormat] = useState(2);
   const [loading, setLoading] = useState(true);
-  const [refresh, setRefresh] = useState(false);
   const [products, setProducts] = useState([]);
   const [productsFilter, setProductsFilter] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState("");
@@ -92,9 +91,9 @@ const SingleCategory = ({
   const fetchDate = async () => {
     setLoading(true);
     const res = await getSingleCategory(params?.id);
-    setCategoryInfo(category?.[searchKey]);
     setCategoryDate(res?.data?.at(0));
     setProducts(category?.products);
+    setCategoryInfo(category?.[searchKey]);
     getMinAndMaxPrice(category?.products);
     setCACHE_COLORS(category?.colors);
     setCACHE_SIZES(category?.sizes);
@@ -266,20 +265,16 @@ const SingleCategory = ({
     }
   }
   const displayImage = useMemo(() => {
-    console.log("called", category);
-
     if (layout === "offer")
       return categoryInfo?.find((c) => c?.language_id === language?.id)?.media;
     if (!layout) {
-      let info = categoryInfo?.find((c) => c?.language_id === language?.id);
-      return info?.mobile_image || info?.web_image;
+      return categoryInfo?.find((c) => c?.language_id === language?.id)
+        ?.web_image;
     } else {
       return categoryInfo?.find((c) => c?.language_id === language?.id)?.image;
     }
   }, [layout, categoryInfo, language?.id]);
-
-  console.log("productsFilter", productsFilter);
-
+  console.log(categoryDate, "categoryDate");
   return (
     <div className="flex flex-col poppins mb-[65px] ">
       <>
@@ -315,6 +310,7 @@ const SingleCategory = ({
             setOpenSort={setOpenSort}
           />
         )}
+
         <Fragment>
           <div ref={containerRef} className="flex justify-center">
             <div className="flex flex-col items-center w-[95%] max-w-[500px]">
@@ -327,7 +323,7 @@ const SingleCategory = ({
                 {category?.banner_video ? (
                   <video
                     className="rounded-lg w-full max-w-none max-h-[320px] object-cover"
-                    src={category?.banner_video}
+                    src={category?.banner_video ? category?.banner_video : ""}
                     controls
                   />
                 ) : (
@@ -344,6 +340,10 @@ const SingleCategory = ({
                     ) : null}
                   </>
                 )}
+                <SubCategoriesBar
+                  category={categoryDate}
+                  subCategories={CACHE_SUBCATEGORIES}
+                />
                 {categoryInfo?.title ? (
                   <main className="bg-primary-gray flex items-center justify-center flex-col gap-3 p-4 border-b-2 shadow">
                     <h1 className="font-medium text-lg text-primary">
@@ -363,10 +363,6 @@ const SingleCategory = ({
               {!!productsFilter?.length && layout === "flash-sale" && (
                 <SaleTimer remainingTime={remainingTime} />
               )}
-              <SubCategoriesBar
-                category={category}
-                subCategories={CACHE_SUBCATEGORIES}
-              />
               <div className="flex justify-between mt-2 w-full my-1 items-center ">
                 <div className="flex gap-2 items-center">
                   <ViewAs setFormat={setFormat} format={format} />

@@ -104,8 +104,11 @@ const Filters = ({
         <div className=" flex flex-col space-y-4 mt-[20px] ">
           {/* category */}
           {filters?.CACHE_SUBCATEGORIES?.length ? (
-            <div className="flex flex-col p-6 border">
-              <div className="flex justify-between items-center">
+            <div
+              className="flex flex-col p-6 border cursor-pointer"
+              onClick={() => handleCollapse("category")}
+            >
+              <div className="flex justify-between items-center ">
                 <label className="text-[15px]">{t("PRODUCT_TYPE")}</label>
                 <Image
                   className={`cursor-pointer w-3 h-3 object-contain ${
@@ -115,7 +118,7 @@ const Filters = ({
                   } `}
                   src={upArrow}
                   alt="arrow up"
-                  onClick={() => handleCollapse("category")}
+                  // onClick={() => handleCollapse("category")}
                   height={8}
                   width={8}
                 />
@@ -145,9 +148,14 @@ const Filters = ({
 
           {/* color */}
           {filters?.CACHE_COLORS?.length ? (
-            <div className="flex flex-col  p-6 border">
+            <div className="flex flex-col  p-6 border cursor-pointer">
               <div className="flex justify-between items-center">
-                <label className="text-[17px]">{t("COLOR")}</label>
+                <label
+                  className="text-[17px] cursor-pointer"
+                  onClick={() => handleCollapse("color")}
+                >
+                  {t("COLOR")}
+                </label>
                 <Image
                   className={`cursor-pointer w-3 h-3 object-contain ${
                     !collapse?.includes("color")
@@ -170,7 +178,7 @@ const Filters = ({
                           key={color?.id}
                           onClick={(e) => insertIntoColors(color?.id)}
                           name="color"
-                          className={`gap-1 cursor-pointer flex items-center justify-center overflow-hidden border-4 border-transparent ${
+                          className={`gap-1 cursor-pointer flex items-center justify-center overflow-hidden border-1 rounded-full border-transparent ${
                             selectedColors?.[color?.id] ? " !border-black" : ""
                           } `}
                         >
@@ -198,8 +206,13 @@ const Filters = ({
           {/* size */}
           {filters?.CACHE_SIZES?.length ? (
             <div className="flex flex-col  p-6 border">
-              <div className="flex justify-between items-center">
-                <label className="text-[17px]">{t("SIZE")}</label>
+              <div
+                className="flex justify-between items-center cursor-pointer"
+                onClick={() => handleCollapse("size")}
+              >
+                <label className="text-[17px] cursor-pointer">
+                  {t("SIZE")}
+                </label>
                 <Image
                   className={`cursor-pointer w-3 h-3 object-contain ${
                     !collapse?.includes("size")
@@ -208,7 +221,7 @@ const Filters = ({
                   } `}
                   src={upArrow}
                   alt="arrow up"
-                  onClick={() => handleCollapse("size")}
+                  // onClick={() => handleCollapse("size")}
                   height={8}
                   width={8}
                 />
@@ -242,7 +255,10 @@ const Filters = ({
 
           {/* season */}
           {filters?.CACHE_SEASONS?.length ? (
-            <div className="flex flex-col  p-6 border">
+            <div
+              className="flex flex-col  p-6 border cursor-pointer"
+              onClick={() => handleCollapse("season")}
+            >
               <div className="flex justify-between items-center">
                 <label className="text-[17px]">{t("season")}</label>
                 <Image
@@ -290,9 +306,14 @@ const Filters = ({
 
           {/* brand */}
           {filters?.CACHE_BRANDS?.length ? (
-            <div className="flex flex-col  p-6 border">
+            <div
+              className="flex flex-col  p-6 border cursor-pointer"
+              onClick={() => handleCollapse("brand")}
+            >
               <div className="flex justify-between items-center">
-                <label className="text-[17px]">{t("brand")}</label>
+                <label className="text-[17px] cursor-pointer">
+                  {t("brand")}
+                </label>
                 <Image
                   className={`cursor-pointer w-3 h-3 object-contain ${
                     !collapse?.includes("brand")
@@ -308,7 +329,7 @@ const Filters = ({
               </div>
 
               {collapse?.includes("brand") ? (
-                <div className="flex flex-col mt-4 space-y-4  max-h-[300px] overflow-auto scroll-hide">
+                <div className="flex flex-col mt-4 space-y-4  max-h-[350px] overflow-auto scroll-hide">
                   {filters?.CACHE_BRANDS?.map((brand) => {
                     return (
                       <label
@@ -335,8 +356,13 @@ const Filters = ({
           {/* price */}
           {filters?.CACHE_PRICES && filters?.CACHE_SIZES?.length ? (
             <div className="flex flex-col  p-6 border">
-              <div className="flex justify-between items-center">
-                <label className="text-[15px]">{t("PRICE")}</label>
+              <div
+                className="flex justify-between items-center cursor-pointer"
+                onClick={() => handleCollapse("price")}
+              >
+                <label className="text-[15px] cursor-pointer">
+                  {t("PRICE")}
+                </label>
                 <Image
                   className={`cursor-pointer w-3 h-3 object-contain ${
                     !collapse?.includes("price")
@@ -351,7 +377,7 @@ const Filters = ({
                 />
               </div>
               {collapse?.includes("price") ? (
-                <>
+                <div className="mt-6">
                   <Range
                     setValues={setPriceValues}
                     values={[
@@ -359,7 +385,7 @@ const Filters = ({
                       +filters?.CACHE_PRICES?.["max"],
                     ]}
                   />
-                </>
+                </div>
               ) : null}
             </div>
           ) : null}

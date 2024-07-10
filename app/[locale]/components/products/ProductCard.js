@@ -29,7 +29,7 @@ const ProductCard = ({
   index,
   inSimilar,
 }) => {
-  console.log("item", item.product[0]);
+  console.log("item", item);
   const t = useTranslations();
   const { flashProducts } = useGlobalOptions();
   const router = useRouter();

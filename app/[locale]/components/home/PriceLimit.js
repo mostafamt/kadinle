@@ -2,7 +2,8 @@ import React from "react";
 import PriceLimitCard from "./PriceLimitCard";
 import { SectionTitle } from "../global/SectionTitle";
 
-const PriceLimit = ({ t }) => {
+const PriceLimit = ({ t, lessThenGallery }) => {
+  console.log("lessThenGallery", lessThenGallery);
   const DATA = [
     {
       img: "/lessthan15.jpg",

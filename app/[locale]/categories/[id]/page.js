@@ -116,12 +116,14 @@ const page = async ({ params }) => {
           searchOnly
           hideSubMenu
         >
-          <SingleCategoryDT
-            searchKey={selectedRequest?.searchKey}
-            category={category}
-            remainingTime={remainingTime}
-            hideUpperMenu
-          />
+          <div className=" container lg:max-w-[1400px] lg:m-auto lg:px-4">
+            <SingleCategoryDT
+              searchKey={selectedRequest?.searchKey}
+              category={category}
+              remainingTime={remainingTime}
+              hideUpperMenu
+            />
+          </div>
         </Layout>
       </div>
       <div className="mob-screen">

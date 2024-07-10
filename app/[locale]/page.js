@@ -87,10 +87,10 @@ export default async function Home({ params: { locale } }) {
   const offers = offersFetch?.data;
 
   const lessThenGalleryFetch = await getLessThenGallery();
-  const lessThenGallery = lessThenGalleryFetch?.data;
+  const lessThenGallery = lessThenGalleryFetch;
 
   const definitionSliderFetch = await getDefinitionSlider();
-  const definitionSlider = definitionSliderFetch?.data;
+  const definitionSlider = definitionSliderFetch;
 
   return (
     <LocaleLayout
