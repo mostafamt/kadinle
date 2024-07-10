@@ -87,10 +87,10 @@ export default async function Home({ params: { locale } }) {
   const offers = offersFetch?.data;
 
   const lessThenGalleryFetch = await getLessThenGallery();
-  const lessThenGallery = lessThenGalleryFetch;
+  const lessThenGallery = lessThenGalleryFetch?.data;
 
   const definitionSliderFetch = await getDefinitionSlider();
-  const definitionSlider = definitionSliderFetch;
+  const definitionSlider = definitionSliderFetch?.data;
 
   return (
     <LocaleLayout
@@ -127,6 +127,8 @@ function LocaleLayout({
   reviews,
   offers,
   collections,
+  lessThenGallery,
+  definitionSlider,
 }) {
   return (
     <Layout locale={locale} showFooter>
@@ -140,6 +142,8 @@ function LocaleLayout({
           offers={offers}
           locale={locale}
           collections={collections}
+          lessThenGallery={lessThenGallery}
+          definitionSlider={definitionSlider}
         />
       </NextIntlClientProvider>
     </Layout>
@@ -158,8 +162,6 @@ function PageContent({
   lessThenGallery,
   definitionSlider,
 }) {
-  console.log("lessThenGallery", lessThenGallery);
-  console.log("definitionSlider", definitionSlider);
   const t = useTranslations();
   const translations = {
     who_we_are: t("who_we_are"),
@@ -199,9 +201,15 @@ function PageContent({
         <AboutUs
           definitionSlider={definitionSlider}
           translations={translations}
+          lessThenGallery={lessThenGallery}
+          languageId={LANGUAGES?.[locale]}
         />
         {/* less than section */}
-        <PriceLimit lessThenGallery={lessThenGallery} t={t} />
+        <PriceLimit
+          lessThenGallery={lessThenGallery}
+          t={t}
+          languageId={LANGUAGES?.[locale]}
+        />
         <div className="full-screen">
           <CollectionsDT
             collections={collections}

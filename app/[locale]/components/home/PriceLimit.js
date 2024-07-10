@@ -2,8 +2,10 @@ import React from "react";
 import PriceLimitCard from "./PriceLimitCard";
 import { SectionTitle } from "../global/SectionTitle";
 
-const PriceLimit = ({ t, lessThenGallery }) => {
-  console.log("lessThenGallery", lessThenGallery);
+const PriceLimit = ({ t, lessThenGallery, languageId }) => {
+  const lessThenGalleryLaguage = lessThenGallery
+    .filter((item) => item.language_id === languageId)
+    .sort((a, b) => a.sku - b.sku);
   const DATA = [
     {
       img: "/lessthan15.jpg",
@@ -24,13 +26,12 @@ const PriceLimit = ({ t, lessThenGallery }) => {
       text: t("lessThanThirtyFive"),
     },
   ];
-
   return (
-    <div className="w-full px-2 lg:px-4 mb-3 mt-3 lg:container mx-auto flex flex-col space-y-4 items-center">
+    <div className="w-full px-4 lg:px-4 mb-3 mt-3 lg:container mx-auto flex flex-col space-y-4 items-center">
       <SectionTitle title={t("lessThan")} />
       <div className="w-full grid grid-cols-3 items-center gap-1">
-        {DATA.map((item) => (
-          <PriceLimitCard key={item.text} {...item} />
+        {lessThenGalleryLaguage?.map((item) => (
+          <PriceLimitCard key={item.id} {...item} />
         ))}
       </div>
     </div>

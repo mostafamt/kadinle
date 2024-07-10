@@ -6,39 +6,49 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper";
 import Image from "next/image";
 
-const AboutUs = ({ translations,definitionSlider }) => {
+const AboutUs = ({
+  translations,
+  definitionSlider,
+  lessThenGallery,
+  languageId,
+}) => {
   console.log("definitionSlider", definitionSlider);
+  console.log("lessThenGallery", lessThenGallery);
+
+  const definitionSliderLaguage = definitionSlider
+    .filter((item) => item.language_id === languageId)
+    .sort((a, b) => a.sku - b.sku);
   // local data
   const aboutUsObj = [
     {
       id: 1,
       text: translations.who_we_are,
-      img:"/who-we-are.jpg",
+      img: "/who-we-are.jpg",
     },
     {
       id: 2,
       text: translations.sales,
-      img:"/sales.jpg",
+      img: "/sales.jpg",
     },
     {
       id: 3,
       text: translations.rating,
-      img:"/ratings.jpg",
+      img: "/ratings.jpg",
     },
     {
       id: 4,
       text: translations.map,
-      img:"/site-map.jpg",
+      img: "/site-map.jpg",
     },
     {
       id: 5,
       text: translations.best_quality,
-      img:"/best-quality.jpg",
+      img: "/best-quality.jpg",
     },
     {
       id: 6,
       text: translations.kadinle_blog,
-      img:"/blog.jpg",
+      img: "/blog.jpg",
     },
   ];
 
@@ -65,16 +75,16 @@ const AboutUs = ({ translations,definitionSlider }) => {
         }}
         className="mySwiper"
       >
-        {aboutUsObj.map((item) => (
+        {definitionSliderLaguage?.map((item) => (
           <SwiperSlide key={item.id}>
             <div className="rounded-md">
               {/* <AboutUsBox>{item.text}</AboutUsBox> */}
               <Image
-                src={item.img}
-                alt={item.text}
+                src={item.image}
+                alt={"image"}
                 width={200}
                 height={100}
-                className="w-full h-fit object-cover rounded-md"
+                className="!w-fit !h-fit object-cover rounded-md"
               />
             </div>
           </SwiperSlide>
