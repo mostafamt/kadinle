@@ -84,7 +84,7 @@ const AboutUs = ({
         }}
         className="mySwiper"
       >
-        {/* vercel */}
+        {/* vercel2 */}
         {definitionSliderLaguage?.map((item) => (
           <SwiperSlide key={item.id}>
             <div className="rounded-md">
