@@ -2,6 +2,8 @@ import React from "react";
 import PriceLimitCard from "./PriceLimitCard";
 import { SectionTitle } from "../global/SectionTitle";
 
+export const revalidate = 60;
+
 const PriceLimit = ({ t, lessThenGallery, languageId }) => {
   const lessThenGalleryLaguage = lessThenGallery
     .filter((item) => item.language_id === languageId)
