@@ -11,6 +11,7 @@ import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
 import "swiper/components/navigation/navigation.min.css";
 import SwiperCore, { Pagination, Navigation, Autoplay } from "swiper";
+export const revalidate = 60;
 
 SwiperCore.use([Pagination, Autoplay, Navigation]);
 

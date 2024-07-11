@@ -17,17 +17,17 @@ import { PopupNameForm } from "./components/forms/PopupNameForm";
 import ScrollUpComponent from "./components/global/ScrollUpComponent";
 import { SectionTitle } from "./components/global/SectionTitle";
 import { Benefits } from "./components/home/Benefits";
-import { CategoryBanner } from "./components/home/CategoryBanner";
+// import { CategoryBanner } from "./components/home/CategoryBanner";
 import Collections from "./components/home/Collections";
-import { CustomSlider } from "./components/home/CustomSlider";
+// import { CustomSlider } from "./components/home/CustomSlider";
 import FlashSale from "./components/home/FlashSale";
 import PriceLimit from "./components/home/PriceLimit";
 import { Reviews } from "./components/home/Reviews";
 import { SaleTimer } from "./components/home/SaleTimer";
-import { VideoSection } from "./components/home/VideoSection";
+// import { VideoSection } from "./components/home/VideoSection";
 import { WhyChooseUs } from "./components/home/WhyChooseUs";
 import Layout from "./components/layout/Layout";
-import { OurNew } from "./components/home/OurNew";
+// import { OurNew } from "./components/home/OurNew";
 import { Offer } from "./components/home/Offer";
 import { OurPartners } from "./components/home/OurPartners";
 import ReviewsMob from "./components/home/ReviewsMob";
@@ -36,6 +36,10 @@ import { default as Swiper } from "./components/swiper/swiper";
 import AboutUs from "./components/home/AboutUs";
 import { BenefitsDT } from "./components/home/BenefitsDT";
 import CollectionsDT from "./components/home/CollectionsDT";
+import VideoSection from "./components/home/VideoSection";
+import CategoryBanner from "./components/home/CategoryBanner";
+import CustomSlider from "./components/home/CustomSlider";
+import OurNew from "./components/home/OurNew";
 
 export const revalidate = 60;
 
@@ -195,72 +199,74 @@ function PageContent({
       <FlashSale offer={offers?.at(0)} languageId={LANGUAGES?.[locale]} />
 
       <div className="lg:max-w-[1400px] lg:m-auto lg:px-4">
-        {offers?.at(1) ? (
-          <Offer offer={offers?.at(1)} languageId={LANGUAGES?.[locale]} />
-        ) : null}
-        <AboutUs
-          definitionSlider={definitionSlider}
-          translations={translations}
-          lessThenGallery={lessThenGallery}
+      {offers?.at(1) ? (
+        <Offer offer={offers?.at(1)} languageId={LANGUAGES?.[locale]} />
+      ) : null}
+      <AboutUs
+        definitionSlider={definitionSlider}
+        translations={translations}
+        lessThenGallery={lessThenGallery}
+        languageId={LANGUAGES?.[locale]}
+        homeSectionsOrder={homeSectionsOrder}
+        homeSections={homeSections}
+      />
+      {/* less than section */}
+      <PriceLimit
+        lessThenGallery={lessThenGallery}
+        t={t}
+        languageId={LANGUAGES?.[locale]}
+      />
+      <div className="full-screen">
+        <CollectionsDT
+          collections={collections}
+          locale={locale}
           languageId={LANGUAGES?.[locale]}
+          seeMore={t("SEE_MORE")}
         />
-        {/* less than section */}
-        <PriceLimit
-          lessThenGallery={lessThenGallery}
-          t={t}
+      </div>
+      <div className="mob-screen">
+        <Collections
+          collections={collections}
+          locale={locale}
           languageId={LANGUAGES?.[locale]}
+          seeMore={t("SEE_MORE")}
         />
-        <div className="full-screen">
-          <CollectionsDT
-            collections={collections}
-            locale={locale}
-            languageId={LANGUAGES?.[locale]}
-            seeMore={t("SEE_MORE")}
-          />
-        </div>
-        <div className="mob-screen">
-          <Collections
-            collections={collections}
-            locale={locale}
-            languageId={LANGUAGES?.[locale]}
-            seeMore={t("SEE_MORE")}
-          />
-        </div>
+      </div>
 
-        <div className="flex flex-col space-y-4 items-center my-4">
-          <SectionTitle
-            title={t("All_your_needs_here")}
-            className="container mx-auto"
+      <div className="flex flex-col space-y-4 items-center my-4">
+        <SectionTitle
+          title={t("All_your_needs_here")}
+          className="container mx-auto"
+        />
+      </div>
+      <div className="flex flex-col">
+        {categories?.map((category) => (
+          <CategoryBanner
+            homeSectionsOrder={homeSectionsOrder}
+            category={category}
+            key={category?.id}
+            languageId={LANGUAGES?.[locale]}
+            t={t}
+            page="main"
           />
-        </div>
-        <div className="flex flex-col">
-          {categories?.map((category) => (
-            <CategoryBanner
-              homeSectionsOrder={homeSectionsOrder}
-              category={category}
-              key={category?.id}
-              languageId={LANGUAGES?.[locale]}
-              t={t}
-              page="main"
-            />
-          ))}
-          <CustomSlider
-            sectionSettings={homeSectionsOrder?.["best seller"]}
-            lists={homeSections?.home_carousel}
-            order={13}
-          />
-          <VideoSection
-            videos={homeSections?.our_videos}
-            head={t("ourVideos")}
-            seeMore={t("seeMore")}
-            viewCount={t("View_count")}
-            noView={t("no_views")}
-            layout="our-videos"
-            sectionSettings={homeSectionsOrder?.["our videos"]}
-            locale={locale}
-            order={6}
-          />
-          <VideoSection
+        ))}
+        <CustomSlider
+          sectionSettings={homeSectionsOrder?.["best seller"]}
+          lists={homeSections?.home_carousel}
+          order={13}
+        />
+        <VideoSection
+          videos={homeSections?.our_videos}
+          head={t("ourVideos")}
+          seeMore={t("seeMore")}
+          viewCount={t("View_count")}
+          noView={t("no_views")}
+          layout="our-videos"
+          sectionSettings={homeSectionsOrder?.["our videos"]}
+          locale={locale}
+          order={6}
+        />
+        {/* <VideoSection
             videos={homeSections?.user_videos}
             head={t("customerVideos")}
             layout="customer-videos"
@@ -275,14 +281,14 @@ function PageContent({
             sectionSettings={homeSectionsOrder?.["influencer videos"]}
             locale={locale}
             order={32}
-          />
-          <OurNew
-            products={homeSections?.latest_products}
-            sectionSettings={homeSectionsOrder?.["our new"]}
-            order={20}
-            ourNew={t("ourNew")}
-            seeMore={t("SEE_MORE")}
-          />
+          /> */}
+        <OurNew
+          products={homeSections?.latest_products}
+          sectionSettings={homeSectionsOrder?.["our new"]}
+          order={20}
+          ourNew={t("ourNew")}
+          seeMore={t("SEE_MORE")}
+        />
         </div>
       </div>
       <div className="full-screen">

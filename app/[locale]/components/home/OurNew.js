@@ -12,7 +12,7 @@ import { SmallCard } from "./SmallCard";
 
 SwiperCore.use([Pagination]);
 
-export const OurNew = ({ products, sectionSettings, order, ourNew,seeMore }) => {
+const OurNew = ({ products, sectionSettings, order, ourNew,seeMore }) => {
   const t = useTranslations();
   const [target, setTarget] = useState(0);
   const [swiper, setSwiper] = useState(null);
@@ -87,3 +87,5 @@ export const OurNew = ({ products, sectionSettings, order, ourNew,seeMore }) => 
     </div>
   );
 };
+
+export default OurNew;

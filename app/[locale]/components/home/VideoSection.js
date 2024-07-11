@@ -16,7 +16,7 @@ import VideosSliderSkeleton from "../skeletons/VideosSliderSkeleton";
 import VideoCardDT from "./VideoCardDT";
 SwiperCore.use([Pagination, Navigation]);
 
-export const VideoSection = ({
+ const VideoSection = ({
   head,
   videos,
   layout,
@@ -62,6 +62,9 @@ export const VideoSection = ({
   };
 
   if (loadingClient) return <VideosSliderSkeleton order={order} />;
+  console.log("homeSectionsOrder", sectionSettings?.section_order);
+  // console.log("homeSections", homeSections?.our_videos);
+
 
   return (
     <Fragment>
@@ -136,3 +139,5 @@ export const VideoSection = ({
     </Fragment>
   );
 };
+
+export default VideoSection;

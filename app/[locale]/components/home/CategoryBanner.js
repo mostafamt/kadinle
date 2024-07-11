@@ -79,12 +79,13 @@ import Link from "next/link";
 import { PrimaryArrowIcon } from "../Icons/PrimaryArrowIcon";
 import { useTranslations } from "next-intl";
 
-export const CategoryBanner = async ({
+const CategoryBanner = async ({
   category,
   homeSectionsOrder,
   languageId,
 
 }) => {
+  console.log("homeSectionsOrder", homeSectionsOrder);
   const t = useTranslations()
   if (category?.content?.at(0)?.id) console.log(category, "category");
 
@@ -152,3 +153,5 @@ export const CategoryBanner = async ({
     </Link>
   );
 };
+
+export default CategoryBanner;

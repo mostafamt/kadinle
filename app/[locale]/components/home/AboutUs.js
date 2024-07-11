@@ -11,9 +11,13 @@ const AboutUs = ({
   definitionSlider,
   lessThenGallery,
   languageId,
+  homeSectionsOrder,
+  homeSections,
 }) => {
-  console.log("definitionSlider", definitionSlider);
-  console.log("lessThenGallery", lessThenGallery);
+  // console.log("definitionSlider", definitionSlider);
+  // console.log("lessThenGallery", lessThenGallery);
+  // console.log("homeSectionsOrder", homeSectionsOrder?.["our videos"]);
+  // console.log("homeSections", homeSections?.our_videos);
 
   const definitionSliderLaguage = definitionSlider
     .filter((item) => item.language_id === languageId)

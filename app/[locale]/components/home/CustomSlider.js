@@ -8,7 +8,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import HomeSliderSkeleton from "../skeletons/HomeSliderSkeleton";
 
-export const CustomSlider = ({ lists, sectionSettings, order }) => {
+const CustomSlider = ({ lists, sectionSettings, order }) => {
   const t = useTranslations();
   const { language, currency } = useGlobalOptions();
   const router = useRouter();
@@ -196,3 +196,5 @@ export const CustomSlider = ({ lists, sectionSettings, order }) => {
     </div>
   );
 };
+
+export default CustomSlider;
