@@ -215,79 +215,79 @@ function PageContent({
       <FlashSale offer={offers?.at(0)} languageId={LANGUAGES?.[locale]} />
 
       <div className="lg:max-w-[1400px] lg:m-auto lg:px-4">
-      {offers?.at(1) ? (
-        <Offer offer={offers?.at(1)} languageId={LANGUAGES?.[locale]} />
-      ) : null}
-      <AboutUs
-        definitionSlider={definitionSlider}
-        translations={translations}
-        lessThenGallery={lessThenGallery}
-        languageId={LANGUAGES?.[locale]}
-        homeSectionsOrder={homeSectionsOrder}
-        homeSections={homeSections}
-      />
-      {/* less than section */}
-      <PriceLimit
-        lessThenGallery={lessThenGallery}
-        t={t}
-        languageId={LANGUAGES?.[locale]}
-      />
-      <div className="full-screen">
-        <CollectionsDT
-          collections={collections}
-          locale={locale}
+        {offers?.at(1) ? (
+          <Offer offer={offers?.at(1)} languageId={LANGUAGES?.[locale]} />
+        ) : null}
+        <AboutUs
+          definitionSlider={definitionSlider}
+          translations={translations}
+          lessThenGallery={lessThenGallery}
           languageId={LANGUAGES?.[locale]}
-          seeMore={t("SEE_MORE")}
+          homeSectionsOrder={homeSectionsOrder}
+          homeSections={homeSections}
         />
-      </div>
-      <div className="mob-screen">
-        <Collections
-          collections={collections}
-          locale={locale}
+        {/* less than section */}
+        <PriceLimit
+          lessThenGallery={lessThenGallery}
+          t={t}
           languageId={LANGUAGES?.[locale]}
-          seeMore={t("SEE_MORE")}
         />
-      </div>
-
-      <div className="flex flex-col space-y-4 items-center my-4">
-        <SectionTitle
-          title={t("All_your_needs_here")}
-          className="container mx-auto"
-        />
-      </div>
-      <div className="flex flex-col">
-        {categories?.map((category) => (
-          <CategoryBanner
-            homeSectionsOrder={homeSectionsOrder}
-            category={category}
-            // categoryBannerName={categories}
-            key={category?.id}
+        <div className="full-screen">
+          <CollectionsDT
+            collections={collections}
+            locale={locale}
             languageId={LANGUAGES?.[locale]}
-            // t={t}
-            // page="main"
+            seeMore={t("SEE_MORE")}
           />
-        ))}
-        <CustomSlider
-          sectionSettings={homeSectionsOrder?.["best seller"]}
-          lists={homeSections?.home_carousel}
-          // order={13}
-        />
-        <VideoSection
-          videos={homeSections?.our_videos}
-          head={t("ourVideos")}
-          seeMore={t("seeMore")}
-          viewCount={t("View_count")}
-          noView={t("no_views")}
-          layout="our-videos"
-          sectionSettings={homeSectionsOrder?.["our videos"]}
-          locale={locale}
-          order={3}
-        />
-        <VideoSection
+        </div>
+        <div className="mob-screen">
+          <Collections
+            collections={collections}
+            locale={locale}
+            languageId={LANGUAGES?.[locale]}
+            seeMore={t("SEE_MORE")}
+          />
+        </div>
+
+        <div className="flex flex-col space-y-4 items-center my-4">
+          <SectionTitle
+            title={t("All_your_needs_here")}
+            className="container mx-auto"
+          />
+        </div>
+        <div className="flex flex-col">
+          {categories?.map((category) => (
+            <CategoryBanner
+              homeSectionsOrder={homeSectionsOrder}
+              category={category}
+              // categoryBannerName={categories}
+              key={category?.id}
+              languageId={LANGUAGES?.[locale]}
+              // t={t}
+              // page="main"
+            />
+          ))}
+          <CustomSlider
+            sectionSettings={homeSectionsOrder?.BEST_SELLER}
+            lists={homeSections?.home_carousel}
+            // order={13}
+          />
+          <VideoSection
+            videos={homeSections?.our_videos}
+            head={t("ourVideos")}
+            seeMore={t("seeMore")}
+            viewCount={t("View_count")}
+            noView={t("no_views")}
+            layout="our-videos"
+            sectionSettings={homeSectionsOrder?.OUR_VIDEOS}
+            locale={locale}
+            order={3}
+          />
+          <VideoSection
             videos={homeSections?.user_videos}
             head={t("customerVideos")}
             layout="customer-videos"
-            sectionSettings={homeSectionsOrder?.["customer videos"]}
+            sectionSettings={homeSectionsOrder?.CUSTOMER_VIDEOS}
             locale={locale}
             order={6}
           />
@@ -299,13 +299,13 @@ function PageContent({
             locale={locale}
             order={8}
           />
-        <OurNew
-          products={homeSections?.latest_products}
-          sectionSettings={homeSectionsOrder?.["our new"]}
-          order={20}
-          ourNew={t("ourNew")}
-          seeMore={t("SEE_MORE")}
-        />
+          <OurNew
+            products={homeSections?.latest_products}
+            sectionSettings={homeSectionsOrder?.OUR_NEW}
+            // order={20}
+            ourNew={t("ourNew")}
+            seeMore={t("SEE_MORE")}
+          />
         </div>
       </div>
       <div className="full-screen">
