@@ -50,6 +50,23 @@ export const metadata = {
 export default async function Home({ params: { locale } }) {
   unstable_setRequestLocale(locale);
 
+  // const homeSectionsOrderFetch = async () => {
+  //   const res = await getHomeSectionSorted();
+  //   if (res?.error) {
+  //     return SECTIONS_ORDER;
+  //   } else {
+  //     let hash = {};
+  //     for (const section of res?.data) {
+  //       let hashName = section?.section_name?.toLowerCase();
+  //       hash[hashName] = {
+  //         ...section,
+  //         section_order: section?.section_order + 1,
+  //       };
+  //     }
+  //     return hash;
+  //   }
+  // };
+
   const homeSectionsOrderFetch = async () => {
     const res = await getHomeSectionSorted();
     if (res?.error) {
@@ -58,7 +75,7 @@ export default async function Home({ params: { locale } }) {
       let hash = {};
       for (const section of res?.data) {
         let hashName = section?.section_name?.toLowerCase();
-        hash[hashName] = {
+        hash[section?.section_id] = {
           ...section,
           section_order: section?.section_order + 1,
         };
@@ -66,7 +83,6 @@ export default async function Home({ params: { locale } }) {
       return hash;
     }
   };
-
   const collectionsFetch = await getCollections();
   const collections = collectionsFetch?.data;
 
@@ -244,16 +260,17 @@ function PageContent({
           <CategoryBanner
             homeSectionsOrder={homeSectionsOrder}
             category={category}
+            // categoryBannerName={categories}
             key={category?.id}
             languageId={LANGUAGES?.[locale]}
-            t={t}
-            page="main"
+            // t={t}
+            // page="main"
           />
         ))}
         <CustomSlider
           sectionSettings={homeSectionsOrder?.["best seller"]}
           lists={homeSections?.home_carousel}
-          order={13}
+          // order={13}
         />
         <VideoSection
           videos={homeSections?.our_videos}
@@ -264,15 +281,15 @@ function PageContent({
           layout="our-videos"
           sectionSettings={homeSectionsOrder?.["our videos"]}
           locale={locale}
-          order={6}
+          order={3}
         />
-        {/* <VideoSection
+        <VideoSection
             videos={homeSections?.user_videos}
             head={t("customerVideos")}
             layout="customer-videos"
             sectionSettings={homeSectionsOrder?.["customer videos"]}
             locale={locale}
-            order={31}
+            order={6}
           />
           <VideoSection
             videos={homeSections?.influencer_videos}
@@ -280,8 +297,8 @@ function PageContent({
             layout={"influencer-videos"}
             sectionSettings={homeSectionsOrder?.["influencer videos"]}
             locale={locale}
-            order={32}
-          /> */}
+            order={8}
+          />
         <OurNew
           products={homeSections?.latest_products}
           sectionSettings={homeSectionsOrder?.["our new"]}

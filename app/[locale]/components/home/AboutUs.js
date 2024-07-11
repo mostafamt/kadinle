@@ -5,6 +5,7 @@ import AboutUsBox from "./AboutUsBox";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper";
 import Image from "next/image";
+import Link from "next/link";
 
 const AboutUs = ({
   translations,
@@ -23,6 +24,7 @@ const AboutUs = ({
     .filter((item) => item.language_id === languageId)
     .sort((a, b) => a.sku - b.sku);
   // local data
+  console.log("definitionSlider", definitionSlider);
   const aboutUsObj = [
     {
       id: 1,
@@ -83,13 +85,15 @@ const AboutUs = ({
           <SwiperSlide key={item.id}>
             <div className="rounded-md">
               {/* <AboutUsBox>{item.text}</AboutUsBox> */}
-              <Image
-                src={item.image}
-                alt={"image"}
-                width={200}
-                height={100}
-                className="!w-fit !h-fit object-cover rounded-md"
-              />
+              <Link href={item.url}>
+                <Image
+                  src={item.image}
+                  alt={"image"}
+                  width={200}
+                  height={100}
+                  className="!w-fit !h-fit object-cover rounded-md"
+                />
+              </Link>
             </div>
           </SwiperSlide>
         ))}

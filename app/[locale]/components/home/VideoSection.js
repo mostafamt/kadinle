@@ -62,7 +62,7 @@ SwiperCore.use([Pagination, Navigation]);
   };
 
   if (loadingClient) return <VideosSliderSkeleton order={order} />;
-  console.log("homeSectionsOrder", sectionSettings?.section_order);
+  // console.log("homeSectionsOrder", sectionSettings?.section_order);
   // console.log("homeSections", homeSections?.our_videos);
 
 

@@ -72,14 +72,14 @@
 //     </Link>
 //   );
 // };
-
+"use client"
 import Image from "next/image";
 import Link from "next/link";
 
 import { PrimaryArrowIcon } from "../Icons/PrimaryArrowIcon";
 import { useTranslations } from "next-intl";
 
-const CategoryBanner = async ({
+const CategoryBanner = ({
   category,
   homeSectionsOrder,
   languageId,
@@ -95,6 +95,7 @@ const CategoryBanner = async ({
   );
 
   let sectionSettings = homeSectionsOrder?.[category?.id];
+  console.log("sectionSettings home",sectionSettings);
 
   return (
     <Link
