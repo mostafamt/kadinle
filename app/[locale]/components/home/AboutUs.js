@@ -24,39 +24,39 @@ const AboutUs = ({
     .filter((item) => item.language_id === languageId)
     .sort((a, b) => a.sku - b.sku);
   // local data
-  console.log("definitionSlider", definitionSlider);
-  const aboutUsObj = [
-    {
-      id: 1,
-      text: translations.who_we_are,
-      img: "/who-we-are.jpg",
-    },
-    {
-      id: 2,
-      text: translations.sales,
-      img: "/sales.jpg",
-    },
-    {
-      id: 3,
-      text: translations.rating,
-      img: "/ratings.jpg",
-    },
-    {
-      id: 4,
-      text: translations.map,
-      img: "/site-map.jpg",
-    },
-    {
-      id: 5,
-      text: translations.best_quality,
-      img: "/best-quality.jpg",
-    },
-    {
-      id: 6,
-      text: translations.kadinle_blog,
-      img: "/blog.jpg",
-    },
-  ];
+  // console.log("definitionSlider", definitionSlider);
+  // const aboutUsObj = [
+  //   {
+  //     id: 1,
+  //     text: translations.who_we_are,
+  //     img: "/who-we-are.jpg",
+  //   },
+  //   {
+  //     id: 2,
+  //     text: translations.sales,
+  //     img: "/sales.jpg",
+  //   },
+  //   {
+  //     id: 3,
+  //     text: translations.rating,
+  //     img: "/ratings.jpg",
+  //   },
+  //   {
+  //     id: 4,
+  //     text: translations.map,
+  //     img: "/site-map.jpg",
+  //   },
+  //   {
+  //     id: 5,
+  //     text: translations.best_quality,
+  //     img: "/best-quality.jpg",
+  //   },
+  //   {
+  //     id: 6,
+  //     text: translations.kadinle_blog,
+  //     img: "/blog.jpg",
+  //   },
+  // ];
 
   return (
     <div className="my-2 overflow-hidden ltr:pl-2 rtl:pr-2 lg:container lg:mx-auto">
