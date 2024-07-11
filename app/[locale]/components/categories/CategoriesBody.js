@@ -1,10 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { CategoriesHead } from "./CategoriesHead";
-import { CategoryBanner } from "../home/CategoryBanner";
 import { getHomeSectionSorted } from "@/app/api/supabase/home";
 import { SECTIONS_ORDER } from "@/app/api/static/constants";
 import CategoryBodyCircles from "./CategoryBodyCircles";
+import CategoryBanner from "../home/CategoryBanner";
 
 export const CategoriesBody = ({ categories, languageId }) => {
   

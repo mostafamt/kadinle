@@ -163,7 +163,7 @@ const ProductReviewsFull = ({ variants, product_id, reviews, setRefresh }) => {
                   return (
                     <Image
                       key={file?.src}
-                      src={file?.src}
+                      src={file?.src? file?.src: ""}
                       alt="comment media"
                       className="h-16 w-16 rounded-md "
                     />

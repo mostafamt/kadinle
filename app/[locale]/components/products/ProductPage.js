@@ -47,9 +47,9 @@ export const ProductPage = ({
   const [color, setColor] = useState();
   const [chartNumbers, setChartNumbers] = useState(null);
   const [openSizeInfo, setOpenSizeInfo] = useState(false);
- const [availableSizes, setAvailableSizes] = useState([]);
-  const [size, setSize] = useState(); 
- useEffect(() => {
+  const [availableSizes, setAvailableSizes] = useState([]);
+  const [size, setSize] = useState();
+  useEffect(() => {
     if (!product?.productinfo?.id) router.push("/404");
   }, [product, router]);
 
@@ -61,22 +61,22 @@ export const ProductPage = ({
 
   // model size
   useEffect(() => {
-     if (product?.productvariants?.length) {
-       let hashSize = {};
-       for (const variants of product?.productvariants) {
-         if (
-           variants?.color_id === product?.productimages?.[0]?.color_id ||
-           variants?.size_id === product?.productimages?.[0]?.size_id
-         ) {
-           hashSize[variants?.size_id] = {
-             size_sku: variants?.size_sku,
-             content: variants?.sizeContents,
-             size_id: variants?.size_id,
-           };
-         }
-       }
-       setAvailableSizes(Object.values(hashSize));
-     }
+    if (product?.productvariants?.length) {
+      let hashSize = {};
+      for (const variants of product?.productvariants) {
+        if (
+          variants?.color_id === product?.productimages?.[0]?.color_id ||
+          variants?.size_id === product?.productimages?.[0]?.size_id
+        ) {
+          hashSize[variants?.size_id] = {
+            size_sku: variants?.size_sku,
+            content: variants?.sizeContents,
+            size_id: variants?.size_id,
+          };
+        }
+      }
+      setAvailableSizes(Object.values(hashSize));
+    }
     if (CACHE_SIZES) {
       const { productimages } = product || {};
       const imageModelSize = productimages?.[0]?.size_id;
@@ -143,7 +143,7 @@ export const ProductPage = ({
             <div className="flex gap-4 text-[12px]">
               <Link href="/">
                 <Image
-                  src={HomeProducts}
+                  src={HomeProducts ? HomeProducts : ""}
                   alt="home"
                   className="object-contain"
                   height={20}
@@ -152,7 +152,7 @@ export const ProductPage = ({
               </Link>
               <div>
                 <Image
-                  src={slash}
+                  src={slash ? slash : ""}
                   alt="slash"
                   className="object-contain"
                   height={7}
@@ -168,7 +168,12 @@ export const ProductPage = ({
                 {categoryInfo?.title}
               </Link>
               <div>
-                <Image src={slash} alt="slash" height={7} width={7} />
+                <Image
+                  src={slash ? slash : ""}
+                  alt="slash"
+                  height={7}
+                  width={7}
+                />
               </div>
 
               <span>
@@ -385,17 +390,16 @@ export const ProductPage = ({
                   }
                   sku={sku}
                   locale={locale}
-
-                regions={regions}
-                selectedRegion={selectedRegion}
-                setSelectedRegion={setSelectedRegion}
-                availableSizes={availableSizes}
-                // setSize={setSize}
-                // size={size}
-                modelSize={modelSize}
-                setOpenSizeInfo={setOpenSizeInfo}
-                productChart={productChart}
-                CACHE_SIZES={CACHE_SIZES}
+                  regions={regions}
+                  selectedRegion={selectedRegion}
+                  setSelectedRegion={setSelectedRegion}
+                  availableSizes={availableSizes}
+                  // setSize={setSize}
+                  // size={size}
+                  modelSize={modelSize}
+                  setOpenSizeInfo={setOpenSizeInfo}
+                  productChart={productChart}
+                  CACHE_SIZES={CACHE_SIZES}
                 />
               </Suspense>
               <SuggestionsProductsFull

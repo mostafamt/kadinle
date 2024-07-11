@@ -2,8 +2,11 @@
 import { useEffect, useState } from "react";
 import { Timer } from "./Timer";
 import SaleTimerSkeleton from "../skeletons/SaleTimerSkeleton";
+import { useTranslations } from "next-intl";
 
 export const SaleTimer = ({ remainingTime: timer, translations }) => {
+
+  const t = useTranslations()
   const [remainingTime, setRemainingTime] = useState(null);
 
   useEffect(() => {
@@ -48,10 +51,10 @@ export const SaleTimer = ({ remainingTime: timer, translations }) => {
         <div className="flex justify-center gap-8 md:gap-22 lg:gap-40 items-center p-2 max-w-[90%] mx-auto">
           <div className="flex flex-col capitalize">
             <h3 className="text-xs xs:text-[16px] lg:text-[22px] mb:mb-4 lg:mb-2 lg:font-medium capitalize  whitespace-nowrap">
-              {translations.flashSale}
+              {t("flashSale")}
             </h3>
             <h4 className="text-xs xs:text-[16px] lg:text-[22px] lg:font-medium  whitespace-nowrap">
-              {translations.endAt}:
+              {t("endAt")}:
             </h4>
           </div>
           <Timer remainingTime={remainingTime} translations={translations} />

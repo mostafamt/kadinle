@@ -20,7 +20,6 @@ import { Benefits } from "./components/home/Benefits";
 // import { CategoryBanner } from "./components/home/CategoryBanner";
 import Collections from "./components/home/Collections";
 // import { CustomSlider } from "./components/home/CustomSlider";
-import FlashSale from "./components/home/FlashSale";
 import PriceLimit from "./components/home/PriceLimit";
 import { Reviews } from "./components/home/Reviews";
 import { SaleTimer } from "./components/home/SaleTimer";
@@ -212,7 +211,7 @@ function PageContent({
       </div>
 
       <SaleTimer remainingTime={remainingTime} translations={translations} />
-      <FlashSale offer={offers?.at(0)} languageId={LANGUAGES?.[locale]} />
+      {/* <FlashSale offer={offers?.at(0)} languageId={LANGUAGES?.[locale]} /> */}
 
       <div className="lg:max-w-[1400px] lg:m-auto lg:px-4">
         {offers?.at(1) ? (

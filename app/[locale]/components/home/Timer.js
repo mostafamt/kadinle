@@ -2,10 +2,15 @@
 import { useTranslations } from "next-intl";
 import React, { useEffect, useState } from "react";
 
-
+const timing = {
+  days: "DAY",
+  hours: "hour",
+  minutes: "minute",
+  seconds: "second",
+};
 
 export const Timer = ({ remainingTime, translations }) => {
- 
+ const t = useTranslations()
   return (
     <div className="flex gap-2 items-center">
       {Object.entries(remainingTime)?.map(([key, value], index) => {
@@ -18,7 +23,7 @@ export const Timer = ({ remainingTime, translations }) => {
                 </p>
               </div>
               <div className="uppercase bg-black px-2 flex text-owhite items-center justify-center text-[10px] lg:text-[15px] rounded-b-sm lg:rounded-b-md">
-                <p className="">{translations[key]}</p>
+                <p className="">{t(timing?.[key])}</p>
               </div>
             </div>
             {index > 2 ? null : (

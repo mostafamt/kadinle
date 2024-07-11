@@ -539,7 +539,7 @@ const ProductPageMob = ({
             </span>
             <Image
               className=" ltr:mr-2 rtl:ml-2 ltr:ml-[5px] rtl:mr-[5px] h-[25px] w-[25px]"
-              src={share}
+              src={share? share:""}
               height={25}
               width={25}
             />
@@ -553,7 +553,7 @@ const ProductPageMob = ({
               {t("add_to_cart")}
             </span>
             <span className="bg-white rounded-full h-6 w-6 rtl:rotate-180 flex justify-center items-center">
-              <Image src={Next2} alt="add to cart" height={30} width={30} />
+              <Image src={Next2? Next2:""} alt="add to cart" height={30} width={30} />
             </span>
           </button>
         </div>
@@ -713,7 +713,7 @@ const ProductPageMob = ({
                   <div className="flex gap-[6px]">
                     {Object.values(VARIANT_IMAGES)?.map((currentColor) => (
                       <Image
-                        key={currentColor?.id}
+                        key={currentColor?.id? currentColor?.id:""}
                         onClick={() => filterColors(currentColor)}
                         className={`w-[45px]  h-16 object-contain border ${
                           currentColor?.id === color?.id && "border-opink"
@@ -745,7 +745,7 @@ const ProductPageMob = ({
                             />
                             <span className="absolute top-0 pointer-events-none left-0 w-full h-full flex items-center justify-center">
                               <Image
-                                src={play}
+                                src={play? play:""}
                                 alt="play video"
                                 height={15}
                                 width={15}
@@ -769,7 +769,7 @@ const ProductPageMob = ({
                           const selected = +selectedPatternSku === imagePattern;
                           return (
                             <Image
-                              key={patternSku}
+                              key={patternSku? patternSku:""}
                               onClick={() =>
                                 setSelectedPatternSku(imagePattern)
                               }
@@ -836,7 +836,7 @@ const ProductPageMob = ({
                         <Image
                           className="w-[40px] min-w-[40px]"
                           alt="express"
-                          src={standardShipping}
+                          src={standardShipping? standardShipping:""}
                           height={40}
                           width={40}
                         />
@@ -872,7 +872,7 @@ const ProductPageMob = ({
                         <Image
                           className="w-[40px] min-w-[40px]"
                           alt="express"
-                          src={ExpressTruck}
+                          src={ExpressTruck? ExpressTruck:""}
                           height={40}
                           width={40}
                         />
