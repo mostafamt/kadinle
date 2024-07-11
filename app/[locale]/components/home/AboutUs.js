@@ -78,6 +78,9 @@ const AboutUs = ({
         breakpoints={{
           0: { slidesPerView: 2.3 },
           300: { slidesPerView: 3.2 },
+          1000: {
+            slidesPerView: 5.1, 
+          },
         }}
         className="mySwiper"
       >
